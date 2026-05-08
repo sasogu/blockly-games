@@ -23,12 +23,7 @@ if (location.host === 'blockly-games.appspot.com') {
 
   // Supported languages (consistent across all apps).
   window['BlocklyGamesLanguages'] = [
-    'am', 'ar', 'be', 'be-tarask', 'bg', 'bn', 'br', 'ca', 'cs', 'da', 'de',
-    'el', 'en', 'eo', 'es', 'eu', 'fa', 'fi', 'fo', 'fr', 'gl', 'ha', 'he',
-    'hi', 'hr', 'hu', 'hy', 'ia', 'id', 'ig', 'is', 'it', 'ja', 'kab', 'kn',
-    'ko', 'lt', 'lv', 'ms', 'my', 'nb', 'nl', 'pl', 'pms', 'pt', 'pt-br',
-    'ro', 'ru', 'sc', 'sk', 'sl', 'sq', 'sr', 'sr-latn', 'sv', 'th', 'ti',
-    'tr', 'uk', 'ur', 'vi', 'yo', 'zh-hans', 'zh-hant'
+    'ca', 'en', 'es'
   ];
 
   // Use a series of heuristics that determine the likely language of this user.
