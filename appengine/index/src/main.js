@@ -22,6 +22,35 @@ const APPS = ['dance', 'puzzle', 'maze', 'bird', 'turtle', 'movie', 'music',
               'pond-tutor', 'pond-duck'];
 
 /**
+ * Add a gold badge to a completed game icon.
+ * @param {string} app Name of application.
+ */
+function addBadge(app) {
+  const icon = BlocklyGames.getElementById('icon-' + app);
+  if (!icon) return;
+  const ns = 'http://www.w3.org/2000/svg';
+  const g = document.createElementNS(ns, 'g');
+  g.setAttribute('class', 'badge');
+  const circle = document.createElementNS(ns, 'circle');
+  circle.setAttribute('cx', '192');
+  circle.setAttribute('cy', '16');
+  circle.setAttribute('r', '16');
+  circle.setAttribute('fill', '#FFD700');
+  circle.setAttribute('stroke', '#F9A825');
+  circle.setAttribute('stroke-width', '2');
+  const star = document.createElementNS(ns, 'polygon');
+  star.setAttribute('points',
+      '192,5 195,13 204,13 197,19 200,28 192,22 184,28 187,19 180,13 189,13');
+  star.setAttribute('fill', '#FFF8E1');
+  star.setAttribute('stroke', '#F57F17');
+  star.setAttribute('stroke-width', '1');
+  g.appendChild(circle);
+  g.appendChild(star);
+  icon.appendChild(g);
+}
+
+
+/**
  * Render the page and load any progress data.  Called on page load.
  */
 function init() {
@@ -63,6 +92,9 @@ function init() {
       // Remove gauge if zero, since IE renders a stub.
       const path = BlocklyGames.getElementById('gauge-' + app);
       path.parentNode.removeChild(path);
+    }
+    if (levelsDone[i] >= denominator) {
+      setTimeout(addBadge, 2000, app);
     }
   }
 }

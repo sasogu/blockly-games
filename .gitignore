@@ -1,5 +1,6 @@
 .DS_Store
 *.pyc
+deploy.sh
 
 appengine/generated/
 appengine/*/generated/

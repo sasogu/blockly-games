@@ -238,11 +238,46 @@ function checkAnswers() {
     };
     blink();
   } else {
+    showConfetti();
     setTimeout(endDance, 2000);
     if (Blockly.selected) {
       Blockly.selected.unselect();
     }
   }
+}
+
+/**
+ * Launch confetti across the page after the puzzle is completed.
+ */
+function showConfetti() {
+  const colors =
+      ['#FF5252', '#FFD700', '#4CAF50', '#2196F3', '#FF9800', '#E91E63'];
+  const container = document.createElement('div');
+  container.className = 'gameConfetti';
+  document.body.appendChild(container);
+  for (let i = 0; i < 90; i++) {
+    const piece = document.createElement('div');
+    const color = colors[Math.floor(Math.random() * colors.length)];
+    const size = Math.random() * 9 + 6;
+    const left = Math.random() * 100;
+    const delay = Math.random() * 0.6;
+    const duration = Math.random() * 1.5 + 1.8;
+    const angle = Math.random() * 360;
+    const spin = angle + 540 + Math.random() * 360;
+    piece.style.cssText =
+        `left:${left}%;width:${size}px;height:${size}px;` +
+        `background:${color};` +
+        `border-radius:${Math.random() > 0.5 ? '50%' : '2px'};` +
+        `--angle:${angle}deg;--spin:${spin}deg;` +
+        `animation:confettiFall ${duration}s ${delay}s ease-in forwards;` +
+        `transform:translateY(-20px) rotate(${angle}deg);`;
+    container.appendChild(piece);
+  }
+  setTimeout(function() {
+    if (container.parentNode) {
+      container.parentNode.removeChild(container);
+    }
+  }, 3500);
 }
 
 /**
