@@ -1,14 +1,20 @@
 html, body {
-  height: 100%;
+  min-height: 100%;
   width: 100%;
   padding: 0;
   margin: 0;
-  overflow: hidden;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #languageMenu {
-  position: absolute;
-  top: 0;
+  position: fixed;
+  top: 0.5em;
+  z-index: 10;
 }
 
 html[dir="LTR"] #languageMenu {
@@ -20,16 +26,13 @@ html[dir="RTL"] #languageMenu {
 }
 
 #header {
-  position: absolute;
-  top: 1em;
-  left: 20%;
-  right: 20%;
-  width: 60%;
   text-align: center;
+  padding: 2.5em 0 2em;
+  width: 100%;
 }
 
 #banner {
-  padding: 1em;
+  padding: 0.5em;
 }
 
 #subtitle {
@@ -41,9 +44,31 @@ a {
   text-decoration: none;
 }
 
+#games {
+  max-width: 900px;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+}
+
+.levelRow {
+  display: flex;
+  justify-content: center;
+  padding: 1.5em 1em;
+}
+
+.levelRow svg {
+  flex: 1;
+  max-width: 300px;
+  height: auto;
+}
+
+.lvl1 { background: #e8f5e9; }
+.lvl2 { background: #fff8e1; }
+.lvl3 { background: #fce4ec; }
+
 #clearDataPara {
-  position: absolute;
-  bottom: 0;
   margin: 1em;
 }
 
@@ -51,22 +76,6 @@ a {
   padding: 0 4px;
   margin: 5px 10px;
   font-size: medium;
-}
-
-#path {
-  stroke: #ccc;
-  stroke-width: 1;
-  stroke-linecap: round;
-  fill: none;
-  stroke-dasharray: 180;
-  stroke-dashoffset: 180;
-  animation: dash .7s linear forwards;
-}
-
-@keyframes dash {
-  to {
-    stroke-dashoffset: 0;
-  }
 }
 
 .iconBack {
@@ -99,69 +108,25 @@ a:hover > text {
   font-size: 18pt;
 }
 
-#icon-puzzle {
-  animation-delay: .0s;
-}
+#icon-dance      { animation-delay: .0s; }
+#icon-puzzle     { animation-delay: .1s; }
+#icon-maze       { animation-delay: .2s; }
+#icon-bird       { animation-delay: .3s; }
+#icon-turtle     { animation-delay: .4s; }
+#icon-movie      { animation-delay: .5s; }
+#icon-music      { animation-delay: .6s; }
+#icon-pond-tutor { animation-delay: .7s; }
+#icon-pond-duck  { animation-delay: .8s; }
 
-#icon-maze {
-  animation-delay: .1s;
-}
-
-#icon-bird {
-  animation-delay: .2s;
-}
-
-#icon-turtle {
-  animation-delay: .3s;
-}
-
-#icon-movie {
-  animation-delay: .4s;
-}
-
-#icon-music {
-  animation-delay: .5s;
-}
-
-#icon-pond-tutor {
-  animation-delay: .6s;
-}
-
-#icon-pond-duck {
-  animation-delay: .7s;
-}
-
-#back-puzzle {
-  animation-delay: .3s;
-}
-
-#back-maze {
-  animation-delay: .4s;
-}
-
-#back-bird {
-  animation-delay: .5s;
-}
-
-#back-turtle {
-  animation-delay: .6s;
-}
-
-#back-movie {
-  animation-delay: .7s;
-}
-
-#back-music {
-  animation-delay: .8s;
-}
-
-#back-pond-tutor {
-  animation-delay: .9s;
-}
-
-#back-pond-duck {
-  animation-delay: 1.0s;
-}
+#back-dance      { animation-delay: .3s; }
+#back-puzzle     { animation-delay: .4s; }
+#back-maze       { animation-delay: .5s; }
+#back-bird       { animation-delay: .6s; }
+#back-turtle     { animation-delay: .7s; }
+#back-movie      { animation-delay: .8s; }
+#back-music      { animation-delay: .9s; }
+#back-pond-tutor { animation-delay: 1.0s; }
+#back-pond-duck  { animation-delay: 1.1s; }
 
 @keyframes pop {
   from {

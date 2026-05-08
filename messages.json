@@ -1,4 +1,48 @@
 {
+  "Games.dance": {
+    "desc": "title - Robot Bailarín game for young learners.",
+    "msg": "Robot Dancer"
+  },
+  "Dance.adelante": {
+    "desc": "block - Move the robot forward one step.",
+    "msg": "step forward"
+  },
+  "Dance.giraIzquierda": {
+    "desc": "block - Turn the robot to the left.",
+    "msg": "turn left ↺"
+  },
+  "Dance.giraDerecha": {
+    "desc": "block - Turn the robot to the right.",
+    "msg": "turn right ↻"
+  },
+  "Dance.salta": {
+    "desc": "block - Jump forward two steps.",
+    "msg": "jump! ↑↑"
+  },
+  "Dance.adelanteTooltip": {
+    "desc": "tooltip - Forward block.",
+    "msg": "Move the robot forward one step."
+  },
+  "Dance.giraIzquierdaTooltip": {
+    "desc": "tooltip - Turn left block.",
+    "msg": "Turn the robot to the left."
+  },
+  "Dance.giraDerechaTooltip": {
+    "desc": "tooltip - Turn right block.",
+    "msg": "Turn the robot to the right."
+  },
+  "Dance.saltaTooltip": {
+    "desc": "tooltip - Jump block.",
+    "msg": "Jump forward two steps."
+  },
+  "Dance.runTooltip": {
+    "desc": "tooltip - Run button.",
+    "msg": "Run the dance program."
+  },
+  "Dance.resetTooltip": {
+    "desc": "tooltip - Reset button.",
+    "msg": "Stop the program and reset the robot."
+  },
   "Games.name": {
     "desc": "The project name.",
     "msg": "Blockly Games"

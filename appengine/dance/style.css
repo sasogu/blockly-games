@@ -1,0 +1,25 @@
+#blockly {
+  position: fixed;
+  bottom: 10px;
+}
+
+#visualization {
+  position: relative;
+}
+
+#svgDance {
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+#robot {
+  transition: transform 0.35s ease;
+}
+
+@media (max-width: 850px) {
+  #svgDance {
+    width: 42vw;
+    height: 42vw;
+  }
+}

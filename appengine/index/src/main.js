@@ -18,7 +18,7 @@ goog.require('Index.html');
 /**
  * Array of application names.
  */
-const APPS = ['puzzle', 'maze', 'bird', 'turtle', 'movie', 'music',
+const APPS = ['dance', 'puzzle', 'maze', 'bird', 'turtle', 'movie', 'music',
               'pond-tutor', 'pond-duck'];
 
 /**
@@ -55,7 +55,7 @@ function init() {
 
   for (let i = 0; i < levelsDone.length; i++) {
     const app = APPS[i];
-    const denominator = (i === 0) ? 1 : BlocklyGames.MAX_LEVEL;
+    const denominator = (app === 'puzzle') ? 1 : BlocklyGames.MAX_LEVEL;
     const angle = levelsDone[i] / denominator * 270;
     if (angle) {
       setTimeout(animateGauge, 1500, app, 0, angle);

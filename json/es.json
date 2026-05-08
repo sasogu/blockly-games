@@ -15,6 +15,17 @@
 			"WeSiToS"
 		]
 	},
+	"Games.dance": "Robot Bailarín",
+	"Dance.adelante": "paso adelante",
+	"Dance.giraIzquierda": "gira a la izquierda ↺",
+	"Dance.giraDerecha": "gira a la derecha ↻",
+	"Dance.salta": "¡salta! ↑↑",
+	"Dance.adelanteTooltip": "Mueve el robot un paso hacia adelante.",
+	"Dance.giraIzquierdaTooltip": "Gira el robot hacia la izquierda.",
+	"Dance.giraDerechaTooltip": "Gira el robot hacia la derecha.",
+	"Dance.saltaTooltip": "Salta hacia adelante dos pasos.",
+	"Dance.runTooltip": "Ejecuta el programa de baile.",
+	"Dance.resetTooltip": "Detiene el programa y reinicia el robot.",
 	"Games.name": "Juegos de Blockly",
 	"Games.puzzle": "Rompecabezas",
 	"Games.maze": "Laberinto",

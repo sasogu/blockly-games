@@ -28,29 +28,23 @@ Index.html.start = function(ij) {
     <a href="about${ij.html ? '.html' : ''}?lang=${ij.lang}">${BlocklyGames.getMsg('Index.moreInfo', true)}</a>
   </div>
 </div>
-<svg height="100%" width="100%" version="1.1"
-    xmlns="http://www.w3.org/2000/svg"
-    xmlns:xlink="http://www.w3.org/1999/xlink">
-  <g transform="translate(-150,-60)">
-    <svg height="100%" width="100%" version="1.1"
-        xmlns="http://www.w3.org/2000/svg"
-        xmlns:xlink="http://www.w3.org/1999/xlink"
-        viewBox="0 0 100 100" preserveAspectRatio="none"
-        x=150 y=60>
-      <path id="path" d="M 10,15 C 15,60 35,100 50,70 S 80,20 90,85"
-        ${ij.rtl ? 'transform="translate(100) scale(-1, 1)"' : ''}
-      />
-    </svg>
-    ${Index.html.appLink_(ij, 'puzzle', 10, 15, 'Games.puzzle')}
-    ${Index.html.appLink_(ij, 'maze', 16, 45, 'Games.maze')}
-    ${Index.html.appLink_(ij, 'bird', 26, 69, 'Games.bird')}
-    ${Index.html.appLink_(ij, 'turtle', 41, 80, 'Games.turtle')}
-    ${Index.html.appLink_(ij, 'movie', 55, 61, 'Games.movie')}
-    ${Index.html.appLink_(ij, 'music', 69, 43, 'Games.music')}
-    ${Index.html.appLink_(ij, 'pond-tutor', 83, 55, 'Games.pondTutor')}
-    ${Index.html.appLink_(ij, 'pond-duck', 90, 85, 'Games.pond')}
-  </g>
-</svg>
+<div id="games">
+  <div class="levelRow lvl1">
+    ${Index.html.appLink_(ij, 'dance', 'Games.dance')}
+    ${Index.html.appLink_(ij, 'puzzle', 'Games.puzzle')}
+    ${Index.html.appLink_(ij, 'maze', 'Games.maze')}
+  </div>
+  <div class="levelRow lvl2">
+    ${Index.html.appLink_(ij, 'bird', 'Games.bird')}
+    ${Index.html.appLink_(ij, 'turtle', 'Games.turtle')}
+    ${Index.html.appLink_(ij, 'movie', 'Games.movie')}
+  </div>
+  <div class="levelRow lvl3">
+    ${Index.html.appLink_(ij, 'music', 'Games.music')}
+    ${Index.html.appLink_(ij, 'pond-tutor', 'Games.pondTutor')}
+    ${Index.html.appLink_(ij, 'pond-duck', 'Games.pond')}
+  </div>
+</div>
 <select id="languageMenu"></select>
 <p id="clearDataPara" style="visibility: hidden">
   ${BlocklyGames.getMsg('Index.startOver', true)}
@@ -63,18 +57,15 @@ Index.html.start = function(ij) {
  * Create a link to an app.
  * @param {!Object} ij Injected options.
  * @param {string} app Name of application.
- * @param {number} x Horizontal position of link as percentage.
- * @param {number} y Vertical position of link as percentage.
  * @param {string} msgName Name of text content to place in link.
  * @returns {string} HTML.
  * @private
  */
-Index.html.appLink_ = function(ij, app, x, y, msgName) {
+Index.html.appLink_ = function(ij, app, msgName) {
   return `
-<svg height=150 width=300 version="1.1"
+<svg viewBox="0 0 300 150" version="1.1"
     xmlns="http://www.w3.org/2000/svg"
-    xmlns:xlink="http://www.w3.org/1999/xlink"
-    x=${ij.rtl ? 100 - x : x}% y=${y}%>
+    xmlns:xlink="http://www.w3.org/1999/xlink">
   <path d="M 111.11,98.89 A 55 55 0 1 1 188.89,98.89" class="gaugeBack" id="back-${app}" />
   <g class="icon" id="icon-${app}">
     <circle cx=150 cy=60 r=50 class="iconBack" />

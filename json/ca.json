@@ -9,6 +9,17 @@
 			"Micobu"
 		]
 	},
+	"Games.dance": "Robot Ballador",
+	"Dance.adelante": "pas endavant",
+	"Dance.giraIzquierda": "gira a l'esquerra ↺",
+	"Dance.giraDerecha": "gira a la dreta ↻",
+	"Dance.salta": "salta! ↑↑",
+	"Dance.adelanteTooltip": "Mou el robot un pas endavant.",
+	"Dance.giraIzquierdaTooltip": "Gira el robot cap a l'esquerra.",
+	"Dance.giraDerechaTooltip": "Gira el robot cap a la dreta.",
+	"Dance.saltaTooltip": "Salta dos passos endavant.",
+	"Dance.runTooltip": "Executa el programa de ball.",
+	"Dance.resetTooltip": "Atura el programa i reinicia el robot.",
 	"Games.name": "Blockly Games",
 	"Games.puzzle": "Trencaclosques",
 	"Games.maze": "Laberint",

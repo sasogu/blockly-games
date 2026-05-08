@@ -40,7 +40,10 @@ pond-duck: common
 gallery: common
 	python build/compress.py gallery
 
-games: index puzzle maze bird turtle movie music pond-tutor pond-duck gallery
+dance: common
+	python build/compress.py dance
+
+games: dance index puzzle maze bird turtle movie music pond-tutor pond-duck gallery
 
 common:
 	@echo "Converting messages.js to JSON for Translatewiki."

@@ -12,6 +12,17 @@
 			"Zauzolkov"
 		]
 	},
+	"Games.dance": "title - Robot Bailarín game for young learners.",
+	"Dance.adelante": "block - Move the robot forward one step.",
+	"Dance.giraIzquierda": "block - Turn the robot to the left.",
+	"Dance.giraDerecha": "block - Turn the robot to the right.",
+	"Dance.salta": "block - Jump forward two steps.",
+	"Dance.adelanteTooltip": "tooltip - Forward block.",
+	"Dance.giraIzquierdaTooltip": "tooltip - Turn left block.",
+	"Dance.giraDerechaTooltip": "tooltip - Turn right block.",
+	"Dance.saltaTooltip": "tooltip - Jump block.",
+	"Dance.runTooltip": "tooltip - Run button.",
+	"Dance.resetTooltip": "tooltip - Reset button.",
 	"Games.name": "The project name.",
 	"Games.puzzle": "title - Specifies that this is Blockly's '''Puzzle''' game.  Use the word for a jigsaw puzzle.\n{{Identical|Puzzle}}",
 	"Games.maze": "title - Specifies that this is Blockly's '''Maze''' game.\n{{Identical|Maze}}",

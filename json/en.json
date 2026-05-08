@@ -1,9 +1,20 @@
 {
 	"@metadata": {
-		"lastupdated": "2022-09-06 03:50:28.039245",
+		"lastupdated": "2026-05-08 17:10:43.270960",
 		"locale": "en",
 		"messagedocumentation": "qqq"
 	},
+	"Games.dance": "Robot Dancer",
+	"Dance.adelante": "step forward",
+	"Dance.giraIzquierda": "turn left ↺",
+	"Dance.giraDerecha": "turn right ↻",
+	"Dance.salta": "jump! ↑↑",
+	"Dance.adelanteTooltip": "Move the robot forward one step.",
+	"Dance.giraIzquierdaTooltip": "Turn the robot to the left.",
+	"Dance.giraDerechaTooltip": "Turn the robot to the right.",
+	"Dance.saltaTooltip": "Jump forward two steps.",
+	"Dance.runTooltip": "Run the dance program.",
+	"Dance.resetTooltip": "Stop the program and reset the robot.",
 	"Games.name": "Blockly Games",
 	"Games.puzzle": "Puzzle",
 	"Games.maze": "Maze",
