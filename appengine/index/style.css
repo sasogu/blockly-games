@@ -151,3 +151,82 @@ a:hover > text {
   stroke-width: 8;
   fill: none;
 }
+
+#diplomaPara {
+  margin: 0 1em 1em;
+}
+
+#showDiploma {
+  padding: 0 4px;
+  margin: 5px 10px;
+  font-size: medium;
+}
+
+#diploma {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+#diploma.shown {
+  display: flex;
+}
+
+#diplomaCard {
+  background: #fffdf5;
+  border: 10px double #F9A825;
+  border-radius: 8px;
+  padding: 2.5em 3em;
+  max-width: 32em;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+#diplomaTitle {
+  font-size: 2em;
+  font-weight: bold;
+  color: #5d4037;
+  margin-bottom: 0.75em;
+}
+
+#diplomaName {
+  font-size: 1.6em;
+  font-weight: bold;
+  color: #1565c0;
+  margin-bottom: 0.5em;
+  min-height: 1.2em;
+}
+
+#diplomaCompleted {
+  font-size: 1.2em;
+  margin-bottom: 0.5em;
+}
+
+#diplomaDate {
+  font-size: 1em;
+  color: #666;
+}
+
+@media print {
+  body > *:not(#diploma) {
+    display: none !important;
+  }
+  #diploma {
+    display: flex !important;
+    position: static;
+    background: none;
+  }
+  #diplomaCard {
+    box-shadow: none;
+    max-width: 100%;
+    width: 100%;
+    margin-top: 3em;
+  }
+}

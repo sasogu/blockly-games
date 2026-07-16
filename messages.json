@@ -219,6 +219,26 @@
     "desc": "Text on button for deleting all the user's data.",
     "msg": "Clear data"
   },
+  "Index.diploma": {
+    "desc": "Text on button that opens/prints a diploma summarising the player's progress.",
+    "msg": "Diploma"
+  },
+  "Index.diplomaPromptName": {
+    "desc": "Prompt asking the player's name, to print on the diploma.",
+    "msg": "What's your name?"
+  },
+  "Index.diplomaTitle": {
+    "desc": "Title printed at the top of the diploma.",
+    "msg": "Programmer's diploma"
+  },
+  "Index.diplomaCompleted": {
+    "desc": "Summary of completed games on the diploma. %1 is the number completed, %2 is the total number of games.",
+    "msg": "%1 of %2 games completed"
+  },
+  "Index.diplomaDate": {
+    "desc": "Label for the date printed on the diploma.",
+    "msg": "Date"
+  },
   "Puzzle.animal1": {
     "desc": "Duck: The bird.\n{{Identical|Duck}}",
     "msg": "Duck"

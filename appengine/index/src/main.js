@@ -22,6 +22,12 @@ const APPS = ['dance', 'puzzle', 'maze', 'bird', 'turtle', 'movie', 'music',
               'pond-tutor', 'pond-duck'];
 
 /**
+ * Number of levels completed per app, indexed as per APPS.
+ * Populated by init() and read by showDiploma().
+ */
+let levelsDone_ = [];
+
+/**
  * Add a gold badge to a completed game icon.
  * @param {string} app Name of application.
  */
@@ -65,8 +71,15 @@ function init() {
   const languageMenu = BlocklyGames.getElementById('languageMenu');
   languageMenu.addEventListener('change', BlocklyGames.changeLanguage, true);
 
+  BlocklyGames.bindClick('showDiploma', showDiploma);
+  BlocklyGames.getElementById('diploma').addEventListener('click', function(e) {
+    if (e.target.id === 'diploma') {
+      hideDiploma_();
+    }
+  });
+
   let storedData = false;
-  const levelsDone = [];
+  const levelsDone = levelsDone_;
   for (let i = 0; i < APPS.length; i++) {
     levelsDone[i] = 0;
     for (let j = 1; j <= BlocklyGames.MAX_LEVEL; j++) {
@@ -160,5 +173,54 @@ function clearData() {
   }
   location.reload();
 }
+
+/**
+ * Count how many apps have been fully completed.
+ * @returns {number} Count of completed apps.
+ */
+function countCompletedApps_() {
+  let count = 0;
+  for (let i = 0; i < APPS.length; i++) {
+    const denominator = (APPS[i] === 'puzzle') ? 1 : BlocklyGames.MAX_LEVEL;
+    if (levelsDone_[i] >= denominator) {
+      count++;
+    }
+  }
+  return count;
+}
+
+/**
+ * Fill in and display the diploma overlay, then open the print dialog.
+ */
+function showDiploma() {
+  let name = window.localStorage['diplomaName'];
+  if (!name) {
+    name = prompt(BlocklyGames.getMsg('Index.diplomaPromptName', false)) || '';
+    if (name) {
+      window.localStorage['diplomaName'] = name;
+    }
+  }
+  BlocklyGames.getElementById('diplomaName').textContent = name;
+  BlocklyGames.getElementById('diplomaCompleted').textContent =
+      BlocklyGames.getMsg('Index.diplomaCompleted', false)
+          .replace('%1', countCompletedApps_())
+          .replace('%2', APPS.length);
+  BlocklyGames.getElementById('diplomaDate').textContent =
+      BlocklyGames.getMsg('Index.diplomaDate', false) + ': ' +
+      new Date().toLocaleDateString(BlocklyGames.LANG);
+
+  const diploma = BlocklyGames.getElementById('diploma');
+  diploma.classList.add('shown');
+  window.print();
+}
+
+/**
+ * Hide the diploma overlay.
+ */
+function hideDiploma_() {
+  BlocklyGames.getElementById('diploma').classList.remove('shown');
+}
+
+window.addEventListener('afterprint', hideDiploma_);
 
 BlocklyGames.callWhenLoaded(init);

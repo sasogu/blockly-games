@@ -50,6 +50,17 @@ Index.html.start = function(ij) {
   ${BlocklyGames.getMsg('Index.startOver', true)}
   <button class="secondary" id="clearData">${BlocklyGames.getMsg('Index.clearData', true)}</button>
 </p>
+<p id="diplomaPara">
+  <button class="secondary" id="showDiploma">${BlocklyGames.getMsg('Index.diploma', true)}</button>
+</p>
+<div id="diploma">
+  <div id="diplomaCard">
+    <div id="diplomaTitle">${BlocklyGames.getMsg('Index.diplomaTitle', true)}</div>
+    <div id="diplomaName"></div>
+    <div id="diplomaCompleted"></div>
+    <div id="diplomaDate"></div>
+  </div>
+</div>
 `;
 };
 

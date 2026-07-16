@@ -1,6 +1,6 @@
 {
 	"@metadata": {
-		"lastupdated": "2026-05-08 17:10:43.270960",
+		"lastupdated": "2026-07-17 00:04:03.543915",
 		"locale": "en",
 		"messagedocumentation": "qqq"
 	},
@@ -59,6 +59,11 @@
 	"Index.moreInfo": "Info for educators...",
 	"Index.startOver": "Want to start over?",
 	"Index.clearData": "Clear data",
+	"Index.diploma": "Diploma",
+	"Index.diplomaPromptName": "What's your name?",
+	"Index.diplomaTitle": "Programmer's diploma",
+	"Index.diplomaCompleted": "%1 of %2 games completed",
+	"Index.diplomaDate": "Date",
 	"Puzzle.animal1": "Duck",
 	"Puzzle.animal1Trait1": "Feathers",
 	"Puzzle.animal1Trait2": "Beak",
