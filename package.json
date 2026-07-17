@@ -1,0 +1,11 @@
+{
+  "name": "blockly-games-edutictac",
+  "private": true,
+  "description": "Smoke tests for the Edutictac fork of Blockly Games.",
+  "scripts": {
+    "test": "playwright test"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.54.0"
+  }
+}

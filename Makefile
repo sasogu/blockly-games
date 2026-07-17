@@ -2,7 +2,13 @@
 # Definitions
 ##############################
 
-REQUIRED_BINS = svn wget java python
+REQUIRED_BINS = wget tar java python3
+
+# Pinned refs for third-party dependencies (2026-07-17).
+ACE_REF = 184177de1dcc5946b093edba0b0fe1c29c2a127a
+BLOCKLY_REF = 837051b5466457a8f4e956b95bff334d95c26b85
+SOUNDJS_REF = 5213ac5696142bcba216ef10bef3105e5be1d4ef
+INTERPRETER_REF = 45d00b0c86e48cca1bb3af0f711bc4c0d626c359
 
 ##############################
 # Rules
@@ -11,45 +17,45 @@ REQUIRED_BINS = svn wget java python
 all: deps games
 
 index: common
-	python build/compress.py index
+	python3 build/compress.py index
 
 puzzle: common
-	python build/compress.py puzzle
+	python3 build/compress.py puzzle
 
 maze: common
-	python build/compress.py maze
+	python3 build/compress.py maze
 
 bird: common
-	python build/compress.py bird
+	python3 build/compress.py bird
 
 turtle: common
-	python build/compress.py turtle
+	python3 build/compress.py turtle
 
 movie: common
-	python build/compress.py movie
+	python3 build/compress.py movie
 
 music: common
-	python build/compress.py music
+	python3 build/compress.py music
 
 pond-tutor: common
-	python build/compress.py pond/tutor
+	python3 build/compress.py pond/tutor
 
 pond-duck: common
-	python build/compress.py pond/duck
+	python3 build/compress.py pond/duck
 
 gallery: common
-	python build/compress.py gallery
+	python3 build/compress.py gallery
 
 dance: common
-	python build/compress.py dance
+	python3 build/compress.py dance
 
 games: dance index puzzle maze bird turtle movie music pond-tutor pond-duck gallery
 
 common:
 	@echo "Converting messages.js to JSON for Translatewiki."
-	python build/messages_to_json.py
+	python3 build/messages_to_json.py
 	@echo "Converting JSON from Translatewiki to message files."
-	python build/json_to_js.py
+	python3 build/json_to_js.py
 	@echo
 
 deps:
@@ -62,15 +68,22 @@ deps:
 	mkdir -p appengine/third-party
 	wget -N https://unpkg.com/@babel/standalone@7.14.8/babel.min.js
 	mv babel.min.js appengine/third-party/
-	@# GitHub doesn't support git archive, so download files using svn.
-	svn export --force https://github.com/ajaxorg/ace-builds/trunk/src-min-noconflict/ appengine/third-party/ace
+	@# GitHub removed SVN support in 2024; download pinned tarballs instead.
+	mkdir -p appengine/third-party/ace
+	wget -qO- https://github.com/ajaxorg/ace-builds/archive/$(ACE_REF).tar.gz \
+	  | tar xz --strip-components=2 -C appengine/third-party/ace ace-builds-$(ACE_REF)/src-min-noconflict
 	mkdir -p appengine/third-party/blockly
-	svn export --force https://github.com/NeilFraser/blockly-for-BG/trunk/ appengine/third-party/blockly
-	svn export --force https://github.com/CreateJS/SoundJS/trunk/lib/ appengine/third-party/SoundJS
+	wget -qO- https://github.com/NeilFraser/blockly-for-BG/archive/$(BLOCKLY_REF).tar.gz \
+	  | tar xz --strip-components=1 -C appengine/third-party/blockly
+	mkdir -p appengine/third-party/SoundJS
+	wget -qO- https://github.com/CreateJS/SoundJS/archive/$(SOUNDJS_REF).tar.gz \
+	  | tar xz --strip-components=2 -C appengine/third-party/SoundJS SoundJS-$(SOUNDJS_REF)/lib
 	cp third-party/base.js appengine/third-party/
 	cp -R third-party/soundfonts appengine/third-party/
 
-	svn export --force https://github.com/NeilFraser/JS-Interpreter/trunk/ appengine/third-party/JS-Interpreter
+	mkdir -p appengine/third-party/JS-Interpreter
+	wget -qO- https://github.com/NeilFraser/JS-Interpreter/archive/$(INTERPRETER_REF).tar.gz \
+	  | tar xz --strip-components=1 -C appengine/third-party/JS-Interpreter
 	@# Compile JS-Interpreter using SIMPLE_OPTIMIZATIONS because the Music game needs to mess with the stack.
 	java -jar build/third-party-downloads/closure-compiler.jar\
 	  --language_out ECMASCRIPT5\

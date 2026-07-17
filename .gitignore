@@ -9,3 +9,6 @@ appengine/third-party/
 build/third-party-downloads/
 /offline
 /node_modules
+
+/test-results/
+/playwright-report/

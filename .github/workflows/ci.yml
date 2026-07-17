@@ -1,0 +1,42 @@
+name: CI
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+
+jobs:
+  build-and-smoke:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Cache third-party dependencies
+        uses: actions/cache@v4
+        with:
+          path: |
+            appengine/third-party
+            build/third-party-downloads
+          key: third-party-${{ hashFiles('Makefile') }}
+
+      - name: Download dependencies
+        run: |
+          if [ ! -d appengine/third-party/blockly ]; then
+            make deps
+          fi
+
+      - name: Build all games
+        run: make games
+
+      - name: Install Playwright
+        run: |
+          npm install
+          npx playwright install --with-deps chromium
+
+      - name: Smoke tests
+        run: npx playwright test

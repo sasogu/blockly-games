@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # Compresses the files for one game into a single JavaScript file.
 #
 # Copyright 2013 Google LLC
@@ -130,7 +130,7 @@ def language(gameName, lang):
 
 
 def generate_uncompressed(gameName):
-  cmd = ['third-party/closurebuilder/closurebuilder.py',
+  cmd = [sys.executable, 'third-party/closurebuilder/closurebuilder.py',
       '--root=appengine/third-party/',
       '--root=appengine/generated/',
       '--root=appengine/src/',
