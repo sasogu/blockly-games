@@ -39,6 +39,10 @@ html[dir="RTL"] #languageMenu {
   font-style: italic;
 }
 
+#subtitle a {
+  text-decoration: underline;
+}
+
 a {
   outline: none;
   text-decoration: none;
@@ -320,6 +324,13 @@ a:hover > text {
   grid-template-columns: repeat(9, minmax(48px, 1fr));
   gap: 10px;
   margin: 0.5em auto 1.15em;
+}
+
+/* On narrow screens nine fixed columns would overflow the card. */
+@media (max-width: 600px) {
+  #diplomaBadges {
+    grid-template-columns: repeat(3, minmax(48px, 1fr));
+  }
 }
 
 .diplomaBadge {

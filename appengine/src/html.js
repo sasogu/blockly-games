@@ -33,7 +33,7 @@ BlocklyGames.html.headerBar = function(ij, appName, levelLinkSuffix,
     linkButton = `
 &nbsp;
 <button id="linkButton" title="${BlocklyGames.getMsg('Games.linkTooltip', true)}">
-  <img src="common/1x1.gif" class="link icon21">
+  <img src="common/1x1.gif" class="link icon21" alt="">
 </button>
 `;
   }
@@ -57,7 +57,7 @@ BlocklyGames.html.headerBar = function(ij, appName, levelLinkSuffix,
       </h1>
     </td>
     <td id="header_cta" class="farSide">
-      <select id="languageMenu"></select>
+      <select id="languageMenu" aria-label="${BlocklyGames.getMsg('Games.selectLanguage', true)}"></select>
       ${linkButton}
       ${helpButton}
       ${farLeftHtml}
@@ -97,12 +97,14 @@ BlocklyGames.html.levelLinks_ = function(ij, suffix) {
       url += '&' + suffix;
     }
     html += ' ';
+    const levelLabel =
+        BlocklyGames.getMsg('Games.levelLink', true).replace('%1', `${i}`);
     if (i === ij.level) {
       html += `<span class="level_number level_done" id="level${i}">${i}</span>`;
     } else if (i === ij.maxLevel) {
-      html += `<a class="level_number" id="level${i}" href="${url}">${i}</a>`;
+      html += `<a class="level_number" id="level${i}" href="${url}" aria-label="${levelLabel}">${i}</a>`;
     } else {
-      html += `<a class="level_dot" id="level${i}" href="${url}"></a>`;
+      html += `<a class="level_dot" id="level${i}" href="${url}" aria-label="${levelLabel}"></a>`;
     }
   }
   return html;

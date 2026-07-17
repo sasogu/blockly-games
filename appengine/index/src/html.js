@@ -45,7 +45,7 @@ Index.html.start = function(ij) {
     ${Index.html.appLink_(ij, 'pond-duck', 'Games.pond')}
   </div>
 </div>
-<select id="languageMenu"></select>
+<select id="languageMenu" aria-label="${BlocklyGames.getMsg('Games.selectLanguage', true)}"></select>
 <p id="clearDataPara" style="visibility: hidden">
   ${BlocklyGames.getMsg('Index.startOver', true)}
   <button class="secondary" id="clearData">${BlocklyGames.getMsg('Index.clearData', true)}</button>
@@ -87,14 +87,16 @@ Index.html.start = function(ij) {
  */
 Index.html.appLink_ = function(ij, app, msgName) {
   return `
-<svg viewBox="0 0 300 150" version="1.1"
+<svg viewBox="0 0 300 150" version="1.1" role="img"
+    aria-label="${BlocklyGames.getMsg(msgName, true)}"
     xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink">
   <path d="M 111.11,98.89 A 55 55 0 1 1 188.89,98.89" class="gaugeBack" id="back-${app}" />
   <g class="icon" id="icon-${app}">
     <circle cx=150 cy=60 r=50 class="iconBack" />
-    <image xlink:href="index/${app}.png" height=100 width=100 x=100 y=10 />
-    <a xlink:href="${app}${ij.html ? '.html' : ''}?lang=${ij.lang}">
+    <image xlink:href="index/${app}.png" height=100 width=100 x=100 y=10 aria-hidden="true" />
+    <a xlink:href="${app}${ij.html ? '.html' : ''}?lang=${ij.lang}"
+        aria-label="${BlocklyGames.getMsg(msgName, true)}">
       <circle cx=150 cy=60 r=50 class="iconBorder" />
       <path class="gaugeFront" id="gauge-${app}" />
       <text x=150 y=135>${BlocklyGames.getMsg(msgName, true)}</text>

@@ -26,7 +26,7 @@ Maze.html.start = function(ij) {
   return `
 ${BlocklyGames.html.headerBar(ij, BlocklyGames.getMsg('Games.maze', true),
     BlocklyInterface.nextLevelParam, true, false,
-    '<button id="pegmanButton"><img src="common/1x1.gif"><span id="pegmanButtonArrow"></span></button>')}
+    `<button id="pegmanButton" aria-label="${BlocklyGames.getMsg('Maze.changeCharacter', true)}"><img src="common/1x1.gif" alt=""><span id="pegmanButtonArrow"></span></button>`)}
 
 <div id="visualization">
   <svg xmlns="http://www.w3.org/2000/svg" version="1.1" id="svgMaze" width="400px" height="400px" viewBox="0 0 400 400">
@@ -43,10 +43,10 @@ ${BlocklyGames.html.headerBar(ij, BlocklyGames.getMsg('Games.maze', true),
 
 <div id="buttonRow">
   <button id="runButton" class="primary" title="${BlocklyGames.getMsg('Maze.runTooltip', true)}">
-    <img src="common/1x1.gif" class="run icon21"> ${BlocklyGames.getMsg('Games.runProgram', true)}
+    <img src="common/1x1.gif" class="run icon21" alt=""> ${BlocklyGames.getMsg('Games.runProgram', true)}
   </button>
   <button id="resetButton" class="primary" style="display: none" title="${BlocklyGames.getMsg('Maze.resetTooltip', true)}">
-    <img src="common/1x1.gif" class="stop icon21"> ${BlocklyGames.getMsg('Games.resetProgram', true)}
+    <img src="common/1x1.gif" class="stop icon21" alt=""> ${BlocklyGames.getMsg('Games.resetProgram', true)}
   </button>
 </div>
 

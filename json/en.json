@@ -1,6 +1,6 @@
 {
 	"@metadata": {
-		"lastupdated": "2026-07-17 00:04:03.543915",
+		"lastupdated": "2026-07-17 11:16:02.154289",
 		"locale": "en",
 		"messagedocumentation": "qqq"
 	},
@@ -35,6 +35,9 @@
 	"Games.resetTooltip": "Stop the program and reset the level.",
 	"Games.resetProgram": "Reset",
 	"Games.help": "Help",
+	"Games.selectLanguage": "Select language",
+	"Games.levelLink": "Level %1",
+	"Maze.changeCharacter": "Change character",
 	"Games.catLogic": "Logic",
 	"Games.catLoops": "Loops",
 	"Games.catMath": "Math",

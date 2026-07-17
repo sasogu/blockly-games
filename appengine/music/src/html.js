@@ -54,10 +54,10 @@ ${BlocklyGames.html.headerBar(ij, BlocklyGames.getMsg('Games.music', true), '', 
   </svg>
   <img id="spinner" style="visibility: hidden;" src="common/loading.gif" loading="lazy" height=15 width=15>
   <button id="runButton" class="primary" title="${BlocklyGames.getMsg('Games.runTooltip', true)}">
-    <img src="common/1x1.gif" class="run icon21"> ${BlocklyGames.getMsg('Games.runProgram', true)}
+    <img src="common/1x1.gif" class="run icon21" alt=""> ${BlocklyGames.getMsg('Games.runProgram', true)}
   </button>
   <button id="resetButton" class="primary" style="display: none" title="${BlocklyGames.getMsg('Games.resetTooltip', true)}">
-    <img src="common/1x1.gif" class="stop icon21"> ${BlocklyGames.getMsg('Games.resetProgram', true)}
+    <img src="common/1x1.gif" class="stop icon21" alt=""> ${BlocklyGames.getMsg('Games.resetProgram', true)}
   </button>
 </div>
 
@@ -90,13 +90,13 @@ Music.html.gallery_ = function(lang) {
         <input type="hidden" name="app" value="music">
         <input type="hidden" name="lang" value="${lang}">
         <button type="submit" title="${BlocklyGames.getMsg('Music.galleryTooltip', true)}">
-          <img src="common/1x1.gif" class="gallery icon21"> ${BlocklyGames.getMsg('Music.galleryMsg', true)}
+          <img src="common/1x1.gif" class="gallery icon21" alt=""> ${BlocklyGames.getMsg('Music.galleryMsg', true)}
         </button>
       </form>
     </td>
     <td style="text-align: center;">
       <button id="submitButton" title="${BlocklyGames.getMsg('Music.submitTooltip', true)}">
-        <img src="common/1x1.gif" class="camera icon21"> ${BlocklyGames.getMsg('Music.submitMsg', true)}
+        <img src="common/1x1.gif" class="camera icon21" alt=""> ${BlocklyGames.getMsg('Music.submitMsg', true)}
       </button>
     </td>
   </tr>

@@ -75,13 +75,13 @@ Movie.html.gallery_ = function(lang) {
         <input type="hidden" name="app" value="movie">
         <input type="hidden" name="lang" value="${lang}">
         <button type="submit" title="${BlocklyGames.getMsg('Movie.galleryTooltip', true)}">
-          <img src="common/1x1.gif" class="gallery icon21"> ${BlocklyGames.getMsg('Movie.galleryMsg', true)}
+          <img src="common/1x1.gif" class="gallery icon21" alt=""> ${BlocklyGames.getMsg('Movie.galleryMsg', true)}
         </button>
       </form>
     </td>
     <td style="text-align: center;">
       <button id="submitButton" title="${BlocklyGames.getMsg('Movie.submitTooltip', true)}">
-        <img src="common/1x1.gif" class="camera icon21"> ${BlocklyGames.getMsg('Movie.submitMsg', true)}
+        <img src="common/1x1.gif" class="camera icon21" alt=""> ${BlocklyGames.getMsg('Movie.submitMsg', true)}
       </button>
     </td>
   </tr>

@@ -5,6 +5,7 @@
   <meta name="google" value="notranslate">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sobre Blockly Games</title>
+  <link rel="manifest" href="manifest.json">
   <link rel="stylesheet" href="common/common.css">
   <style>
 body {
@@ -154,6 +155,7 @@ footer a {
     <nav class="lang" aria-label="Idioma">
       <a href="about.html?lang=ca">CA</a>
       <a href="about.html?lang=es">ES</a>
+      <a href="about.html?lang=en">EN</a>
     </nav>
   </div>
 
@@ -203,6 +205,29 @@ const translations = {
       ['pond-duck', 'Estany', 'Programa l\'ànec perquè resolga un repte obert amb blocs o codi.'],
     ],
   },
+  en: {
+    htmlLang: 'en',
+    title: 'About Blockly Games',
+    back: 'Back to Blockly Games',
+    gamesLabel: 'Available games',
+    intro: 'Blockly Games is a collection of educational games that introduce students to programming. The challenges start with visual blocks and gradually move towards ideas such as loops, conditions, functions and JavaScript code.',
+    info1: 'This version is maintained by Edutictac and published as an open educational resource. The project builds on Blockly Games, created by Google, and keeps its self-paced, progressive learning approach.',
+    info2: 'The code for this deployment is open and available in the Edutictac repository. The original project remains available on the Blockly Games website.',
+    repoLink: 'Edutictac code',
+    upstreamSiteLink: 'Original Blockly Games',
+    upstreamRepoLink: 'Original repository',
+    games: [
+      ['dance', 'Dancing Robot', 'Program a choreography with dance steps and sequences.'],
+      ['puzzle', 'Puzzle', 'A first contact with the shapes of the blocks and how they snap together.'],
+      ['maze', 'Maze', 'Introduces loops and conditions with progressive challenges.'],
+      ['bird', 'Bird', 'Work with increasingly precise conditions to guide the bird.'],
+      ['turtle', 'Turtle', 'Explore nested loops by drawing shapes and patterns.'],
+      ['movie', 'Movie', 'Use mathematical expressions to animate a scene.'],
+      ['music', 'Music', 'Learn to create functions while composing musical fragments.'],
+      ['pond-tutor', 'Pond: tutor', 'Move from blocks to JavaScript with guided exercises.'],
+      ['pond-duck', 'Pond', 'Program the duck to solve an open challenge with blocks or code.'],
+    ],
+  },
   es: {
     htmlLang: 'es',
     title: 'Sobre Blockly Games',
@@ -229,7 +254,9 @@ const translations = {
 };
 
 const params = new URLSearchParams(location.search);
-const lang = translations[params.get('lang')] ? params.get('lang') : 'ca';
+// Default to Catalan; unknown languages fall back to English.
+const requested = params.get('lang');
+const lang = translations[requested] ? requested : (requested ? 'en' : 'ca');
 const t = translations[lang];
 
 document.documentElement.lang = t.htmlLang;
