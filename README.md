@@ -83,6 +83,21 @@ en.js
 es.js
 ```
 
+### Service worker (PWA)
+
+The site registers `appengine/sw.js` (from `common/boot.js`) so it can be
+installed on tablets and played offline. Two rules when deploying:
+
+- **Bump the cache version** in `appengine/sw.js` (`const CACHE = 'bg-vN';`)
+  on every deploy, otherwise returning visitors may keep stale HTML/JS.
+- On nginx, serve the worker itself uncached so updates propagate quickly:
+
+  ```nginx
+  location = /sw.js { add_header Cache-Control "no-cache"; }
+  ```
+
+Only games the user has visited online are available offline (runtime cache).
+
 ## Static URL Handling
 
 Blockly's original App Engine layout uses top-level entry files such as

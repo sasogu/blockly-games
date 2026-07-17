@@ -78,3 +78,11 @@ if (location.host === 'blockly-games.appspot.com') {
   script.type = 'text/javascript';
   document.head.appendChild(script);
 })();
+
+// Register the service worker for offline support (PWA).
+if ('serviceWorker' in navigator &&
+    (location.protocol === 'https:' || location.hostname === 'localhost')) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('/sw.js');
+  });
+}
