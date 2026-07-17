@@ -1,207 +1,250 @@
 <!DOCTYPE html>
-<html>
+<html lang="ca">
 <head>
   <meta charset="utf-8">
-  <title>About Blockly Games</title>
+  <meta name="google" value="notranslate">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sobre Blockly Games</title>
   <link rel="stylesheet" href="common/common.css">
   <style>
 body {
   margin: 0;
-}
-header,section {
-  padding: 1em 10%;
-}
-td {
-  padding: 0 1em;
-}
-footer {
-  background: #f8f9fa;
-  color: #666;
+  color: #202124;
+  background: #fff;
   font-family: Roboto, Arial, Helvetica, sans-serif;
-  font-size: 14px;
-  padding: 40px 32px 30px;
 }
-#google-link {
-  margin-right: 55px;
+
+main {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 32px 24px 48px;
 }
-#google-link svg {
-  margin-bottom: -7px;
-  opacity: 0.58;
+
+a {
+  color: #1967d2;
 }
-#google-link>a {
-  color: #666;
-  text-decoration: none;
-  padding: 0 10px;
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 20px;
 }
-#footer-links>a {
-  color: #666;
-  margin: 15px;
-  text-decoration: none;
+
+.lang {
+  white-space: nowrap;
 }
-#footer-links>a:hover {
-  color: #999;
+
+.lang a {
+  margin-left: 10px;
 }
-.uppercase {
-  text-transform: uppercase;
+
+h1 {
+  margin: 0 0 12px;
+  font-family: 'Google Sans', Roboto, Arial, Helvetica, sans-serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 500;
+  line-height: 1.1;
 }
-.text-large {
-  font-family: 'Google Sans', 'Roboto', Arial, Helvetica, sans-serif;
-  font-size: x-large;
+
+.intro {
+  max-width: 760px;
+  margin: 0 0 28px;
+  color: #3c4043;
+  font-size: 1.15rem;
+  line-height: 1.55;
+}
+
+.games {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin: 28px 0 34px;
+}
+
+.game {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 14px;
+  align-items: start;
+  min-height: 100px;
+  padding: 16px;
+  border: 1px solid #dadce0;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.game img {
+  width: 72px;
+  height: 72px;
+}
+
+.game h2 {
+  margin: 0 0 6px;
+  font-family: 'Google Sans', Roboto, Arial, Helvetica, sans-serif;
+  font-size: 1.15rem;
+  font-weight: 500;
+}
+
+.game p {
+  margin: 0;
+  color: #5f6368;
+  line-height: 1.45;
+}
+
+.info {
+  max-width: 780px;
+  color: #3c4043;
+  line-height: 1.6;
+}
+
+footer {
+  border-top: 1px solid #e8eaed;
+  color: #5f6368;
+  font-size: 0.95rem;
+  padding: 24px 0 0;
+}
+
+footer a {
+  margin-right: 16px;
+}
+
+@media (max-width: 560px) {
+  main {
+    padding: 24px 16px 36px;
+  }
+
+  .topbar {
+    display: block;
+  }
+
+  .lang {
+    margin-top: 12px;
+  }
+
+  .game {
+    grid-template-columns: 56px 1fr;
+    padding: 14px;
+  }
+
+  .game img {
+    width: 56px;
+    height: 56px;
+  }
 }
   </style>
 </head>
 <body>
-<section>
-<h1><a id="back" href="/">Blockly Games</a> : About</h1>
+<main>
+  <div class="topbar">
+    <a id="back" href="index.html?lang=ca">Torna a Blockly Games</a>
+    <nav class="lang" aria-label="Idioma">
+      <a href="about.html?lang=ca">CA</a>
+      <a href="about.html?lang=es">ES</a>
+    </nav>
+  </div>
 
-<p>Blockly Games is a series of educational games that teach programming. It is
-designed for children who have not had prior experience with computer programming.
-By the end of these games, one is ready to use conventional text-based languages.</p>
+  <h1 id="title">Sobre Blockly Games</h1>
+  <p class="intro" id="intro">Blockly Games és una col·lecció de jocs educatius
+  per iniciar l'alumnat en la programació.</p>
 
-<table>
-  <tr>
-    <td>
-      <img src="index/puzzle.png" height=100 width=100>
-    </td>
-    <td>
-<p>Puzzle is a quick introduction to Blockly's shapes and how the pieces snap together.</p>
-    </td>
-  </tr>
+  <section class="games" id="games" aria-label="Jocs disponibles"></section>
 
-  <tr>
-    <td>
-      <img src="index/maze.png" height=100 width=100>
-    </td>
-    <td>
-<p>Maze is an introduction to loops and conditionals. It starts simply, but
-every level is more challenging than the last.</p>
-    </td>
-  </tr>
+  <section class="info">
+    <p id="info1"></p>
+    <p id="info2"></p>
+  </section>
 
-  <tr>
-    <td>
-      <img src="index/bird.png" height=100 width=100>
-    </td>
-    <td>
-<p>Bird is a deep-dive into conditionals. Control-flow is explored with
-increasingly complex conditions.</p>
-    </td>
-  </tr>
+  <footer>
+    <a id="repoLink" href="https://github.com/sasogu/blockly-games">Codi d'Edutictac</a>
+    <a id="upstreamSiteLink" href="https://blockly.games/">Blockly Games original</a>
+    <a id="upstreamRepoLink" href="https://github.com/google/blockly-games">Repositori original</a>
+  </footer>
+</main>
 
-  <tr>
-    <td>
-      <img src="index/turtle.png" height=100 width=100>
-    </td>
-    <td>
-<p>Turtle is a deep-dive into loops. Use nested loops to paint a picture.</p>
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-      <img src="index/movie.png" height=100 width=100>
-    </td>
-    <td>
-<p>Movie is an introduction to mathematical equations. Use math to animate a movie.</p>
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-      <img src="index/music.png" height=100 width=100>
-    </td>
-    <td>
-<p>Music is an introduction to functions. Use functions to compose music.</p>
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-      <img src="index/pond-tutor.png" height=100 width=100>
-    </td>
-    <td>
-<p>Pond Tutor introduces text-based programming. Levels switch back and forth
-between blocks and actual JavaScript in a text editor.</p>
-    </td>
-  </tr>
-
-  <tr>
-    <td>
-      <img src="index/pond-duck.png" height=100 width=100>
-    </td>
-    <td>
-<p>Pond is an open-ended contest to program the smartest duck.
-Use either blocks or JavaScript.</p>
-    </td>
-  </tr>
-</table>
-
-<p>Computer science skills help students collaborate, create and make nearly
-every subject seem more relevant. Blockly Games encourages the development of
-tomorrow's programmers. Designed to be self-paced, Blockly Games can be
-<a href="https://github.com/google/blockly-games/wiki/Offline">downloaded for offline&nbsp;use</a>,
-ensuring accessibility for all students and technology. All code is open source,
-meaning it is free and customizable to meet your needs.  See the
-<a href="https://github.com/google/blockly-games/wiki">developer's&nbsp;website</a>
-for more information. Developers, teachers and parents are welcome to
-<a href="https://groups.google.com/forum/#!forum/blockly-games">give&nbsp;feedback</a>
-as we continue to grow.</p>
-
-<p>If you are an educator and interested in exploring CS curriculum in the classroom, check out these other Code with Google programs.</p>
-
-<ul>
-  <li><a href="https://csfirst.withgoogle.com/s/en/home?utm_source=bg&utm_medium=referral&utm_campaign=20191120-bg-about--all-all-&src=re-bg-20191120-bg-about--all-all-">CS First</a>:
-  Core CS concepts for 10-14 year old students featuring activities, hands-on
-  lessons, lesson supplements, and digital materials for educators.</li>
-  <li><a href="https://ghop.page.link/blockly-games">Grasshopper</a>:
-  Students of all ages can learn to code for free with this fun app for beginners.</li>
-</ul>
-
-<p>For more CS education resources from Google, visit <a href="https://edu.google.com/code-with-google">Code with Google</a>.
-Code with Google is dedicated to closing equity gaps in CS education by
-providing the tools, resources and inspiration to help every educator and
-student unlock their potential with code.</p>
-</section>
-
-<footer>
-  <span id="google-link">
-    <span class="uppercase">A</span>
-    <a href="https://edu.google.com/code-with-google" target="_blank">
-      <span class="text-large">Code with</span>
-      <svg width=86 height=28 viewBox="0 0 86 28.21">
-        <title>Google</title>
-        <path d="m11.11 21.92c-6.035 0-11.11-4.919-11.11-10.96-0.00119-6.041 5.073-10.96 11.11-10.96 3.338 0 5.715 1.31 7.503 3.02l-2.11 2.112c-1.282-1.203-3.017-2.139-5.394-2.139-4.406 0-7.851 3.555-7.851 7.966s3.445 7.966 7.851 7.966c2.858 0 4.486-1.149 5.528-2.192 0.8548-0.8557 1.415-2.085 1.628-3.769h-7.155v-2.993h10.07c0.1073 0.5346 0.1597 1.177 0.1597 1.871 0 2.246-0.614 5.025-2.591 7.004-1.923 2.004-4.379 3.073-7.637 3.073z"/>
-        <path d="m36.45 14.81c0 4.063-3.177 7.057-7.077 7.057-3.898 0-7.077-2.994-7.077-7.057 0-4.09 3.178-7.058 7.077-7.058 3.9 0 7.077 2.968 7.077 7.058zm-3.097 0c0-2.54-1.843-4.277-3.979-4.277-2.136 0-3.979 1.738-3.979 4.277 0 2.512 1.843 4.277 3.979 4.277 2.136 0 3.979-1.765 3.979-4.277z"/>
-        <path d="m51.82 14.81c0 4.063-3.177 7.057-7.077 7.057-3.898 0-7.077-2.994-7.077-7.057 0-4.09 3.178-7.058 7.077-7.058 3.9 0 7.077 2.968 7.077 7.058zm-3.097 0c0-2.54-1.843-4.277-3.979-4.277s-3.979 1.738-3.979 4.277c0 2.512 1.843 4.277 3.979 4.277s3.979-1.765 3.979-4.277z"/>
-        <path d="m66.56 8.197v12.66c0 5.213-3.071 7.351-6.702 7.351-3.418 0-5.474-2.298-6.249-4.17l2.697-1.123c0.4804 1.149 1.656 2.512 3.551 2.512 2.323 0 3.765-1.444 3.765-4.143v-1.016h-0.1061c-0.6938 0.8557-2.03 1.604-3.712 1.604-3.525 0-6.756-3.074-6.756-7.03 0-3.984 3.231-7.084 6.756-7.084 1.682 0 3.017 0.7483 3.712 1.578h0.1061v-1.137zm-2.724 6.644c0-2.486-1.656-4.303-3.765-4.303-2.136 0-3.926 1.818-3.926 4.303 0 2.46 1.789 4.251 3.926 4.251 2.109 0 3.765-1.791 3.765-4.251z"/>
-        <path d="m71.76 0.716v20.74h-3.097v-20.74z"/>
-        <path d="m83.46 17.14 2.403 1.604c-0.7749 1.149-2.644 3.128-5.875 3.128-4.006 0-6.914-3.1-6.914-7.057 0-4.197 2.935-7.058 6.568-7.058 3.659 0 5.448 2.914 6.035 4.491l0.3207 0.802-9.426 3.902c0.7212 1.417 1.843 2.139 3.418 2.139 1.576 0 2.67-0.7757 3.472-1.951zm-7.397-2.54 6.302-2.619c-0.3469-0.8819-1.389-1.497-2.617-1.497-1.575-0.001193-3.765 1.389-3.685 4.116z"/>
-      </svg>
-    </a>
-    <span class="uppercase">Program</span>
-  </span>
-
-  <span id="footer-links">
-    <a href="https://www.google.com/policies/privacy/">Privacy</a>&nbsp;<a href="https://www.google.com/policies/terms/">Terms</a>&nbsp;<a href="https://www.google.com/about/">About&nbsp;Google</a>&nbsp;<a href="https://www.google.com/about/products/">Google&nbsp;Products</a>
-  </span>
-</footer>
-
-<script src="common/back.js"></script>
-
-<!-- Google Analytics 3 -->
-<!-- Delete this in July 1, 2023. -->
 <script>
-if (window.location.pathname.substr(-5) != '.html'){
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+const translations = {
+  ca: {
+    htmlLang: 'ca',
+    title: 'Sobre Blockly Games',
+    back: 'Torna a Blockly Games',
+    gamesLabel: 'Jocs disponibles',
+    intro: 'Blockly Games és una col·lecció de jocs educatius per iniciar l\'alumnat en la programació. Els reptes comencen amb blocs visuals i avancen gradualment cap a idees com els bucles, les condicions, les funcions i el codi JavaScript.',
+    info1: 'Aquesta versió està mantinguda per Edutictac i es publica com a recurs educatiu obert. El projecte parteix de Blockly Games, creat per Google, i conserva el seu enfocament d\'aprenentatge autònom i progressiu.',
+    info2: 'El codi d\'aquest desplegament és obert i es pot consultar al repositori d\'Edutictac. El projecte original continua disponible al web de Blockly Games.',
+    repoLink: 'Codi d\'Edutictac',
+    upstreamSiteLink: 'Blockly Games original',
+    upstreamRepoLink: 'Repositori original',
+    games: [
+      ['dance', 'Robot Bailarín', 'Programa una coreografia amb passos de ball i seqüències.'],
+      ['puzzle', 'Trencaclosques', 'Una primera presa de contacte amb les formes i encaixos dels blocs.'],
+      ['maze', 'Laberint', 'Introdueix bucles i condicions amb reptes progressius.'],
+      ['bird', 'Ocell', 'Treballa condicions cada vegada més precises per guiar l\'ocell.'],
+      ['turtle', 'Tortuga', 'Explora bucles niats dibuixant formes i patrons.'],
+      ['movie', 'Pel·lícula', 'Fes servir expressions matemàtiques per animar una escena.'],
+      ['music', 'Música', 'Aprèn a crear funcions mentre compones fragments musicals.'],
+      ['pond-tutor', 'Estany: tutor', 'Passa dels blocs al JavaScript amb exercicis guiats.'],
+      ['pond-duck', 'Estany', 'Programa l\'ànec perquè resolga un repte obert amb blocs o codi.'],
+    ],
+  },
+  es: {
+    htmlLang: 'es',
+    title: 'Sobre Blockly Games',
+    back: 'Volver a Blockly Games',
+    gamesLabel: 'Juegos disponibles',
+    intro: 'Blockly Games es una colección de juegos educativos para iniciar al alumnado en la programación. Los retos empiezan con bloques visuales y avanzan gradualmente hacia ideas como los bucles, las condiciones, las funciones y el código JavaScript.',
+    info1: 'Esta versión está mantenida por Edutictac y se publica como recurso educativo abierto. El proyecto parte de Blockly Games, creado por Google, y conserva su enfoque de aprendizaje autónomo y progresivo.',
+    info2: 'El código de este despliegue es abierto y se puede consultar en el repositorio de Edutictac. El proyecto original sigue disponible en la web de Blockly Games.',
+    repoLink: 'Código de Edutictac',
+    upstreamSiteLink: 'Blockly Games original',
+    upstreamRepoLink: 'Repositorio original',
+    games: [
+      ['dance', 'Robot Bailarín', 'Programa una coreografía con pasos de baile y secuencias.'],
+      ['puzzle', 'Puzzle', 'Una primera toma de contacto con las formas y encajes de los bloques.'],
+      ['maze', 'Laberinto', 'Introduce bucles y condiciones con retos progresivos.'],
+      ['bird', 'Pájaro', 'Trabaja condiciones cada vez más precisas para guiar al pájaro.'],
+      ['turtle', 'Tortuga', 'Explora bucles anidados dibujando formas y patrones.'],
+      ['movie', 'Película', 'Usa expresiones matemáticas para animar una escena.'],
+      ['music', 'Música', 'Aprende a crear funciones mientras compones fragmentos musicales.'],
+      ['pond-tutor', 'Estanque: tutor', 'Pasa de los bloques a JavaScript con ejercicios guiados.'],
+      ['pond-duck', 'Estanque', 'Programa el pato para resolver un reto abierto con bloques o código.'],
+    ],
+  },
+};
 
-  ga('create', 'UA-50448074-1', 'auto');
-  ga('send', 'pageview');
-}
+const params = new URLSearchParams(location.search);
+const lang = translations[params.get('lang')] ? params.get('lang') : 'ca';
+const t = translations[lang];
+
+document.documentElement.lang = t.htmlLang;
+document.title = t.title;
+document.getElementById('title').textContent = t.title;
+document.getElementById('back').textContent = t.back;
+document.getElementById('back').href = `index.html?lang=${lang}`;
+document.getElementById('intro').textContent = t.intro;
+document.getElementById('info1').textContent = t.info1;
+document.getElementById('info2').textContent = t.info2;
+document.getElementById('repoLink').textContent = t.repoLink;
+document.getElementById('upstreamSiteLink').textContent = t.upstreamSiteLink;
+document.getElementById('upstreamRepoLink').textContent = t.upstreamRepoLink;
+document.getElementById('games').setAttribute('aria-label', t.gamesLabel);
+
+document.getElementById('games').replaceChildren(...t.games.map(([id, title, description]) => {
+  const article = document.createElement('article');
+  const href = `${id}.html?lang=${lang}`;
+  article.className = 'game';
+  article.innerHTML = `
+    <a href="${href}"><img src="index/${id}.png" alt=""></a>
+    <div>
+      <h2><a href="${href}"></a></h2>
+      <p></p>
+    </div>`;
+  article.querySelector('h2 a').textContent = title;
+  article.querySelector('p').textContent = description;
+  return article;
+}));
 </script>
-<!-- End Google Analytics 3 -->
-
+<script src="common/back.js"></script>
 </body>
 </html>
