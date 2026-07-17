@@ -23,23 +23,18 @@ ${BlocklyGames.html.headerBar(ij, BlocklyGames.getMsg('Games.dance', true),
   </svg>
 </div>
 
-<table width=400>
-  <tr>
-    <td style="width: 190px; text-align: center; vertical-align: top;"></td>
-    <td>
-      <button id="runButton" class="primary"
-          title="${BlocklyGames.getMsg('Dance.runTooltip', true)}">
-        <img src="common/1x1.gif" class="run icon21">
-        ${BlocklyGames.getMsg('Games.runProgram', true)}
-      </button>
-      <button id="resetButton" class="primary" style="display: none"
-          title="${BlocklyGames.getMsg('Dance.resetTooltip', true)}">
-        <img src="common/1x1.gif" class="stop icon21">
-        ${BlocklyGames.getMsg('Games.resetProgram', true)}
-      </button>
-    </td>
-  </tr>
-</table>
+<div id="buttonRow">
+  <button id="runButton" class="primary"
+      title="${BlocklyGames.getMsg('Dance.runTooltip', true)}">
+    <img src="common/1x1.gif" class="run icon21">
+    ${BlocklyGames.getMsg('Games.runProgram', true)}
+  </button>
+  <button id="resetButton" class="primary" style="display: none"
+      title="${BlocklyGames.getMsg('Dance.resetTooltip', true)}">
+    <img src="common/1x1.gif" class="stop icon21">
+    ${BlocklyGames.getMsg('Games.resetProgram', true)}
+  </button>
+</div>
 
 ${Dance.html.toolbox_(ij.level)}
 <div id="blockly"></div>

@@ -49,6 +49,9 @@ const GAMES = [
   { url: '/bird.html?lang=es', ready: '#blockly svg', responsive: true },
   { url: '/movie.html?lang=es', ready: '#blockly svg', responsive: true },
   { url: '/music.html?lang=ca', ready: '#blockly svg', responsive: true },
+  { url: '/dance.html?lang=es', ready: '#blockly svg', responsive: true },
+  // Pond pages are excluded: they fire a pre-existing unhandled
+  // rejection in headless browsers (audio autoplay policy).
 ];
 
 for (const game of GAMES) {

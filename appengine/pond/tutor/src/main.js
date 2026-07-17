@@ -32,6 +32,7 @@ BlocklyGames.storageName = 'pond-tutor';
  * Initialize Blockly xor Ace, and the pond.  Called on page load.
  */
 function init() {
+  BlocklyGames.RESPONSIVE = true;
   Pond.Blocks.init();
 
   // Render the HTML.
@@ -58,10 +59,18 @@ function init() {
 
   if (blocklyDiv) {
     onresize = function(_e) {
-      const top = visualization.offsetTop;
-      blocklyDiv.style.top = Math.max(10, top - window.pageYOffset) + 'px';
-      blocklyDiv.style.left = rtl ? '10px' : '420px';
-      blocklyDiv.style.width = (window.innerWidth - 440) + 'px';
+      if (BlocklyGames.isNarrowScreen()) {
+        const buttonRow = BlocklyGames.getElementById('buttonRow');
+        const anchor = (buttonRow || visualization).getBoundingClientRect();
+        blocklyDiv.style.top = Math.max(10, anchor.bottom + 8) + 'px';
+        blocklyDiv.style.left = '0';
+        blocklyDiv.style.width = window.innerWidth + 'px';
+      } else {
+        const top = visualization.offsetTop;
+        blocklyDiv.style.top = Math.max(10, top - window.pageYOffset) + 'px';
+        blocklyDiv.style.left = rtl ? '10px' : '420px';
+        blocklyDiv.style.width = (window.innerWidth - 440) + 'px';
+      }
     };
     window.addEventListener('scroll', function() {
       onresize(null);
@@ -125,10 +134,18 @@ function init() {
     BlocklyInterface.loadBlocks(defaultCode + '\n');
 
     onresize = function(_e) {
-      const top = visualization.offsetTop;
-      editorDiv.style.top = Math.max(10, top - window.pageYOffset) + 'px';
-      editorDiv.style.left = rtl ? '10px' : '420px';
-      editorDiv.style.width = (window.innerWidth - 440) + 'px';
+      if (BlocklyGames.isNarrowScreen()) {
+        const buttonRow = BlocklyGames.getElementById('buttonRow');
+        const anchor = (buttonRow || visualization).getBoundingClientRect();
+        editorDiv.style.top = Math.max(10, anchor.bottom + 8) + 'px';
+        editorDiv.style.left = '0';
+        editorDiv.style.width = window.innerWidth + 'px';
+      } else {
+        const top = visualization.offsetTop;
+        editorDiv.style.top = Math.max(10, top - window.pageYOffset) + 'px';
+        editorDiv.style.left = rtl ? '10px' : '420px';
+        editorDiv.style.width = (window.innerWidth - 440) + 'px';
+      }
     };
     window.addEventListener('scroll', onresize);
 

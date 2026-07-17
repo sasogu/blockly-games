@@ -33,23 +33,17 @@ Pond.html.visualization = function() {
   </tbody>
 </table>
 
-<table width=400>
-  <tr>
-    <td style="width: 190px; text-align: center; vertical-align: top;">
-      <button id="docsButton" title="${BlocklyGames.getMsg('Pond.docsTooltip', true)}">
-        ${BlocklyGames.getMsg('Pond.documentation', true)}
-      </button>
-    </td>
-    <td>
-      <button id="runButton" class="primary" title="${BlocklyGames.getMsg('Games.runTooltip', true)}">
-        <img src="common/1x1.gif" class="run icon21"> ${BlocklyGames.getMsg('Games.runProgram', true)}
-      </button>
-      <button id="resetButton" class="primary" style="display: none" title="${BlocklyGames.getMsg('Games.resetTooltip', true)}">
-        <img src="common/1x1.gif" class="stop icon21"> ${BlocklyGames.getMsg('Games.resetProgram', true)}
-      </button>
-    </td>
-  </tr>
-</table>
+<div id="buttonRow">
+  <button id="docsButton" title="${BlocklyGames.getMsg('Pond.docsTooltip', true)}">
+    ${BlocklyGames.getMsg('Pond.documentation', true)}
+  </button>
+  <button id="runButton" class="primary" title="${BlocklyGames.getMsg('Games.runTooltip', true)}">
+    <img src="common/1x1.gif" class="run icon21"> ${BlocklyGames.getMsg('Games.runProgram', true)}
+  </button>
+  <button id="resetButton" class="primary" style="display: none" title="${BlocklyGames.getMsg('Games.resetTooltip', true)}">
+    <img src="common/1x1.gif" class="stop icon21"> ${BlocklyGames.getMsg('Games.resetProgram', true)}
+  </button>
+</div>
 
 <div id="dialogDocs">
   <img src="common/1x1.gif" class="close icon21" id="closeDocs">

@@ -14,6 +14,26 @@
   box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 
+#buttonRow {
+  margin-left: 190px;
+}
+html[dir="RTL"] #buttonRow {
+  margin-left: 0;
+  margin-right: 190px;
+}
+body.narrowLayout #buttonRow {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin: 4px 0;
+}
+body.narrowLayout #blockly {
+  bottom: 0;
+}
+body.narrowLayout #svgDance {
+  height: auto;
+}
+
 #robot {
   transition: transform 0.35s ease;
 }

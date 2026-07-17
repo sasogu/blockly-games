@@ -426,6 +426,7 @@ function showConfetti() {
 
 
 function init() {
+  BlocklyGames.RESPONSIVE = true;
   Dance.Blocks.init();
 
   const ij = {
@@ -443,11 +444,21 @@ function init() {
   const blocklyDiv = BlocklyGames.getElementById('blockly');
   const visualization = BlocklyGames.getElementById('visualization');
   const onresize = function(_e) {
-    const top = visualization.offsetTop;
-    const vizRight = visualization.offsetLeft + visualization.offsetWidth;
-    blocklyDiv.style.top = Math.max(10, top - window.pageYOffset) + 'px';
-    blocklyDiv.style.left = rtl ? '10px' : (vizRight + 10) + 'px';
-    blocklyDiv.style.width = (window.innerWidth - vizRight - 20) + 'px';
+    if (BlocklyGames.isNarrowScreen()) {
+      // Stacked layout: visualization and buttons flow on top,
+      // Blockly takes the rest of the screen below them.
+      const buttonRow = BlocklyGames.getElementById('buttonRow');
+      const anchor = (buttonRow || visualization).getBoundingClientRect();
+      blocklyDiv.style.top = Math.max(10, anchor.bottom + 8) + 'px';
+      blocklyDiv.style.left = '0';
+      blocklyDiv.style.width = window.innerWidth + 'px';
+    } else {
+      const top = visualization.offsetTop;
+      const vizRight = visualization.offsetLeft + visualization.offsetWidth;
+      blocklyDiv.style.top = Math.max(10, top - window.pageYOffset) + 'px';
+      blocklyDiv.style.left = rtl ? '10px' : (vizRight + 10) + 'px';
+      blocklyDiv.style.width = (window.innerWidth - vizRight - 20) + 'px';
+    }
   };
   window.addEventListener('scroll', function() {
     onresize(null);

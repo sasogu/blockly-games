@@ -65,6 +65,7 @@ const tabIndex = {
  * Initialize Ace and the pond.  Called on page load.
  */
 function init() {
+  BlocklyGames.RESPONSIVE = true;
   duckData = window['DUCKS'];
   Pond.Blocks.init();
 
@@ -98,14 +99,24 @@ function init() {
   const editorDiv = BlocklyGames.getElementById('editor');
   const divs = [blocklyDiv, editorDiv];
   const onresize = function(_e) {
-    const top = visualization.offsetTop;
-    tabDiv.style.top = (top - window.pageYOffset) + 'px';
-    tabDiv.style.left = rtl ? '10px' : '420px';
-    tabDiv.style.width = (window.innerWidth - 440) + 'px';
-    const divTop =
-        Math.max(0, top + tabDiv.offsetHeight - window.pageYOffset) + 'px';
-    const divLeft = rtl ? '10px' : '420px';
-    const divWidth = (window.innerWidth - 440) + 'px';
+    let tabTop, divLeft, divWidth;
+    if (BlocklyGames.isNarrowScreen()) {
+      // Stacked layout: visualization and buttons flow on top,
+      // tabs and editors take the rest of the screen below them.
+      const buttonRow = BlocklyGames.getElementById('buttonRow');
+      const anchor = (buttonRow || visualization).getBoundingClientRect();
+      tabTop = Math.max(0, anchor.bottom + 8);
+      divLeft = '0';
+      divWidth = window.innerWidth + 'px';
+    } else {
+      tabTop = visualization.offsetTop - window.pageYOffset;
+      divLeft = rtl ? '10px' : '420px';
+      divWidth = (window.innerWidth - 440) + 'px';
+    }
+    tabDiv.style.top = tabTop + 'px';
+    tabDiv.style.left = divLeft;
+    tabDiv.style.width = divWidth;
+    const divTop = Math.max(0, tabTop + tabDiv.offsetHeight) + 'px';
     for (const div of divs) {
       div.style.top = divTop;
       div.style.left = divLeft;

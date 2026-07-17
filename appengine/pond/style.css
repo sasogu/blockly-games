@@ -2,6 +2,36 @@
   position: fixed;
   bottom: 10px;
 }
+#buttonRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 400px;
+}
+body.narrowLayout #buttonRow {
+  justify-content: center;
+  flex-wrap: wrap;
+  width: auto;
+}
+body.narrowLayout #avatarStatTable {
+  width: 100%;
+  max-width: min(400px, 42vh);
+  margin: 0 auto;
+}
+body.narrowLayout #dialogDocs {
+  width: auto;
+  left: 5px;
+  right: 5px;
+}
+body.narrowLayout #blockly {
+  bottom: 0;
+}
+body.narrowLayout #editor {
+  left: 0 !important;
+  right: 0;
+  bottom: 0;
+}
 
 #editor {
   font-size: 16pt;
@@ -92,6 +122,11 @@ html[dir="RTL"] #dialogDocs {
 html[dir="RTL"] #closeDocs {
   left: auto;
   right: 389px;
+}
+
+body.narrowLayout #closeDocs {
+  left: auto;
+  right: 6px;
 }
 
 #closeDocs:hover {
