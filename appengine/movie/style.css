@@ -10,6 +10,16 @@ html[dir="RTL"] button.primary {
   position: fixed;
   bottom: 10px;
 }
+body.narrowLayout #blockly {
+  bottom: 0;
+}
+body.narrowLayout #scrubber {
+  display: block;
+  width: 100%;
+  max-width: min(400px, 42vh);
+  height: auto;
+  margin: 0 auto;
+}
 #display {
   border: 1px solid #ccc;
 }

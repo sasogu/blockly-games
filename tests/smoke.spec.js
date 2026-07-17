@@ -47,6 +47,8 @@ const GAMES = [
   { url: '/maze.html?lang=es', ready: '#blockly svg', responsive: true },
   { url: '/turtle.html?lang=ca', ready: '#blockly svg', responsive: true },
   { url: '/bird.html?lang=es', ready: '#blockly svg', responsive: true },
+  { url: '/movie.html?lang=es', ready: '#blockly svg', responsive: true },
+  { url: '/music.html?lang=ca', ready: '#blockly svg', responsive: true },
 ];
 
 for (const game of GAMES) {

@@ -66,6 +66,7 @@ let ctxScratch;
  * Initialize Blockly and the movie.  Called on page load.
  */
 function init() {
+  BlocklyGames.RESPONSIVE = true;
   Movie.Blocks.init();
 
   // Render the HTML.
@@ -81,10 +82,22 @@ function init() {
   const blocklyDiv = BlocklyGames.getElementById('blockly');
   const visualization = BlocklyGames.getElementById('visualization');
   const onresize = function(_e) {
-    const top = visualization.offsetTop;
-    blocklyDiv.style.top = Math.max(10, top - window.pageYOffset) + 'px';
-    blocklyDiv.style.left = rtl ? '10px' : '420px';
-    blocklyDiv.style.width = (window.innerWidth - 440) + 'px';
+    if (BlocklyGames.isNarrowScreen()) {
+      // Stacked layout: visualization and scrubber flow on top,
+      // Blockly takes the rest of the screen below them.
+      const scrubber = BlocklyGames.getElementById('scrubber');
+      const anchorEl = (scrubber && scrubber.style.display !== 'none') ?
+          scrubber : visualization;
+      const anchor = anchorEl.getBoundingClientRect();
+      blocklyDiv.style.top = Math.max(10, anchor.bottom + 8) + 'px';
+      blocklyDiv.style.left = '0';
+      blocklyDiv.style.width = window.innerWidth + 'px';
+    } else {
+      const top = visualization.offsetTop;
+      blocklyDiv.style.top = Math.max(10, top - window.pageYOffset) + 'px';
+      blocklyDiv.style.left = rtl ? '10px' : '420px';
+      blocklyDiv.style.width = (window.innerWidth - 440) + 'px';
+    }
   };
   window.addEventListener('scroll', function() {
     onresize(null);

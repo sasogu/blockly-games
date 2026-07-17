@@ -42,7 +42,7 @@ ${BlocklyGames.html.headerBar(ij, BlocklyGames.getMsg('Games.movie', true), '', 
     xmlns:svg="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink"
     version="1.1"
-    width="402" height="24">
+    width="402" height="24" viewBox="0 0 402 24">
   <image xlink:href="movie/youtube-bg.png" height=25 width=402 x=0 y=-1 />
 </svg>
 

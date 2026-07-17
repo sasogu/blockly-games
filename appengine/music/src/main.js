@@ -99,6 +99,7 @@ let speedSlider;
  * Initialize Blockly and the music.  Called on page load.
  */
 function init() {
+  BlocklyGames.RESPONSIVE = true;
   Music.Blocks.init();
 
   // Render the HTML.
@@ -119,9 +120,31 @@ function init() {
     const top = paddingBox.offsetTop;
     staveBox.style.top = top + 'px';
     musicBox.style.top = top + 'px';
-    blocklyDiv.style.top = Math.max(10, top - window.pageYOffset) + 'px';
-    blocklyDiv.style.left = rtl ? '10px' : '420px';
-    blocklyDiv.style.width = (window.innerWidth - 440) + 'px';
+    if (BlocklyGames.isNarrowScreen()) {
+      // Stacked layout: scale the fixed 400px stave area to the screen
+      // width; Blockly takes the rest of the screen below the buttons.
+      const scale = Math.min(1, window.innerWidth / 402,
+          (window.innerHeight * 0.42) / 400);
+      staveBox.style.transformOrigin = 'top left';
+      staveBox.style.transform = `scale(${scale})`;
+      musicBox.style.transformOrigin = 'top left';
+      musicBox.style.transform = `scale(${scale})`;
+      musicBox.style.marginLeft = (36 * scale) + 'px';
+      paddingBox.style.height = (400 * scale) + 'px';
+      const buttonRow = BlocklyGames.getElementById('buttonRow');
+      const anchor = (buttonRow || paddingBox).getBoundingClientRect();
+      blocklyDiv.style.top = Math.max(10, anchor.bottom + 8) + 'px';
+      blocklyDiv.style.left = '0';
+      blocklyDiv.style.width = window.innerWidth + 'px';
+    } else {
+      staveBox.style.transform = '';
+      musicBox.style.transform = '';
+      musicBox.style.marginLeft = '';
+      paddingBox.style.height = '';
+      blocklyDiv.style.top = Math.max(10, top - window.pageYOffset) + 'px';
+      blocklyDiv.style.left = rtl ? '10px' : '420px';
+      blocklyDiv.style.width = (window.innerWidth - 440) + 'px';
+    }
   };
   window.addEventListener('scroll', function() {
       onresize(null);
