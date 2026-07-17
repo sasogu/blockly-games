@@ -41,9 +41,11 @@ test.describe('index', () => {
   }
 });
 
+// `responsive: true` marks games migrated to the stacked narrow layout;
+// those must also render without horizontal overflow at phone width.
 const GAMES = [
-  { url: '/maze.html?lang=es', ready: '#blockly svg' },
-  { url: '/turtle.html?lang=ca', ready: '#blockly svg' },
+  { url: '/maze.html?lang=es', ready: '#blockly svg', responsive: true },
+  { url: '/turtle.html?lang=ca', ready: '#blockly svg', responsive: false },
 ];
 
 for (const game of GAMES) {
@@ -59,6 +61,9 @@ for (const game of GAMES) {
       await page.setViewportSize(NARROW);
       const errors = await loadPage(page, game.url, game.ready);
       expect(errors).toEqual([]);
+      if (game.responsive) {
+        expect(await hasHorizontalOverflow(page)).toBe(false);
+      }
     });
   });
 }

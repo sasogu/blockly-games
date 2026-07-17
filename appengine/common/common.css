@@ -194,3 +194,25 @@ button:hover:not(:disabled) {
 .close {
   background-position: -42px -42px;
 }
+
+/* Stacked layout for games that opt in to BlocklyGames.RESPONSIVE.
+   The narrowLayout class is toggled on <body> by lib-games.js when the
+   screen is phone-sized (max-width: 640px). */
+body.narrowLayout #visualization {
+  width: 100%;
+  max-width: min(400px, 42vh);
+  margin: 0 auto;
+}
+body.narrowLayout #visualization svg,
+body.narrowLayout #visualization canvas {
+  width: 100%;
+  height: auto;
+}
+body.narrowLayout #blockly {
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+body.narrowLayout button.primary {
+  min-height: 44px;
+}

@@ -243,6 +243,44 @@ BlocklyGames.LEVEL =
     BlocklyGames.getIntegerParamFromUrl('level', 1, BlocklyGames.MAX_LEVEL);
 
 /**
+ * Whether this game has a real responsive layout for narrow screens.
+ * Games that opt in (setting this to true before calling init) keep the
+ * native `width=device-width` viewport and stack their layout via the
+ * `narrowLayout` body class; games that don't get the legacy scaled
+ * viewport with on-screen zoom buttons.
+ */
+BlocklyGames.RESPONSIVE = false;
+
+/**
+ * Media query defining a "narrow" (phone-sized) screen.
+ * @private @const
+ */
+BlocklyGames.NARROW_QUERY_ = window.matchMedia('(max-width: 640px)');
+
+/**
+ * Is the screen currently phone-sized?
+ * @returns {boolean} True if narrow.
+ */
+BlocklyGames.isNarrowScreen = function() {
+  return BlocklyGames.NARROW_QUERY_.matches;
+};
+
+/**
+ * Keep the `narrowLayout` class on <body> in sync with the media query,
+ * re-firing the game's resize handler when the breakpoint is crossed.
+ * @private
+ */
+BlocklyGames.initNarrowLayout_ = function() {
+  const update = function() {
+    document.body.classList.toggle('narrowLayout',
+        BlocklyGames.isNarrowScreen());
+    window.dispatchEvent(new Event('resize'));
+  };
+  BlocklyGames.NARROW_QUERY_.addEventListener('change', update);
+  update();
+};
+
+/**
  * Common startup tasks for all apps.
  * @param {string} title Text for the page title.
  */
@@ -292,7 +330,11 @@ BlocklyGames.init = function(title) {
     }
   }
 
-  BlocklyGames.initViewportZoom_();
+  if (BlocklyGames.RESPONSIVE) {
+    BlocklyGames.initNarrowLayout_();
+  } else {
+    BlocklyGames.initViewportZoom_();
+  }
 
   // Lazy-load Google Analytics.
   if (!BlocklyGames.IS_HTML) {
