@@ -280,11 +280,11 @@ BlocklyGames.init = function(title) {
     }
   }
 
-  // Fixes viewport for small screens.
+  // Keep small screens from collapsing the game board, but allow pinch zoom.
   const viewport = document.querySelector('meta[name="viewport"]');
   if (viewport && screen.availWidth < 725) {
     viewport.setAttribute('content',
-        'width=725, initial-scale=.35, user-scalable=no');
+        'width=725, initial-scale=.35, user-scalable=yes, maximum-scale=5');
   }
 
   // Lazy-load Google Analytics.

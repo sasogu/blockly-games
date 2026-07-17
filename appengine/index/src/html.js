@@ -50,21 +50,22 @@ Index.html.start = function(ij) {
   ${BlocklyGames.getMsg('Index.startOver', true)}
   <button class="secondary" id="clearData">${BlocklyGames.getMsg('Index.clearData', true)}</button>
 </p>
-<p id="diplomaPara">
-  <button class="secondary" id="showDiploma">${BlocklyGames.getMsg('Index.diploma', true)}</button>
-</p>
+<div id="actionPanel">
+  <button class="secondary" id="showDiploma">
+    <span id="diplomaButtonIcon" aria-hidden="true"></span>
+    <span>${BlocklyGames.getMsg('Index.diploma', true)}</span>
+  </button>
+</div>
 <div id="diploma">
   <div id="diplomaCard">
-    <svg id="diplomaSeal" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="50" cy="50" r="46" fill="#FFD700" stroke="#F9A825" stroke-width="3"/>
-      <circle cx="50" cy="50" r="36" fill="none" stroke="#FFF8E1" stroke-width="2"/>
-      <polygon points="50,18 59,41 84,41 63,56 71,81 50,66 29,81 37,56 16,41 41,41"
-          fill="#FFF8E1" stroke="#F57F17" stroke-width="1.5"/>
-    </svg>
+    <div id="diplomaRibbon">${BlocklyGames.getMsg('Games.name', true)}</div>
+    <div id="diplomaStars" aria-hidden="true">
+      <span></span><span></span><span></span>
+    </div>
     <div id="diplomaTitle">${BlocklyGames.getMsg('Index.diplomaTitle', true)}</div>
-    <div id="diplomaRule"></div>
     <div id="diplomaName"></div>
     <div id="diplomaCompleted"></div>
+    <div id="diplomaBadges"></div>
     <div id="diplomaDate"></div>
   </div>
 </div>

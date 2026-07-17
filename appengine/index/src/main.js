@@ -22,6 +22,13 @@ const APPS = ['dance', 'puzzle', 'maze', 'bird', 'turtle', 'movie', 'music',
               'pond-tutor', 'pond-duck'];
 
 /**
+ * Message names for app labels, indexed as per APPS.
+ */
+const APP_MSGS = ['Games.dance', 'Games.puzzle', 'Games.maze', 'Games.bird',
+                  'Games.turtle', 'Games.movie', 'Games.music',
+                  'Games.pondTutor', 'Games.pond'];
+
+/**
  * Number of levels completed per app, indexed as per APPS.
  * Populated by init() and read by showDiploma().
  */
@@ -190,6 +197,29 @@ function countCompletedApps_() {
 }
 
 /**
+ * Render the game badge strip on the diploma.
+ */
+function renderDiplomaBadges_() {
+  const badgeBox = BlocklyGames.getElementById('diplomaBadges');
+  badgeBox.textContent = '';
+  for (let i = 0; i < APPS.length; i++) {
+    const app = APPS[i];
+    const denominator = (app === 'puzzle') ? 1 : BlocklyGames.MAX_LEVEL;
+    const complete = levelsDone_[i] >= denominator;
+    const badge = document.createElement('div');
+    badge.className = complete ? 'diplomaBadge complete' : 'diplomaBadge';
+    const img = document.createElement('img');
+    img.src = 'index/' + app + '.png';
+    img.alt = '';
+    const label = document.createElement('span');
+    label.textContent = BlocklyGames.getMsg(APP_MSGS[i], false);
+    badge.appendChild(img);
+    badge.appendChild(label);
+    badgeBox.appendChild(badge);
+  }
+}
+
+/**
  * Fill in and display the diploma overlay, then open the print dialog.
  */
 function showDiploma() {
@@ -208,6 +238,7 @@ function showDiploma() {
   BlocklyGames.getElementById('diplomaDate').textContent =
       BlocklyGames.getMsg('Index.diplomaDate', false) + ': ' +
       new Date().toLocaleDateString(BlocklyGames.LANG);
+  renderDiplomaBadges_();
 
   const diploma = BlocklyGames.getElementById('diploma');
   diploma.classList.add('shown');
