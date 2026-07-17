@@ -21,6 +21,63 @@ body {
   position: fixed;
 }
 
+.puzzleTrashButton {
+  align-items: center;
+  background: #fff;
+  border: 2px solid #607d8b;
+  border-radius: 8px;
+  bottom: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.22);
+  color: #263238;
+  cursor: pointer;
+  display: flex;
+  font: 600 14px sans-serif;
+  gap: 7px;
+  min-height: 44px;
+  padding: 8px 11px;
+  position: fixed;
+  right: 12px;
+  z-index: 1100;
+}
+
+.puzzleTrashButton:hover,
+.puzzleTrashButton:focus {
+  background: #fff8e1;
+  border-color: #f57c00;
+  outline: none;
+}
+
+.puzzleTrashIcon {
+  border: 2px solid currentColor;
+  border-top: 0;
+  box-sizing: border-box;
+  display: inline-block;
+  height: 18px;
+  position: relative;
+  width: 16px;
+}
+
+.puzzleTrashIcon::before {
+  background: currentColor;
+  content: "";
+  height: 2px;
+  left: -3px;
+  position: absolute;
+  top: -5px;
+  width: 20px;
+}
+
+.puzzleTrashIcon::after {
+  border-left: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+  content: "";
+  height: 4px;
+  left: 4px;
+  position: absolute;
+  top: -9px;
+  width: 4px;
+}
+
 .gameConfetti {
   position: fixed;
   top: 0;

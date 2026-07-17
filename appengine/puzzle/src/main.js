@@ -49,6 +49,7 @@ function init() {
       {'rtl': rtl,
        'scrollbars': false,
        'trashcan': true});
+  initPuzzleTrashButton();
 
   const savedBlocks =
       BlocklyGames.loadFromLocalStorage(BlocklyGames.storageName, BlocklyGames.LEVEL);
@@ -244,6 +245,33 @@ function checkAnswers() {
       Blockly.selected.unselect();
     }
   }
+}
+
+/**
+ * Configure the puzzle trash button to reset the current level.
+ */
+function initPuzzleTrashButton() {
+  const button = BlocklyGames.getElementById('puzzleTrashButton');
+  if (!button) {
+    return;
+  }
+  BlocklyGames.bindClick(button, function() {
+    const message = BlocklyGames.LANG == 'ca' ?
+        'Vols buidar el tauler i començar de nou?' :
+        BlocklyGames.LANG == 'es' ?
+        '¿Quieres vaciar el tablero y empezar de nuevo?' :
+        'Do you want to clear the board and start again?';
+    if (!window.confirm(message)) {
+      return;
+    }
+    try {
+      delete window.localStorage[BlocklyGames.storageName + BlocklyGames.LEVEL];
+      delete window.sessionStorage.loadOnceBlocks;
+    } catch (e) {
+      // Storage may be unavailable in some browser privacy modes.
+    }
+    window.location.reload();
+  });
 }
 
 /**

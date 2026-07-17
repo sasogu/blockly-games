@@ -21,11 +21,19 @@ goog.require('BlocklyGames.html');
  * @param {!Object} ij Injected options.
  */
 Puzzle.html.start = function(ij) {
+  const trashLabel = ij.lang == 'ca' ? 'Paperera' :
+      ij.lang == 'es' ? 'Papelera' : 'Trash';
+  const trashTitle = ij.lang == 'ca' ? 'Buidar el tauler' :
+      ij.lang == 'es' ? 'Vaciar el tablero' : 'Clear the board';
   return `
 ${BlocklyGames.html.headerBar(ij, BlocklyGames.getMsg('Games.puzzle', true), '', false, true,
     `<button id="checkButton" class="primary">${BlocklyGames.getMsg('Puzzle.checkAnswers', true)}</button>`)}
 
 <div id="blockly"></div>
+<button id="puzzleTrashButton" class="puzzleTrashButton" type="button" title="${trashTitle}">
+  <span class="puzzleTrashIcon" aria-hidden="true"></span>
+  <span>${trashLabel}</span>
+</button>
 
 ${BlocklyGames.html.dialog()}
 <div id="help" class="dialogHiddenContent">
