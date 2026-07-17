@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="google" value="notranslate">
+    <title>Blockly Games : Documentació de la Bassa</title>
+    <link rel="stylesheet" href="../common/common.css">
+    <link rel="stylesheet" href="docs/style.css">
+  </head>
+  <body>
+    <script src="docs/docs.js"></script>
+    <h1>Documentació de la Bassa</h1>
+
+    <h2 id="pond">Bassa</h2>
+
+    <div id="pond-content">
+      <h3>Angles</h3>
+
+      <p>La brúixola està orientada de manera que l'est (dreta) és 0 graus, 90 és el nord,
+      180 és l'oest, 270 és el sud.
+      Els angles es repeteixen com és d'esperar: -90 és el sud, 450 és el nord.</p>
+
+      <p><img src="docs/compass.png" height=145 width=150 style="padding: 0 2em;"></p>
+
+
+      <h3>Canó</h3>
+
+      <p class="blocks">
+        <svg height=41 width=250>
+          <g>
+            <path transform="translate(1,1)" fill="#7a4984" d="m 0,8 A 8,8 0 0,1 8,0 H 15 l 6,4 3,0 6,-4 H 40 H 222.36 v 36 H 29.5 l -6,4 -3,0 -6,-4 H 8 a 8,8 0 0,1 -8,-8 z M 125.01,5 h -36.02 v 5 c 0,10 -8,-8 -8,7.5 s 8,-2.5 8,7.5 v 7 h 36.02 z M 193.4,5 h -38.31 v 5 c 0,10 -8,-8 -8,7.5 s 8,-2.5 8,7.5 v 7 h 38.31 z"></path>
+            <path fill="#995ba5" d="m 0,8 A 8,8 0 0,1 8,0 H 15 l 6,4 3,0 6,-4 H 40 H 222.36 v 36 H 29.5 l -6,4 -3,0 -6,-4 H 8 a 8,8 0 0,1 -8,-8 z M 125.01,5 h -36.02 v 5 c 0,10 -8,-8 -8,7.5 s 8,-2.5 8,7.5 v 7 h 36.02 z M 193.4,5 h -38.31 v 5 c 0,10 -8,-8 -8,7.5 s 8,-2.5 8,7.5 v 7 h 38.31 z"></path>
+            <path class="blocklyPathLight" stroke="#b88cc0" d="m 0.5,7.5 A 7.5,7.5 0 0,1 8,0.5 H 15 l 6,4 3,0 6,-4 H 39.5 M 39.5,0.5 H 221.86 M 2.69,33.3 A 7.5,7.5 0 0,1 0.5,28 V 8 M 125.51,5.5 v 27 h -36.02 M 83.89,24.3 l 3.68,-2.1 M 193.9,5.5 v 27 h -38.31 M 149.99,24.3 l 3.68,-2.1"></path>
+            <text class="blocklyText" y="12.5" transform="translate(10,10)">cannon</text>
+            <text class="blocklyText" y="12.5" transform="translate(68.11,10)">(</text>
+            <text class="blocklyText" y="12.5" transform="translate(135.01,10)">,</text>
+            <text class="blocklyText" y="12.5" transform="translate(203.4,10)">);</text>
+            <g transform="translate(89.99,6)">
+              <path transform="translate(1,1)" fill="#495284" d="m 0,0 H 34.02 v 25 H 0 V 20 c 0,-10 -8,8 -8,-7.5 s 8,2.5 8,-7.5 z"></path>
+              <path fill="#5b67a5" d="m 0,0 H 34.02 v 25 H 0 V 20 c 0,-10 -8,8 -8,-7.5 s 8,2.5 8,-7.5 z"></path>
+              <path class="blocklyPathLight" stroke="#8c95c0" d="m 0.5,0.5 H 33.52 M 33.52,0.5 M 0.5,24.5 V 18.5 m -7.36,-0.5 q -1.52,-5.5 0,-11 m 7.36,1 V 0.5 H 1"></path>
+              <g class="blocklyEditableText" transform="translate(10,5)">
+                <rect rx="4" ry="4" x="-5" y="0" height="16" width="24.02"></rect>
+                <text class="blocklyText" y="12.5">0
+                <tspan>°</tspan></text>
+              </g>
+            </g>
+            <g transform="translate(156.09,6)">
+              <path transform="translate(1,1)" fill="#495284" d="m 0,0 H 36.31 v 25 H 0 V 20 c 0,-10 -8,8 -8,-7.5 s 8,2.5 8,-7.5 z"></path>
+              <path fill="#5b67a5" d="m 0,0 H 36.31 v 25 H 0 V 20 c 0,-10 -8,8 -8,-7.5 s 8,2.5 8,-7.5 z"></path>
+              <path class="blocklyPathLight" stroke="#8c95c0" d="m 0.5,0.5 H 35.81 M 35.81,0.5 M 0.5,24.5 V 18.5 m -7.36,-0.5 q -1.52,-5.5 0,-11 m 7.36,1 V 0.5 H 1"></path>
+              <g class="blocklyEditableText" transform="translate(10,5)">
+                <rect rx="4" ry="4" x="-5" y="0" height="16" width="26.31"></rect>
+                <text class="blocklyText" y="12.5">70</text>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </p>
+      <pre class="js pondSpec spec">cannon(<i>angle</i>, <i>range</i>)</pre>
+
+      <p>La funció <code>cannon()</code> dispara una bala de canó cap a l'angle i
+      l'abast especificats.  L'angle és independent de la direcció de l'ànec.
+      L'abast pot ser de 0 a 70 metres; els abasts més grans es trunquen a 70.</p>
+
+      <p>El canó triga aproximadament un segon a recarregar-se després de disparar.
+      Si es crida <code>cannon()</code> durant aquest temps, no passa res.
+      <span class="js">
+        <code>cannon()</code> retorna <code>true</code> si s'ha disparat una bala
+        de canó, o <code>false</code> si el canó s'està recarregant.
+      </span>
+      </p>
+
+
+      <div class="level5">
+        <h3>Escaneig</h3>
+
+        <p class="blocks">
+          <svg height=37 width=250>
+            <g transform="translate(8,0)">
+              <path transform="translate(1,1)" fill="#7a4984" d="m 0,0 H 20 H 132.76 v 36 H 0 V 20 c 0,-10 -8,8 -8,-7.5 s 8,2.5 8,-7.5 z M 107.88,5 h -36.02 v 5 c 0,10 -8,-8 -8,7.5 s 8,-2.5 8,7.5 v 7 h 36.02 z"></path>
+              <path fill="#995ba5" d="m 0,0 H 20 H 132.76 v 36 H 0 V 20 c 0,-10 -8,8 -8,-7.5 s 8,2.5 8,-7.5 z M 107.88,5 h -36.02 v 5 c 0,10 -8,-8 -8,7.5 s 8,-2.5 8,7.5 v 7 h 36.02 z"></path>
+              <path class="blocklyPathLight" stroke="#b88cc0" d="m 0.5,0.5 H 19.5 M 19.5,0.5 H 132.26 M 0.5,35.5 V 18.5 m -7.36,-0.5 q -1.52,-5.5 0,-11 m 7.36,1 V 0.5 H 1 M 108.38,5.5 v 27 h -36.02 M 66.76,24.3 l 3.68,-2.1"></path>
+              <text class="blocklyText" y="12.5" transform="translate(10,10)">scan</text>
+              <text class="blocklyText" y="12.5" transform="translate(50.97,10)">(</text>
+              <text class="blocklyText" y="12.5" transform="translate(117.88,10)">)</text>
+              <g transform="translate(72.86,6)">
+                <path transform="translate(1,1)" fill="#495284" d="m 0,0 H 34.02 v 25 H 0 V 20 c 0,-10 -8,8 -8,-7.5 s 8,2.5 8,-7.5 z"></path>
+                <path fill="#5b67a5" d="m 0,0 H 34.02 v 25 H 0 V 20 c 0,-10 -8,8 -8,-7.5 s 8,2.5 8,-7.5 z"></path>
+                <path class="blocklyPathLight" stroke="#8c95c0" d="m 0.5,0.5 H 33.52 M 33.52,0.5 M 0.5,24.5 V 18.5 m -7.36,-0.5 q -1.52,-5.5 0,-11 m 7.36,1 V 0.5 H 1"></path>
+                <g class="blocklyEditableText" transform="translate(10,5)">
+                  <rect rx="4" ry="4" x="-5" y="0" height="16" width="24.02"></rect>
+                  <text class="blocklyText" y="12.5">0
+                  <tspan>°</tspan></text>
+                </g>
+              </g>
+            </g>
+
+          </svg>
+        </p>
+        <pre class="js pondSpec spec">scan(<i>angle</i>)
+scan(<i>angle</i>, <i>width</i>)</pre>
+
+        <p>La funció <code>scan()</code> activa el radar de l'ànec.  Aquesta funció
+        retorna la distància fins al contrincant més proper en la direcció
+        especificada.  L'angle és independent de la direcció de l'ànec.  Els
+        contrincants enfonsats no es detecten.  Si no hi ha cap contrincant en
+        aquesta direcció, es retorna <code>Infinity</code>.</p>
+
+        <p class="js">
+          El segon paràmetre (opcional) de <code>scan()</code> especifica l'amplada
+          del feix d'escaneig.  Pot anar d'1 grau a 20 graus.  Els jugadors avançats
+          poden voler començar escanejant amb una amplada de 20 per fer un escaneig
+          ràpid, i després reduir progressivament l'amplada per obtenir més precisió.
+          Si no s'especifica, l'amplada és 5.
+          Aquest paràmetre només està disponible amb JavaScript, no amb blocs.
+        </p>
+      </div>
+
+
+      <div class="level7">
+        <h3>Nedar</h3>
+
+        <p class="blocks">
+          <svg height=41 width=250>
+            <g>
+              <path transform="translate(1,1)" fill="#7a4984" d="m 0,8 A 8,8 0 0,1 8,0 H 15 l 6,4 3,0 6,-4 H 40 H 139.25 v 36 H 29.5 l -6,4 -3,0 -6,-4 H 8 a 8,8 0 0,1 -8,-8 z M 110.3,5 h -36.02 v 5 c 0,10 -8,-8 -8,7.5 s 8,-2.5 8,7.5 v 7 h 36.02 z"></path>
+              <path fill="#995ba5" d="m 0,8 A 8,8 0 0,1 8,0 H 15 l 6,4 3,0 6,-4 H 40 H 139.25 v 36 H 29.5 l -6,4 -3,0 -6,-4 H 8 a 8,8 0 0,1 -8,-8 z M 110.3,5 h -36.02 v 5 c 0,10 -8,-8 -8,7.5 s 8,-2.5 8,7.5 v 7 h 36.02 z"></path>
+              <path class="blocklyPathLight" stroke="#b88cc0" d="m 0.5,7.5 A 7.5,7.5 0 0,1 8,0.5 H 15 l 6,4 3,0 6,-4 H 39.5 M 39.5,0.5 H 138.75 M 2.69,33.3 A 7.5,7.5 0 0,1 0.5,28 V 8 M 110.8,5.5 v 27 h -36.02 M 69.18,24.3 l 3.68,-2.1"></path>
+              <text class="blocklyText" y="12.5" transform="translate(10,10)">swim</text>
+              <text class="blocklyText" y="12.5" transform="translate(53.39,10)">(</text>
+              <text class="blocklyText" y="12.5" transform="translate(120.3,10)">);</text>
+              <g transform="translate(75.28,6)">
+                <path transform="translate(1,1)" fill="#495284" d="m 0,0 H 34.02 v 25 H 0 V 20 c 0,-10 -8,8 -8,-7.5 s 8,2.5 8,-7.5 z"></path>
+                <path fill="#5b67a5" d="m 0,0 H 34.02 v 25 H 0 V 20 c 0,-10 -8,8 -8,-7.5 s 8,2.5 8,-7.5 z"></path>
+                <path class="blocklyPathLight" stroke="#8c95c0" d="m 0.5,0.5 H 33.52 M 33.52,0.5 M 0.5,24.5 V 18.5 m -7.36,-0.5 q -1.52,-5.5 0,-11 m 7.36,1 V 0.5 H 1"></path>
+                <g class="blocklyEditableText" transform="translate(10,5)">
+                  <rect rx="4" ry="4" x="-5" y="0" height="16" width="24.02"></rect>
+                  <text class="blocklyText" y="12.5">0
+                  <tspan>°</tspan></text>
+                </g>
+              </g>
+            </g>
+          </svg>
+        </p>
+        <pre class="js pondSpec spec">swim(<i>angle</i>)
+swim(<i>angle</i>, <i>speed</i>)</pre>
+
+        <p>La funció <code>swim()</code> fa que l'ànec comenci a moure's.  L'ànec
+        continuarà movent-se en la direcció especificada indefinidament.</p>
+
+        <p class="js">
+          El segon paràmetre (opcional) de <code>swim()</code> especifica la
+          velocitat.  Pot anar de 0 (aturat) a 100 (ràpid).  La direcció del
+          moviment només es pot canviar si la velocitat és 50 o menys.  Si no
+          s'especifica, la velocitat és 50.
+          Aquest paràmetre només està disponible amb JavaScript, no amb blocs.
+        </p>
+
+        <p>Xocar contra les vores de la bassa farà mal al teu ànec.  Xocar contra
+        altres ànecs farà mal als dos ànecs.  La quantitat de dany és proporcional
+        a la teva velocitat.</p>
+      </div>
+
+
+      <div class="level9">
+        <h3>Aturar</h3>
+
+        <p class="blocks">
+          <svg height=31 width=250>
+            <g>
+              <path transform="translate(1,1)" fill="#7a4984" d="m 0,8 A 8,8 0 0,1 8,0 H 15 l 6,4 3,0 6,-4 H 81.56 v 24 H 29.5 l -6,4 -3,0 -6,-4 H 8 a 8,8 0 0,1 -8,-8 z"></path>
+              <path fill="#995ba5" d="m 0,8 A 8,8 0 0,1 8,0 H 15 l 6,4 3,0 6,-4 H 81.56 v 24 H 29.5 l -6,4 -3,0 -6,-4 H 8 a 8,8 0 0,1 -8,-8 z"></path>
+              <path class="blocklyPathLight" stroke="#b88cc0" d="m 0.5,7.5 A 7.5,7.5 0 0,1 8,0.5 H 15 l 6,4 3,0 6,-4 H 81.06 M 81.06,0.5 M 2.69,21.3 A 7.5,7.5 0 0,1 0.5,16 V 8"></path>
+              <text class="blocklyText" y="12.5" transform="translate(10,5)">stop</text>
+              <text class="blocklyText" y="12.5" transform="translate(47.71,5)">(</text>
+              <text class="blocklyText" y="12.5" transform="translate(62.6,5)">);</text>
+            </g>
+          </svg>
+        </p>
+        <pre class="js pondSpec spec">stop()</pre>
+
+        <p>La funció <code>stop()</code> fa que l'ànec deixi de moure's.  L'ànec
+        trigarà una estona a reduir la velocitat abans d'aturar-se completament.
+        <span class="js"> Això és el mateix que cridar <code>swim()</code> amb una
+        velocitat de zero.</span></p>
+      </div>
+
+
+      <div class="level9">
+        <h3>Posició</h3>
+
+        <p class="blocks">
+          <svg height=26 width=90>
+            <g transform="translate(8,0)">
+              <path transform="translate(1,1)" fill="#7a4984" d="m 0,0 H 79.93 v 24 H 0 V 20 c 0,-10 -8,8 -8,-7.5 s 8,2.5 8,-7.5 z"></path>
+              <path fill="#995ba5" d="m 0,0 H 79.93 v 24 H 0 V 20 c 0,-10 -8,8 -8,-7.5 s 8,2.5 8,-7.5 z"></path>
+              <path class="blocklyPathLight" stroke="#b88cc0" d="m 0.5,0.5 H 79.43 M 79.43,0.5 M 0.5,23.5 V 18.5 m -7.36,-0.5 q -1.52,-5.5 0,-11 m 7.36,1 V 0.5 H 1"></path>
+              <text class="blocklyText" y="12.5" transform="translate(10,5)">getX</text>
+              <text class="blocklyText" y="12.5" transform="translate(50.16,5)">(</text>
+              <text class="blocklyText" y="12.5" transform="translate(65.05,5)">)</text>
+            </g>
+          </svg>
+          &nbsp;
+          <svg height=26 width=90>
+            <g transform="translate(8,0)">
+              <path transform="translate(1,1)" fill="#7a4984" d="m 0,0 H 79.93 v 24 H 0 V 20 c 0,-10 -8,8 -8,-7.5 s 8,2.5 8,-7.5 z"></path>
+              <path fill="#995ba5" d="m 0,0 H 79.93 v 24 H 0 V 20 c 0,-10 -8,8 -8,-7.5 s 8,2.5 8,-7.5 z"></path>
+              <path class="blocklyPathLight" stroke="#b88cc0" d="m 0.5,0.5 H 79.43 M 79.43,0.5 M 0.5,23.5 V 18.5 m -7.36,-0.5 q -1.52,-5.5 0,-11 m 7.36,1 V 0.5 H 1"></path>
+              <text class="blocklyText" y="12.5" transform="translate(10,5)">getY</text>
+              <text class="blocklyText" y="12.5" transform="translate(50.16,5)">(</text>
+              <text class="blocklyText" y="12.5" transform="translate(65.05,5)">)</text>
+            </g>
+          </svg>
+        </p>
+        <pre class="js pondSpec spec">getX()
+getY()</pre>
+
+        <p>Les funcions <code>getX()</code> i <code>getY()</code> retornen les
+        posicions horitzontal i vertical de l'ànec.  Els valors estan entre 0 i
+        100, començant per la cantonada inferior esquerra.</p>
+
+        <p><img src="docs/map.png" height=190 width=244 style="padding: 0 2em;"></p>
+      </div>
+
+
+      <div class="level11">
+        <h3>Velocitat</h3>
+
+        <p class="block">
+          <svg height=26 width=250>
+            <g transform="translate(8,0)">
+              <path transform="translate(1,1)" fill="#7a4984" d="m 0,0 H 89.72 v 24 H 0 V 20 c 0,-10 -8,8 -8,-7.5 s 8,2.5 8,-7.5 z"></path>
+              <path fill="#995ba5" d="m 0,0 H 89.72 v 24 H 0 V 20 c 0,-10 -8,8 -8,-7.5 s 8,2.5 8,-7.5 z"></path>
+              <path class="blocklyPathLight" stroke="#b88cc0" d="m 0.5,0.5 H 89.22 M 89.22,0.5 M 0.5,23.5 V 18.5 m -7.36,-0.5 q -1.52,-5.5 0,-11 m 7.36,1 V 0.5 H 1"></path>
+              <text class="blocklyText" y="12.5" transform="translate(10,5)">speed</text>
+              <text class="blocklyText" y="12.5" transform="translate(59.95,5)">(</text>
+              <text class="blocklyText" y="12.5" transform="translate(74.83,5)">)</text>
+            </g>
+          </svg>
+        </p>
+        <pre class="js pondSpec spec">speed()</pre>
+
+        <p>La funció <code>speed()</code> retorna la velocitat actual de l'ànec.
+        Els valors estan entre 0 (aturat) i 100 (ràpid).  Aquesta funció es pot
+        utilitzar per detectar col·lisions (que aturen l'ànec instantàniament).</p>
+      </div>
+
+
+      <div class="level11">
+        <h3>Salut</h3>
+
+        <p class="blocks">
+          <svg height=26 width=250>
+            <g transform="translate(8,0)">
+              <path transform="translate(1,1)" fill="#7a4984" d="m 0,0 H 89.72 v 24 H 0 V 20 c 0,-10 -8,8 -8,-7.5 s 8,2.5 8,-7.5 z"></path>
+              <path fill="#995ba5" d="m 0,0 H 89.72 v 24 H 0 V 20 c 0,-10 -8,8 -8,-7.5 s 8,2.5 8,-7.5 z"></path>
+              <path class="blocklyPathLight" stroke="#b88cc0" d="m 0.5,0.5 H 89.22 M 89.22,0.5 M 0.5,23.5 V 18.5 m -7.36,-0.5 q -1.52,-5.5 0,-11 m 7.36,1 V 0.5 H 1"></path>
+              <text class="blocklyText" y="12.5" transform="translate(10,5)">health</text>
+              <text class="blocklyText" y="12.5" transform="translate(59.95,5)">(</text>
+              <text class="blocklyText" y="12.5" transform="translate(74.83,5)">)</text>
+            </g>
+          </svg>
+        </p>
+        <pre class="js pondSpec spec">health()</pre>
+
+        <p>La funció <code>health()</code> retorna el nivell de salut actual de
+        l'ànec.  Els valors estan entre 0 (enfonsat) i 100 (perfecte).  Els jugadors
+        avançats poden voler emmagatzemar la salut en una variable i comprovar
+        periòdicament si ha disminuït, cosa que indicaria que l'ànec està sota
+        atac.</p>
+
+        <p>No hi ha cap manera de reparar la salut.</p>
+      </div>
+
+
+      <div class="level11">
+        <h3>Depuració</h3>
+
+        <p class="blocks">
+          <svg height=41 width=250>
+            <g transform="translate(8,0)">
+              <path transform="translate(1,1)" fill="#7a4984" d=" m 0,0 m 0,8 a 8 8 0 0,1 8,-8 h 7 l 6,4 3,0 6,-4 h 105.85966491699219 v 5 H 135.8596649169922 V 5 H 135.8596649169922 V 32 H 135.8596649169922 V 32 V 36 h -106.35966491699219 l -6,4 -3,0 -6,-4 h -6.5 a 8 8 0 0,1 -8,-8 z M 60.445220947265625,5 v 5 c 0,10 -8,-8 -8,7.5 s 8,-2.5 8,7.5 v 7 h 46.46 v -27 z"></path>
+              <path class="blocklyPath" stroke="none" fill="#995ba5" d=" m 0,0 m 0,8 a 8 8 0 0,1 8,-8 h 7 l 6,4 3,0 6,-4 h 105.85966491699219 v 5 H 135.8596649169922 V 5 H 135.8596649169922 V 32 H 135.8596649169922 V 32 V 36 h -106.35966491699219 l -6,4 -3,0 -6,-4 h -6.5 a 8 8 0 0,1 -8,-8 z M 60.445220947265625,5 v 5 c 0,10 -8,-8 -8,7.5 s 8,-2.5 8,7.5 v 7 h 46.46 v -27 z"></path>
+              <path class="blocklyPathLight" stroke="#b88cc0" d=" m 0,0 m 0.5,8 a 7.5 7.5 0 0,1 8,-7.5 H 14.5 h 0.5 l 6,4 3,0 6,-4 H 135.3596649169922 H 135.3596649169922 M 0,36 m 2.6966991411008934,-2.6966991411008934 a 7.5 7.5 0 0,1 -2.1966991411008934,-5.303300858899107 V 8 M 107.40476989746094,5.5 v 27 h -46.46 M 60.445220947265625,10 m -5,14.3 l 3.68,-2.1 "></path>
+              <g transform="translate(53.445220947265625,6)">
+                <path transform="translate(1,1)" fill="#495284" d=" m 8,0 h 44.46 v 5 H 52.46 V 5 H 52.46 V 21 H 52.46 V 21 V 25 h -44.46 H 8 V 20 c 0,-10 -8,8 -8,-7.5 s 8,2.5 8,-7.5 z"></path>
+                <path class="blocklyPath" stroke="none" fill="#5b67a5" d=" m 8,0 h 44.46 v 5 H 52.46 V 5 H 52.46 V 21 H 52.46 V 21 V 25 h -44.46 H 8 V 20 c 0,-10 -8,8 -8,-7.5 s 8,2.5 8,-7.5 z"></path>
+                <path class="blocklyPathLight" stroke="#8c95c0" d=" m 8,0 m 0.5,0.5 H 51.96 H 51.96 M 8.5,24.5 M 8.5,24.5 V 20 v -1.5 m -7.36,-0.5 q -1.52,-5.5 0,-11 m 7.36,1 V 0.5"></path>
+                <g class="blocklyEditableText" transform="translate(13,5)">
+                  <rect rx="4" ry="4" x="0" y="0" height="16" width="34.46" class="blocklyFieldRect"></rect>
+                  <text class="blocklyText" x="5" y="13">123</text>
+                </g>
+              </g>
+              <g transform="translate(10,10)">
+                <text class="blocklyText" x="0" y="13">log</text>
+              </g>
+              <g transform="translate(39.56333923339844,10)">
+                <text class="blocklyText" x="0" y="13">(</text>
+              </g>
+              <g transform="translate(116.90476989746094,10)">
+                <text class="blocklyText" x="0" y="13">);</text>
+              </g>
+            </g>
+          </svg>
+        </p>
+        <pre class="js pondSpec spec">log()</pre>
+
+        <p>La funció <code>log()</code> imprimeix el número especificat a la
+        consola del navegador.  Això és molt útil per depurar el codi.</p>
+      </div>
+    </div>
+
+    <!-- ---------------------------------------------------------------------- -->
+    <h2 class="level3" id="logic">Lògica</h2>
+
+    <div class="level3" id="logic-content">
+      <div class="level9">
+        <h3>Si</h3>
+
+        <p class="blocks">
+          <svg height=90 width=250>
+            <g>
+              <path transform="translate(1,1)" fill="#496684" d="m 0,8 A 8,8 0 0,1 8,0 H 15 l 6,4 3,0 6,-4 H 50 H 117.64 v 35 H 50 l -6,4 -3,0 -6,-4 h -7 a 8,8 0 0,0 -8,8 v 9 a 8,8 0 0,0 8,8 H 50 H 50 v 25 H 29.5 l -6,4 -3,0 -6,-4 H 8 a 8,8 0 0,1 -8,-8 z M 83.79,5 h -14.5 v 5 c 0,10 -8,-8 -8,7.5 s 8,-2.5 8,7.5 v 6 h 14.5 z"></path>
+              <path fill="#5b80a5" d="m 0,8 A 8,8 0 0,1 8,0 H 15 l 6,4 3,0 6,-4 H 50 H 117.64 v 35 H 50 l -6,4 -3,0 -6,-4 h -7 a 8,8 0 0,0 -8,8 v 9 a 8,8 0 0,0 8,8 H 50 H 50 v 25 H 29.5 l -6,4 -3,0 -6,-4 H 8 a 8,8 0 0,1 -8,-8 z M 83.79,5 h -14.5 v 5 c 0,10 -8,-8 -8,7.5 s 8,-2.5 8,7.5 v 6 h 14.5 z"></path>
+              <path class="blocklyPathLight" stroke="#8ca6c0" d="m 0.5,7.5 A 7.5,7.5 0 0,1 8,0.5 H 15 l 6,4 3,0 6,-4 H 49.5 M 49.5,0.5 H 117.14 M 49.5,35.5 M 21.98,58.01 a 8.5,8.5 0 0,0 6.01,2.48 H 49.5 M 49.5,60.5 H 49.5 M 2.69,82.3 A 7.5,7.5 0 0,1 0.5,77 V 8 M 84.29,5.5 v 26 h -14.5 M 64.19,24.3 l 3.68,-2.1"></path>
+              <g class="blocklyIconGroup" display="block" transform="translate(10,5)">
+                <rect class="blocklyIconShape" rx="4" ry="4" height="16" width="16"></rect>
+                <path class="blocklyIconSymbol" d="m4.2,7.29 0,1.36 -0.92,0.67 -0.11,0.41 0.9,1.55 0.41,0.11 1.04,-0.45 1.18,0.68 0.12,1.13 0.3,0.3 1.8,0 0.3,-0.29 0.12,-1.13 1.18,-0.68 1.04,0.45 0.4,-0.11 0.9,-1.55 -0.11,-0.41 -0.92,-0.67 0,-1.36 0.92,-0.67 0.11,-0.41 -0.9,-1.55 -0.4,-0.1 -1.04,0.45 -1.18,-0.68 -0.12,-1.13 -0.3,-0.29 -1.8,0 -0.3,0.3 -0.12,1.13 -1.18,0.68 -1.04,-0.45 -0.41,0.11 -0.89,1.55 0.1,0.4z"></path>
+                <circle class="blocklyIconShape" r="2.7" cx="8" cy="8"></circle>
+              </g>
+              <text class="blocklyText" y="12.5" transform="translate(37,10)">if&#160;(</text>
+              <text class="blocklyText" y="12.5" transform="translate(93.79,10)">)&#160;{</text>
+              <text class="blocklyText" y="12.5" transform="translate(10,65)">}</text>
+            </g>
+          </svg>
+        </p>
+        <pre class="js logicSpec spec">if (<i>condition</i>) {
+  <i>statements</i>
+}
+
+
+if (<i>condition</i>) {
+  <i>statements</i>
+} else if (<i>condition</i>) {
+  <i>statements</i>
+}
+
+
+if (<i>condition</i>) {
+  <i>statements</i>
+} else {
+  <i>statements</i>
+}</pre>
+
+        <p>Si la condició és certa, s'executen les instruccions contingudes.
+        El <code>if</code> pot anar seguit de qualsevol nombre de condicions
+        <code>else if</code> addicionals, i al final d'una condició
+        <code>else</code> opcional que s'executa si cap de les condicions
+        anteriors era certa.</p>
+      </div>
+
+
+      <div class="level9">
+        <h3>Igualtat</h3>
+
+        <p class="blocks">
+          <svg height=36 width=250>
+            <g transform="translate(8,0)">
+              <path transform="translate(1,1)" fill="#496684" d="m 0,0 H 20 H 111.56 v 35 H 0 V 20 c 0,-10 -8,8 -8,-7.5 s 8,2.5 8,-7.5 z M 30.5,5 h -14.5 v 5 c 0,10 -8,-8 -8,7.5 s 8,-2.5 8,7.5 v 6 h 14.5 z M 101.56,5 h -14.5 v 5 c 0,10 -8,-8 -8,7.5 s 8,-2.5 8,7.5 v 6 h 14.5 z"></path>
+              <path fill="#5b80a5" d="m 0,0 H 20 H 111.56 v 35 H 0 V 20 c 0,-10 -8,8 -8,-7.5 s 8,2.5 8,-7.5 z M 30.5,5 h -14.5 v 5 c 0,10 -8,-8 -8,7.5 s 8,-2.5 8,7.5 v 6 h 14.5 z M 101.56,5 h -14.5 v 5 c 0,10 -8,-8 -8,7.5 s 8,-2.5 8,7.5 v 6 h 14.5 z"></path>
+              <path class="blocklyPathLight" stroke="#8ca6c0" d="m 0.5,0.5 H 19.5 M 19.5,0.5 H 111.06 M 0.5,34.5 V 18.5 m -7.36,-0.5 q -1.52,-5.5 0,-11 m 7.36,1 V 0.5 H 1 M 31,5.5 v 26 h -14.5 M 10.9,24.3 l 3.68,-2.1 M 102.06,5.5 v 26 h -14.5 M 81.96,24.3 l 3.68,-2.1"></path>
+              <g class="blocklyEditableText" transform="translate(40.5,10)" style="cursor: default;">
+                <rect rx="4" ry="4" x="-5" y="0" height="16" width="40.56"></rect>
+                <text class="blocklyText" y="12.5" text-anchor="start" x="0">==
+                <tspan style="fill: rgb(91, 128, 165);"> ▾</tspan></text>
+              </g>
+            </g>
+          </svg>
+        </p>
+        <pre class="js logicSpec spec">==    !=    &lt;    &lt;=    &gt;    &gt;=</pre>
+
+        <p>Aquestes expressions comparen dos números i retornen <code>true</code>
+        o <code>false</code>.  Els sis operadors d'igualtat disponibles són:</p>
+
+        <table>
+          <tr>
+            <th>Operador</td>
+            <th>Exemple</td>
+            <th>Retorna</td>
+          </tr>
+          <tr>
+            <td>Igual a</td>
+            <td><code>5 == 10</code></td>
+            <td><code>false</code></td>
+          </tr>
+          <tr>
+            <td>Diferent de</td>
+            <td><code>5 != 10</code></td>
+            <td><code>true</code></td>
+          </tr>
+          <tr>
+            <td>Menor que</td>
+            <td><code>5 &lt; 10</code></td>
+            <td><code>true</code></td>
+          </tr>
+          <tr>
+            <td>Menor o igual que</td>
+            <td><code>5 &lt;= 10</code></td>
+            <td><code>true</code></td>
+          </tr>
+          <tr>
+            <td>Major que</td>
+            <td><code>5 &gt; 10</code></td>
+            <td><code>false</code></td>
+          </tr>
+          <tr>
+            <td>Major o igual que</td>
+            <td><code>5 &gt;= 10</code></td>
+            <td><code>false</code></td>
+          </tr>
+        </table>
+
+        <p>L'ús de <code>!=</code> pot ser perillós si els números que es comparen
+        són fraccions.  Considereu aquest codi dissenyat per nedar fins a 50 i
+        després aturar-se:</p>
+
+        <pre>while (getY() <b>!=</b> 50) {
+  swim(90<span class="js">, 50</span>);
+}
+stop();</pre>
+
+        <p>Aquest codi probablement fallarà perquè <code>getY()</code> pot valer
+        49.4 en una execució i 50.6 en la següent.  Com que el valor no s'ha vist
+        exactament a 50, el bucle continua per sempre.  A continuació hi ha un
+        codi millor:</p>
+
+        <pre>while (getY() <b>&lt;</b> 50) {
+  swim(90<span class="js">, 50</span>);
+}
+stop();</pre>
+      </div>
+
+
+      <div class="level11">
+        <h3>I / O</h3>
+
+        <p class="blocks">
+          <svg height=36 width=250>
+            <g transform="translate(8,0)">
+              <path transform="translate(1,1)" fill="#496684" d="m 0,0 H 20 H 114.0 v 35 H 0 V 20 c 0,-10 -8,8 -8,-7.5 s 8,2.5 8,-7.5 z M 30.5,5 h -14.5 v 5 c 0,10 -8,-8 -8,7.5 s 8,-2.5 8,7.5 v 6 h 14.5 z M 104.0,5 h -14.5 v 5 c 0,10 -8,-8 -8,7.5 s 8,-2.5 8,7.5 v 6 h 14.5 z"></path>
+              <path fill="#5b80a5" d="m 0,0 H 20 H 114.0 v 35 H 0 V 20 c 0,-10 -8,8 -8,-7.5 s 8,2.5 8,-7.5 z M 30.5,5 h -14.5 v 5 c 0,10 -8,-8 -8,7.5 s 8,-2.5 8,7.5 v 6 h 14.5 z M 104.0,5 h -14.5 v 5 c 0,10 -8,-8 -8,7.5 s 8,-2.5 8,7.5 v 6 h 14.5 z"></path>
+              <path class="blocklyPathLight" stroke="#8ca6c0" d="m 0.5,0.5 H 19.5 M 19.5,0.5 H 113.5 M 0.5,34.5 V 18.5 m -7.36,-0.5 q -1.52,-5.5 0,-11 m 7.36,1 V 0.5 H 1 M 31,5.5 v 26 h -14.5 M 10.9,24.3 l 3.68,-2.1 M 104.5,5.5 v 26 h -14.5 M 84.4,24.3 l 3.68,-2.1"></path>
+              <g class="blocklyEditableText" transform="translate(40.5,10)" style="cursor: default;">
+                <rect rx="4" ry="4" x="-5" y="0" height="16" width="43.0"></rect>
+                <text class="blocklyText" y="12.5" text-anchor="start" x="0">&amp;&amp;
+                <tspan style="fill: rgb(91, 128, 165);"> ▾</tspan></text>
+              </g>
+            </g>
+          </svg>
+        </p>
+        <pre class="js logicSpec spec">&&    ||</pre>
+
+        <p>«I» es representa amb l'operador <code>&&</code>.
+        Retorna <code>true</code> només si totes dues entrades són <code>true</code>.
+        Per exemple, aquest codi només dispararà el canó si l'abast és alhora
+        superior a 5 i inferior a 70:</p>
+
+        <pre>if (range &gt; 5 <b>&amp;&amp;</b> range &lt; 70) {
+  cannon(angle, range);
+}</pre>
+
+        <p>«O» es representa amb l'operador <code>||</code>.
+        Retorna <code>true</code> si alguna de les entrades és <code>true</code>.
+        Per exemple, aquest codi aturarà l'ànec si està a prop de qualsevol paret:</p>
+
+        <pre>if (getX() &lt; 10 <b>||</b> getX() &gt; 90 <b>||</b>
+    getY() &lt; 10 <b>||</b> getY() &gt; 90) {
+  stop();
+}</pre>
+      </div>
+
+
+      <h3>Booleans</h3>
+
+      <p class="blocks">
+        <svg height=26 width=250>
+          <g transform="translate(8,0)">
+            <path transform="translate(1,1)" fill="#496684" d="m 0,0 H 58.71 v 25 H 0 V 20 c 0,-10 -8,8 -8,-7.5 s 8,2.5 8,-7.5 z"></path>
+            <path fill="#5b80a5" d="m 0,0 H 58.71 v 25 H 0 V 20 c 0,-10 -8,8 -8,-7.5 s 8,2.5 8,-7.5 z"></path>
+            <path class="blocklyPathLight" stroke="#8ca6c0" d="m 0.5,0.5 H 58.21 M 58.21,0.5 M 0.5,24.5 V 18.5 m -7.36,-0.5 q -1.52,-5.5 0,-11 m 7.36,1 V 0.5 H 1"></path>
+            <g class="blocklyEditableText" transform="translate(10,5)" style="cursor: default;">
+              <rect rx="4" ry="4" x="-5" y="0" height="16" width="48.71"></rect>
+              <text class="blocklyText" y="12.5" text-anchor="start" x="0">true
+              <tspan style="fill: rgb(91, 128, 165);"> ▾</tspan></text>
+            </g>
+          </g>
+        </svg>
+      </p>
+      <pre class="js logicSpec spec">true    false</pre>
+
+      <p>El valor <code>true</code> s'utilitza principalment amb el bucle
+      <code>while</code> per crear un bucle que s'executa per sempre.  El valor
+      <code>false</code> també està disponible.</p>
+    </div>
+
+    <!-- ---------------------------------------------------------------------- -->
+    <h2 class="level3" id="loops">Bucles</h2>
+
+    <div class="level3" id="loops-content">
+      <h3>Mentre</h3>
+
+      <p class="blocks">
+        <svg height=90 width=250>
+          <g>
+            <path transform="translate(1,1)" fill="#498449" d="m 0,8 A 8,8 0 0,1 8,0 H 15 l 6,4 3,0 6,-4 H 50 H 116.73 v 35 H 50 l -6,4 -3,0 -6,-4 h -7 a 8,8 0 0,0 -8,8 v 9 a 8,8 0 0,0 8,8 H 50 H 50 v 25 H 29.5 l -6,4 -3,0 -6,-4 H 8 a 8,8 0 0,1 -8,-8 z M 82.87,5 h -14.5 v 5 c 0,10 -8,-8 -8,7.5 s 8,-2.5 8,7.5 v 6 h 14.5 z"></path>
+            <path fill="#5ba55b" d="m 0,8 A 8,8 0 0,1 8,0 H 15 l 6,4 3,0 6,-4 H 50 H 116.73 v 35 H 50 l -6,4 -3,0 -6,-4 h -7 a 8,8 0 0,0 -8,8 v 9 a 8,8 0 0,0 8,8 H 50 H 50 v 25 H 29.5 l -6,4 -3,0 -6,-4 H 8 a 8,8 0 0,1 -8,-8 z M 82.87,5 h -14.5 v 5 c 0,10 -8,-8 -8,7.5 s 8,-2.5 8,7.5 v 6 h 14.5 z"></path>
+            <path class="blocklyPathLight" stroke="#8cc08c" d="m 0.5,7.5 A 7.5,7.5 0 0,1 8,0.5 H 15 l 6,4 3,0 6,-4 H 49.5 M 49.5,0.5 H 116.23 M 49.5,35.5 M 21.98,58.01 a 8.5,8.5 0 0,0 6.01,2.48 H 49.5 M 49.5,60.5 H 49.5 M 2.69,82.3 A 7.5,7.5 0 0,1 0.5,77 V 8 M 83.37,5.5 v 26 h -14.5 M 63.27,24.3 l 3.68,-2.1"></path>
+            <text class="blocklyText" y="12.5" transform="translate(10,10)">while&#160;(</text>
+            <text class="blocklyText" y="12.5" transform="translate(92.87,10)">)&#160;{</text>
+            <text class="blocklyText" y="12.5" transform="translate(10,65)">}</text>
+          </g>
+        </svg>
+      </p>
+      <pre class="js loopsSpec spec">while (<i>condition</i>) {
+  <i>statements</i>
+}</pre>
+
+      <p>Els bucles repeteixen l'execució de les instruccions contingudes mentre la
+      condició sigui certa.  Així, el següent codi dispararà el canó cap a l'oest
+      per sempre:</p>
+
+      <pre>while (true) {
+  cannon(180, 50);
+}</pre>
+
+      <p>Mentre que el següent dispararà el canó cap a l'oest mentre hi hagi un
+      contrincant a l'abast:</p>
+
+      <pre>while (scan(180<span class="js">, 5</span>) &lt;= 70) {
+  cannon(180, scan(180<span class="js">, 5</span>));
+}</pre>
+    </div>
+
+    <!-- ---------------------------------------------------------------------- -->
+    <h2 id="math">Matemàtiques</h2>
+
+    <div id="math-content">
+      <h3>Número</h3>
+
+      <p class="blocks">
+        <svg height=26 width=250>
+          <g transform="translate(8,0)">
+            <path transform="translate(1,1)" fill="#495284" d="m 0,0 H 28.15 v 25 H 0 V 20 c 0,-10 -8,8 -8,-7.5 s 8,2.5 8,-7.5 z"></path>
+            <path fill="#5b67a5" d="m 0,0 H 28.15 v 25 H 0 V 20 c 0,-10 -8,8 -8,-7.5 s 8,2.5 8,-7.5 z"></path>
+            <path class="blocklyPathLight" stroke="#8c95c0" d="m 0.5,0.5 H 27.65 M 27.65,0.5 M 0.5,24.5 V 18.5 m -7.36,-0.5 q -1.52,-5.5 0,-11 m 7.36,1 V 0.5 H 1"></path>
+            <g class="blocklyEditableText" transform="translate(10,5)">
+              <rect rx="4" ry="4" x="-5" y="0" height="16" width="18.15"></rect>
+              <text class="blocklyText" y="12.5">0</text>
+            </g>
+          </g>
+        </svg>
+      </p>
+      <pre class="js mathSpec spec">123</pre>
+
+      <p>Els números s'utilitzen per a moltes coses, com ara abasts, angles i
+      comptadors.  Els números poden ser negatius (p. ex. -360), fraccionaris
+      (p. ex. 3.14159), o molt grans (p. ex. 9007199254740992).
+      Fins i tot hi ha un número especial anomenat <code>Infinity</code>.</p>
+
+      <p>No utilitzeu separadors de milers (p. ex. 9.000).</p>
+
+
+      <div class="level11">
+        <h3>Aritmètica</h3>
+
+        <p class="blocks">
+          <svg height=36 width=250>
+            <g transform="translate(8,0)">
+              <path transform="translate(1,1)" fill="#495284" d="m 0,0 H 20 H 134.31 v 36 H 0 V 20 c 0,-10 -8,8 -8,-7.5 s 8,2.5 8,-7.5 z M 46.15,5 h -30.15 v 5 c 0,10 -8,-8 -8,7.5 s 8,-2.5 8,7.5 v 7 h 30.15 z M 124.31,5 h -30.15 v 5 c 0,10 -8,-8 -8,7.5 s 8,-2.5 8,7.5 v 7 h 30.15 z"></path>
+              <path fill="#5b67a5" d="m 0,0 H 20 H 134.31 v 36 H 0 V 20 c 0,-10 -8,8 -8,-7.5 s 8,2.5 8,-7.5 z M 46.15,5 h -30.15 v 5 c 0,10 -8,-8 -8,7.5 s 8,-2.5 8,7.5 v 7 h 30.15 z M 124.31,5 h -30.15 v 5 c 0,10 -8,-8 -8,7.5 s 8,-2.5 8,7.5 v 7 h 30.15 z"></path>
+              <path class="blocklyPathLight" stroke="#8c95c0" d="m 0.5,0.5 H 19.5 M 19.5,0.5 H 133.81 M 0.5,35.5 V 18.5 m -7.36,-0.5 q -1.52,-5.5 0,-11 m 7.36,1 V 0.5 H 1 M 46.65,5.5 v 27 h -30.15 M 10.9,24.3 l 3.68,-2.1 M 124.81,5.5 v 27 h -30.15 M 89.06,24.3 l 3.68,-2.1"></path>
+              <g class="blocklyEditableText" transform="translate(56.15,10)" style="cursor: default;">
+                <rect rx="4" ry="4" x="-5" y="0" height="16" width="32.0"></rect>
+                <text class="blocklyText" y="12.5" text-anchor="start" x="0">+
+                <tspan style="fill: rgb(91, 103, 165);"> ▾</tspan></text>
+              </g>
+              <g transform="translate(95.16,6)">
+                <path transform="translate(1,1)" fill="#495284" d="m 0,0 H 28.15 v 25 H 0 V 20 c 0,-10 -8,8 -8,-7.5 s 8,2.5 8,-7.5 z"></path>
+                <path fill="#5b67a5" d="m 0,0 H 28.15 v 25 H 0 V 20 c 0,-10 -8,8 -8,-7.5 s 8,2.5 8,-7.5 z"></path>
+                <path class="blocklyPathLight" stroke="#8c95c0" d="m 0.5,0.5 H 27.65 M 27.65,0.5 M 0.5,24.5 V 18.5 m -7.36,-0.5 q -1.52,-5.5 0,-11 m 7.36,1 V 0.5 H 1"></path>
+                <g class="blocklyEditableText" transform="translate(10,5)">
+                  <rect rx="4" ry="4" x="-5" y="0" height="16" width="18.15"></rect>
+                  <text class="blocklyText" y="12.5">2</text>
+                </g>
+              </g>
+              <g transform="translate(16.99,6)">
+                <path transform="translate(1,1)" fill="#495284" d="m 0,0 H 28.15 v 25 H 0 V 20 c 0,-10 -8,8 -8,-7.5 s 8,2.5 8,-7.5 z"></path>
+                <path fill="#5b67a5" d="m 0,0 H 28.15 v 25 H 0 V 20 c 0,-10 -8,8 -8,-7.5 s 8,2.5 8,-7.5 z"></path>
+                <path class="blocklyPathLight" stroke="#8c95c0" d="m 0.5,0.5 H 27.65 M 27.65,0.5 M 0.5,24.5 V 18.5 m -7.36,-0.5 q -1.52,-5.5 0,-11 m 7.36,1 V 0.5 H 1"></path>
+                <g class="blocklyEditableText" transform="translate(10,5)">
+                  <rect rx="4" ry="4" x="-5" y="0" height="16" width="18.15"></rect>
+                  <text class="blocklyText" y="12.5">1</text>
+                </g>
+              </g>
+            </g>
+          </svg>
+        </p>
+        <pre class="js mathSpec spec">+    -    *    /</pre>
+
+        <p>Aquests operadors prenen dos números i en retornen un de sol.
+        Els quatre operadors aritmètics disponibles són:</p>
+
+        <table>
+          <tr>
+            <th>Operador</td>
+            <th>Exemple</td>
+            <th>Retorna</td>
+          </tr>
+          <tr>
+            <td>Suma</td>
+            <td><code>3 + 4</code></td>
+            <td><code>7</code></td>
+          </tr>
+          <tr>
+            <td>Resta</td>
+            <td><code>3 - 4</code></td>
+            <td><code>-1</code></td>
+          </tr>
+          <tr>
+            <td>Multiplicació</td>
+            <td><code>3 * 4</code></td>
+            <td><code>12</code></td>
+          </tr>
+          <tr>
+            <td>Divisió</td>
+            <td><code>3 / 4</code></td>
+            <td><code>0.75</code></td>
+          </tr>
+        </table>
+      </div>
+
+
+      <div class="level11">
+        <h3>Trigonometria</h3>
+
+        <p class="blocks">
+          <svg height=36 width=250>
+            <g transform="translate(8,0)">
+              <path transform="translate(1,1)" fill="#495284" d="m 0,0 H 20 H 170.48 v 36 H 0 V 20 c 0,-10 -8,8 -8,-7.5 s 8,2.5 8,-7.5 z M 145.6,5 h -30.15 v 5 c 0,10 -8,-8 -8,7.5 s 8,-2.5 8,7.5 v 7 h 30.15 z"></path>
+              <path fill="#5b67a5" d="m 0,0 H 20 H 170.48 v 36 H 0 V 20 c 0,-10 -8,8 -8,-7.5 s 8,2.5 8,-7.5 z M 145.6,5 h -30.15 v 5 c 0,10 -8,-8 -8,7.5 s 8,-2.5 8,7.5 v 7 h 30.15 z"></path>
+              <path class="blocklyPathLight" stroke="#8c95c0" d="m 0.5,0.5 H 19.5 M 19.5,0.5 H 169.98 M 0.5,35.5 V 18.5 m -7.36,-0.5 q -1.52,-5.5 0,-11 m 7.36,1 V 0.5 H 1 M 146.1,5.5 v 27 h -30.15 M 110.34,24.3 l 3.68,-2.1"></path>
+              <g class="blocklyEditableText" transform="translate(10,10)" style="cursor: default;">
+                <rect rx="4" ry="4" x="-5" y="0" height="16" width="84.56"></rect>
+                <text class="blocklyText" y="12.5" text-anchor="start" x="0">Math.sqrt
+                <tspan style="fill: rgb(91, 103, 165);"> ▾</tspan></text>
+              </g>
+              <text class="blocklyText" y="12.5" transform="translate(94.56,10)">(</text>
+              <text class="blocklyText" y="12.5" transform="translate(155.6,10)">)</text>
+              <g transform="translate(116.44,6)">
+                <path transform="translate(1,1)" fill="#495284" d="m 0,0 H 28.15 v 25 H 0 V 20 c 0,-10 -8,8 -8,-7.5 s 8,2.5 8,-7.5 z"></path>
+                <path fill="#5b67a5" d="m 0,0 H 28.15 v 25 H 0 V 20 c 0,-10 -8,8 -8,-7.5 s 8,2.5 8,-7.5 z"></path>
+                <path class="blocklyPathLight" stroke="#8c95c0" d="m 0.5,0.5 H 27.65 M 27.65,0.5 M 0.5,24.5 V 18.5 m -7.36,-0.5 q -1.52,-5.5 0,-11 m 7.36,1 V 0.5 H 1"></path>
+                <g class="blocklyEditableText" transform="translate(10,5)">
+                  <rect rx="4" ry="4" x="-5" y="0" height="16" width="18.15"></rect>
+                  <text class="blocklyText" y="12.5">9</text>
+                </g>
+              </g>
+            </g>
+          </svg>
+        </p>
+        <pre class="js mathSpec spec">Math.<i>operation</i>(<i>number</i>)</pre>
+
+        <p>Aquestes funcions prenen un número i en retornen un altre.
+        Les vuit funcions disponibles són:</p>
+
+        <table>
+          <tr>
+            <th>Funció</td>
+            <th>Exemple</td>
+            <th>Retorna</td>
+          </tr>
+          <tr>
+            <td>Arrel quadrada</td>
+            <td><code>Math.sqrt(25)</code></td>
+            <td><code>5</code></td>
+          </tr>
+          <tr>
+            <td>Valor absolut</td>
+            <td><code>Math.abs(-25)</code></td>
+            <td><code>25</code></td>
+          </tr>
+          <tr>
+            <td>Sinus</td>
+            <td><code>Math.sin_deg(30)</code></td>
+            <td><code>0.5</code></td>
+          </tr>
+          <tr>
+            <td>Cosinus</td>
+            <td><code>Math.cos_deg(30)</code></td>
+            <td><code>0.86</code></td>
+          </tr>
+          <tr>
+            <td>Tangent</td>
+            <td><code>Math.tan_deg(30)</code></td>
+            <td><code>0.577</code></td>
+          </tr>
+          <tr>
+            <td>Arcsinus</td>
+            <td><code>Math.asin_deg(0.5)</code></td>
+            <td><code>30</code></td>
+          </tr>
+          <tr>
+            <td>Arccosinus</td>
+            <td><code>Math.acos_deg(0.866)</code></td>
+            <td><code>30.003</code></td>
+          </tr>
+          <tr>
+            <td>Arctangent</td>
+            <td><code>Math.atan_deg(0.577)</code></td>
+            <td><code>29.985</code></td>
+          </tr>
+        </table>
+
+        <p>Tingueu en compte que aquestes funcions trigonomètriques són pròpies
+        del joc de la Bassa i totes utilitzen graus.  Les funcions estàndard de
+        JavaScript utilitzen radians.</p>
+      </div>
+
+
+      <div class="level11">
+        <h3>Aleatori</h3>
+
+        <p class="blocks">
+          <svg height=26 width=250>
+            <g transform="translate(8,0)">
+              <path transform="translate(1,1)" fill="#495284" d="m 0,0 H 132.46 v 24 H 0 V 20 c 0,-10 -8,8 -8,-7.5 s 8,2.5 8,-7.5 z"></path>
+              <path fill="#5b67a5" d="m 0,0 H 132.46 v 24 H 0 V 20 c 0,-10 -8,8 -8,-7.5 s 8,2.5 8,-7.5 z"></path>
+              <path class="blocklyPathLight" stroke="#8c95c0" d="m 0.5,0.5 H 131.96 M 131.96,0.5 M 0.5,23.5 V 18.5 m -7.36,-0.5 q -1.52,-5.5 0,-11 m 7.36,1 V 0.5 H 1"></path>
+              <text class="blocklyText" y="12.5" transform="translate(10,5)">Math.random&#160;&#160;(&#160;&#160;)</text>
+            </g>
+          </svg>
+        </p>
+        <pre class="js mathSpec spec">Math.random()</pre>
+
+        <p>Aquesta funció retorna una fracció aleatòria d'entre 0.0 i 1.0.  Per
+        obtenir un número aleatori en un interval més gran, només cal
+        multiplicar-lo pel valor màxim.  Aquí teniu un exemple per obtenir un
+        angle aleatori:</p>
+
+        <pre>var angle = Math.random() * 360;</pre>
+      </div>
+    </div>
+
+    <!-- ---------------------------------------------------------------------- -->
+    <h2 class="level11" id="variables">Variables</h2>
+
+    <div class="level11" id="variables-content">
+      <h3>Assignació</h3>
+
+      <p class="blocks">
+        <svg height=40 width=250>
+          <g>
+            <path transform="translate(1,1)" fill="#844966" d="m 0,8 A 8,8 0 0,1 8,0 H 15 l 6,4 3,0 6,-4 H 40 H 179.29 v 36 H 29.5 l -6,4 -3,0 -6,-4 H 8 a 8,8 0 0,1 -8,-8 z M 155.21,5 h -30.15 v 5 c 0,10 -8,-8 -8,7.5 s 8,-2.5 8,7.5 v 7 h 30.15 z"></path>
+            <path fill="#a55b80" d="m 0,8 A 8,8 0 0,1 8,0 H 15 l 6,4 3,0 6,-4 H 40 H 179.29 v 36 H 29.5 l -6,4 -3,0 -6,-4 H 8 a 8,8 0 0,1 -8,-8 z M 155.21,5 h -30.15 v 5 c 0,10 -8,-8 -8,7.5 s 8,-2.5 8,7.5 v 7 h 30.15 z"></path>
+            <path class="blocklyPathLight" stroke="#c08ca6" d="m 0.5,7.5 A 7.5,7.5 0 0,1 8,0.5 H 15 l 6,4 3,0 6,-4 H 39.5 M 39.5,0.5 H 178.79 M 2.69,33.3 A 7.5,7.5 0 0,1 0.5,28 V 8 M 155.71,5.5 v 27 h -30.15 M 119.96,24.3 l 3.68,-2.1"></path>
+            <text class="blocklyText" y="12.5" transform="translate(10,10)">var</text>
+            <g class="blocklyEditableText" transform="translate(40.37,10)" style="cursor: default;">
+              <rect rx="4" ry="4" x="-5" y="0" height="16" width="60.12"></rect>
+              <text class="blocklyText" y="12.5" text-anchor="start" x="0">name
+              <tspan style="fill: rgb(165, 91, 128);"> ▾</tspan></text>
+            </g>
+            <text class="blocklyText" y="12.5" transform="translate(100.49,10)">=</text>
+            <text class="blocklyText" y="12.5" transform="translate(165.21,10)">;</text>
+            <g transform="translate(126.06,6)">
+              <path transform="translate(1,1)" fill="#495284" d="m 0,0 H 28.15 v 25 H 0 V 20 c 0,-10 -8,8 -8,-7.5 s 8,2.5 8,-7.5 z"></path>
+              <path fill="#5b67a5" d="m 0,0 H 28.15 v 25 H 0 V 20 c 0,-10 -8,8 -8,-7.5 s 8,2.5 8,-7.5 z"></path>
+              <path class="blocklyPathLight" stroke="#8c95c0" d="m 0.5,0.5 H 27.65 M 27.65,0.5 M 0.5,24.5 V 18.5 m -7.36,-0.5 q -1.52,-5.5 0,-11 m 7.36,1 V 0.5 H 1"></path>
+              <g class="blocklyEditableText" transform="translate(10,5)">
+                <rect rx="4" ry="4" x="-5" y="0" height="16" width="18.15"></rect>
+                <text class="blocklyText" y="12.5">0</text>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </p>
+      <pre class="js variablesSpec spec">var <i>name</i> = <i>value</i>;</pre>
+
+      <p>Assigna un valor (normalment un número) a la variable amb nom.
+      El nom de la variable hauria de tenir sentit, com ara <code>range</code>
+      o <code>angle</code>.</p>
+
+      <p class="js">Tingueu en compte que els noms de variable distingeixen entre
+      majúscules i minúscules, per tant <code>angle</code> i <code>Angle</code> són
+      dues variables completament diferents.  Els noms de variable només poden
+      utilitzar les lletres angleses a-z i números.  Els noms de variable no poden
+      començar amb un número.</p>
+
+      <p class="js">La paraula clau <code>var</code> es pot ometre a totes les
+      assignacions excepte la primera, però no hi ha cap problema a utilitzar-la
+      sempre.</p>
+
+
+      <h3>Increment</h3>
+
+      <p class="blocks">
+        <svg height=41 width=250>
+          <g>
+            <path transform="translate(1,1)" fill="#844966" d="m 0,8 A 8,8 0 0,1 8,0 H 15 l 6,4 3,0 6,-4 H 40 H 157.48 v 36 H 29.5 l -6,4 -3,0 -6,-4 H 8 a 8,8 0 0,1 -8,-8 z M 133.4,5 h -30.15 v 5 c 0,10 -8,-8 -8,7.5 s 8,-2.5 8,7.5 v 7 h 30.15 z"></path>
+            <path fill="#a55b80" d="m 0,8 A 8,8 0 0,1 8,0 H 15 l 6,4 3,0 6,-4 H 40 H 157.48 v 36 H 29.5 l -6,4 -3,0 -6,-4 H 8 a 8,8 0 0,1 -8,-8 z M 133.4,5 h -30.15 v 5 c 0,10 -8,-8 -8,7.5 s 8,-2.5 8,7.5 v 7 h 30.15 z"></path>
+            <path class="blocklyPathLight" stroke="#c08ca6" d="m 0.5,7.5 A 7.5,7.5 0 0,1 8,0.5 H 15 l 6,4 3,0 6,-4 H 39.5 M 39.5,0.5 H 156.98 M 2.69,33.3 A 7.5,7.5 0 0,1 0.5,28 V 8 M 133.9,5.5 v 27 h -30.15 M 98.15,24.3 l 3.68,-2.1"></path>
+            <g class="blocklyEditableText" transform="translate(10,10)" style="cursor: default;">
+              <rect rx="4" ry="4" x="-5" y="0" height="16" width="60.12"></rect>
+              <text class="blocklyText" y="12.5" text-anchor="start" x="0">name
+              <tspan style="fill: rgb(165, 91, 128);"> ▾</tspan></text>
+            </g>
+            <text class="blocklyText" y="12.5" transform="translate(70.12,10)">+=</text>
+            <text class="blocklyText" y="12.5" transform="translate(143.4,10)">;</text>
+            <g transform="translate(104.25,6)">
+              <path transform="translate(1,1)" fill="#495284" d="m 0,0 H 28.15 v 25 H 0 V 20 c 0,-10 -8,8 -8,-7.5 s 8,2.5 8,-7.5 z"></path>
+              <path fill="#5b67a5" d="m 0,0 H 28.15 v 25 H 0 V 20 c 0,-10 -8,8 -8,-7.5 s 8,2.5 8,-7.5 z"></path>
+              <path class="blocklyPathLight" stroke="#8c95c0" d="m 0.5,0.5 H 27.65 M 27.65,0.5 M 0.5,24.5 V 18.5 m -7.36,-0.5 q -1.52,-5.5 0,-11 m 7.36,1 V 0.5 H 1"></path>
+              <g class="blocklyEditableText" transform="translate(10,5)">
+                <rect rx="4" ry="4" x="-5" y="0" height="16" width="18.15"></rect>
+                <text class="blocklyText" y="12.5">1</text>
+              </g>
+            </g>
+          </g>
+        </svg>
+      </p>
+      <pre class="js variablesSpec spec"><i>name</i> += <i>number</i>;</pre>
+
+      <p>Això és una drecera per sumar un número a una variable existent.
+      No hi ha cap diferència entre les dues línies següents:</p>
+
+      <pre>angle += 10;
+var angle = angle + 10;</pre>
+
+      <p>No utilitzeu <code>+=</code> en una variable que encara no s'hagi
+      definit.  Si teniu dubtes, assigneu 0 a la variable a l'inici del
+      programa.</p>
+
+
+      <h3>Recuperació</h3>
+
+      <p class="blocks">
+        <svg height=26 width=250>
+          <g transform="translate(8,0)">
+            <path transform="translate(1,1)" fill="#844966" d="m 0,0 H 70.12 v 25 H 0 V 20 c 0,-10 -8,8 -8,-7.5 s 8,2.5 8,-7.5 z"></path>
+            <path fill="#a55b80" d="m 0,0 H 70.12 v 25 H 0 V 20 c 0,-10 -8,8 -8,-7.5 s 8,2.5 8,-7.5 z"></path>
+            <path class="blocklyPathLight" stroke="#c08ca6" d="m 0.5,0.5 H 69.62 M 69.62,0.5 M 0.5,24.5 V 18.5 m -7.36,-0.5 q -1.52,-5.5 0,-11 m 7.36,1 V 0.5 H 1"></path>
+            <g class="blocklyEditableText" transform="translate(10,5)" style="cursor: default;">
+              <rect rx="4" ry="4" x="-5" y="0" height="16" width="60.12"></rect>
+              <text class="blocklyText" y="12.5" text-anchor="start" x="0">name
+              <tspan style="fill: rgb(165, 91, 128);"> ▾</tspan></text>
+            </g>
+          </g>
+        </svg>
+      </p>
+      <pre class="js variablesSpec spec"><i>name</i></pre>
+
+      <p>Recupera el valor (normalment un número) que s'havia assignat prèviament
+      a la variable amb nom.</p>
+    </div>
+
+    <!-- ---------------------------------------------------------------------- -->
+    <h2 class="level11" id="functions">Funcions</h2>
+
+    <div class="level11" id="functions-content">
+      <p>TODO</p>
+    </div>
+
+  </body>
+</html>

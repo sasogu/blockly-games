@@ -71,7 +71,9 @@ Pond.docsButtonClick = function() {
   const origin = BlocklyGames.getElementById('docsButton');
   const dialog = BlocklyGames.getElementById('dialogDocs');
   const frame = BlocklyGames.getElementById('frameDocs');
-  const src = 'pond/docs.html?lang=' + BlocklyGames.LANG +
+  const docsFile = (BlocklyGames.LANG === 'ca' || BlocklyGames.LANG === 'es') ?
+      ('docs.' + BlocklyGames.LANG + '.html') : 'docs.html';
+  const src = 'pond/' + docsFile + '?lang=' + BlocklyGames.LANG +
       '&mode=' + BlocklyGames.LEVEL;
   if (frame.src !== src) {
     frame.src = src;

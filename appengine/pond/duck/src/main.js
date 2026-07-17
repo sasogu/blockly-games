@@ -237,8 +237,10 @@ function changeTab(index) {
   BlocklyGames.getElementById('docsButton').disabled = false;
   BlocklyGames.LEVEL = (index === tabIndex.BLOCKS) ? 11 : 12;
   if (Pond.isDocsVisible_) {
+    const docsFile = (BlocklyGames.LANG === 'ca' || BlocklyGames.LANG === 'es') ?
+        `docs.${BlocklyGames.LANG}.html` : 'docs.html';
     BlocklyGames.getElementById('frameDocs').src =
-        `pond/docs.html?lang=${BlocklyGames.LANG}&mode=${BlocklyGames.LEVEL}`;
+        `pond/${docsFile}?lang=${BlocklyGames.LANG}&mode=${BlocklyGames.LEVEL}`;
   }
   // Synchronize the JS editor.
   if (!ignoreEditorChanges_ && !BlocklyInterface.blocksDisabled &&
