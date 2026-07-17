@@ -188,38 +188,64 @@ a:hover > text {
 }
 
 #diplomaCard {
+  position: relative;
   background: #fffdf5;
-  border: 10px double #F9A825;
-  border-radius: 8px;
-  padding: 2.5em 3em;
+  background-image:
+      radial-gradient(circle at 0 0, rgba(249, 168, 37, 0.08), transparent 60%),
+      radial-gradient(circle at 100% 100%, rgba(249, 168, 37, 0.08), transparent 60%);
+  border: 4px solid #F9A825;
+  outline: 1px solid #F9A825;
+  outline-offset: -10px;
+  border-radius: 4px;
+  padding: 2.5em 3em 2em;
   max-width: min(32em, 90vw);
   text-align: center;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+}
+
+#diplomaSeal {
+  width: 4.5em;
+  height: 4.5em;
+  margin-bottom: 0.25em;
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.3));
 }
 
 #diplomaTitle {
-  font-size: 2em;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1.8em;
   font-weight: bold;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   color: #5d4037;
-  margin-bottom: 0.75em;
+  margin-bottom: 0.5em;
+}
+
+#diplomaRule {
+  width: 5em;
+  height: 3px;
+  margin: 0 auto 1em;
+  background: linear-gradient(to right, transparent, #F9A825, transparent);
 }
 
 #diplomaName {
-  font-size: 1.6em;
+  font-family: Georgia, 'Times New Roman', serif;
+  font-style: italic;
+  font-size: 1.8em;
   font-weight: bold;
   color: #1565c0;
-  margin-bottom: 0.5em;
+  margin-bottom: 0.6em;
   min-height: 1.2em;
 }
 
 #diplomaCompleted {
   font-size: 1.2em;
-  margin-bottom: 0.5em;
+  margin-bottom: 0.75em;
 }
 
 #diplomaDate {
-  font-size: 1em;
-  color: #666;
+  font-size: 0.95em;
+  color: #888;
+  font-style: italic;
 }
 
 @media print {
