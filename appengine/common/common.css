@@ -63,6 +63,24 @@ html[dir="RTL"] .mirrorImg {
   margin: 16px 0;
 }
 
+#homeButton {
+  display: inline-block;
+  margin: 5px;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #1558b0;
+  background-color: #1558b0;
+  color: #fff;
+  font-size: large;
+  text-decoration: none;
+  vertical-align: middle;
+}
+#homeButton:focus,
+#homeButton:hover {
+  color: #fff;
+  border-color: #888;
+}
+
 xml {
   display: none;
 }

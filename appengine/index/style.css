@@ -27,7 +27,7 @@ html[dir="RTL"] #languageMenu {
 
 #header {
   text-align: center;
-  padding: 2.5em 0 2em;
+  padding: 1.4em 0 1.2em;
   width: 100%;
 }
 
@@ -59,7 +59,7 @@ a {
 .levelRow {
   display: flex;
   justify-content: center;
-  padding: 1.5em 1em;
+  padding: 1em;
 }
 
 .levelRow svg {
@@ -159,7 +159,7 @@ a:hover > text {
 #actionPanel {
   display: flex;
   justify-content: center;
-  margin: 18px 1em 12px;
+  margin: 10px 1em 8px;
 }
 
 #showDiploma {

@@ -45,6 +45,7 @@
 	"Games.help": "button label - Pressing this button shows help information.\n{{Identical|Help}}",
 	"Games.selectLanguage": "Accessible label for the language selection dropdown menu.",
 	"Games.levelLink": "Accessible label for a link that jumps to a numbered level. %1 is the level number.",
+	"Games.home": "button label - Pressing this button returns to the games index page.\n{{Identical|Home}}",
 	"Maze.changeCharacter": "Accessible label for the button that changes the player's character (skin).",
 	"Games.catLogic": "category - Blocks related to [https://github.com/google/blockly/wiki/Logic logic].\n{{Identical|Logic}}",
 	"Games.catLoops": "category - Blocks related to [https://en.wikipedia.org/wiki/Control_flow#Loops loops].\n{{Identical|Loops}}",

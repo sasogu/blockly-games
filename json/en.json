@@ -1,6 +1,6 @@
 {
 	"@metadata": {
-		"lastupdated": "2026-07-17 11:16:02.154289",
+		"lastupdated": "2026-07-17 14:47:12.815900",
 		"locale": "en",
 		"messagedocumentation": "qqq"
 	},
@@ -37,6 +37,7 @@
 	"Games.help": "Help",
 	"Games.selectLanguage": "Select language",
 	"Games.levelLink": "Level %1",
+	"Games.home": "Home",
 	"Maze.changeCharacter": "Change character",
 	"Games.catLogic": "Logic",
 	"Games.catLoops": "Loops",

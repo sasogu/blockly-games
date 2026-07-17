@@ -131,6 +131,10 @@
     "desc": "Accessible label for a link that jumps to a numbered level. %1 is the level number.",
     "msg": "Level %1"
   },
+  "Games.home": {
+    "desc": "button label - Pressing this button returns to the games index page.\n{{Identical|Home}}",
+    "msg": "Home"
+  },
   "Maze.changeCharacter": {
     "desc": "Accessible label for the button that changes the player's character (skin).",
     "msg": "Change character"

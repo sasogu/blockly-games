@@ -28,6 +28,12 @@ goog.require('BlocklyGames');
  */
 BlocklyGames.html.headerBar = function(ij, appName, levelLinkSuffix,
     hasLinkButton, hasHelpButton, farLeftHtml) {
+  const homeButton = `
+<a id="homeButton" href="${ij.html ? 'index.html' : './'}?lang=${ij.lang}"
+    title="${BlocklyGames.getMsg('Games.home', true)}"
+    aria-label="${BlocklyGames.getMsg('Games.home', true)}">${BlocklyGames.getMsg('Games.home', true)}</a>
+&nbsp;
+`;
   let linkButton = '';
   if (hasLinkButton) {
     linkButton = `
@@ -57,6 +63,7 @@ BlocklyGames.html.headerBar = function(ij, appName, levelLinkSuffix,
       </h1>
     </td>
     <td id="header_cta" class="farSide">
+      ${homeButton}
       <select id="languageMenu" aria-label="${BlocklyGames.getMsg('Games.selectLanguage', true)}"></select>
       ${linkButton}
       ${helpButton}
