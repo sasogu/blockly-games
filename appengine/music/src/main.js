@@ -134,6 +134,7 @@ function init() {
   BlocklyInterface.injectBlockly(
       {'disable': false,
        'rtl': rtl,
+       'trashcan': true,
        'zoom': {
           'maxScale': 2,
           'controls': true,

@@ -48,7 +48,7 @@ function init() {
   BlocklyInterface.injectBlockly(
       {'rtl': rtl,
        'scrollbars': false,
-       'trashcan': false});
+       'trashcan': true});
 
   const savedBlocks =
       BlocklyGames.loadFromLocalStorage(BlocklyGames.storageName, BlocklyGames.LEVEL);
