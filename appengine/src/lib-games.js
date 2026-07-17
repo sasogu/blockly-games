@@ -342,7 +342,8 @@ BlocklyGames.initViewportZoom_ = function() {
   const style = document.createElement('style');
   style.textContent =
       '#pageZoomControls{' +
-      'position:fixed;right:12px;bottom:12px;z-index:1000;' +
+      'position:fixed;left:50%;bottom:12px;z-index:1000;' +
+      'transform:translateX(-50%);' +
       'display:flex;gap:6px;padding:6px;border-radius:999px;' +
       'background:rgba(32,33,36,.86);box-shadow:0 4px 14px rgba(0,0,0,.28)}' +
       '#pageZoomControls button{' +
@@ -389,7 +390,7 @@ BlocklyGames.initViewportZoom_ = function() {
     scale = clampScale(scale - 0.1);
   }));
   controls.appendChild(makeButton('100', labelSet[1], function() {
-    scale = BlocklyGames.DEFAULT_VIEWPORT_SCALE;
+    scale = 1;
   }));
   controls.appendChild(makeButton('+', labelSet[2], function() {
     scale = clampScale(scale + 0.1);
