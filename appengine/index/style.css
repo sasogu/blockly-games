@@ -376,6 +376,21 @@ a:hover > text {
   font-style: italic;
 }
 
+#edutictacFooter {
+  margin: 18px 0 28px;
+  text-align: center;
+}
+
+#edutictacFooter a {
+  display: inline-block;
+}
+
+#edutictacFooter img {
+  display: block;
+  height: 55px;
+  width: 129px;
+}
+
 @media (max-width: 760px) {
   #diplomaCard {
     padding: 3.5em 1.2em 1.5em;

@@ -69,6 +69,11 @@ Index.html.start = function(ij) {
     <div id="diplomaDate"></div>
   </div>
 </div>
+<footer id="edutictacFooter">
+  <a href="https://edutictac.es" title="edutictac.es">
+    <img src="common/edutictac-logo.png" width="129" height="55" alt="edutictac.es">
+  </a>
+</footer>
 `;
 };
 
