@@ -224,6 +224,18 @@ BlocklyGames.storageName;
 BlocklyGames.MAX_LEVEL = 10;
 
 /**
+ * Minimum layout width used on small touch screens.
+ * @const {number}
+ */
+BlocklyGames.MIN_VIEWPORT_WIDTH = 725;
+
+/**
+ * Default viewport scale used on small touch screens.
+ * @const {number}
+ */
+BlocklyGames.DEFAULT_VIEWPORT_SCALE = 0.35;
+
+/**
  * User's level (e.g. 5).
  * @type number
  */
@@ -280,17 +292,109 @@ BlocklyGames.init = function(title) {
     }
   }
 
-  // Keep small screens from collapsing the game board, but allow pinch zoom.
-  const viewport = document.querySelector('meta[name="viewport"]');
-  if (viewport && screen.availWidth < 725) {
-    viewport.setAttribute('content',
-        'width=725, initial-scale=.35, user-scalable=yes, maximum-scale=5');
-  }
+  BlocklyGames.initViewportZoom_();
 
   // Lazy-load Google Analytics.
   if (!BlocklyGames.IS_HTML) {
     setTimeout(BlocklyGames.importAnalytics3_, 1);
   }
+};
+
+/**
+ * Configure mobile viewport and add explicit zoom buttons where pinch gestures
+ * are intercepted by Blockly's workspace.
+ * @private
+ */
+BlocklyGames.initViewportZoom_ = function() {
+  const viewport = document.querySelector('meta[name="viewport"]');
+  if (!viewport) {
+    return;
+  }
+  const smallScreen = screen.availWidth < BlocklyGames.MIN_VIEWPORT_WIDTH ||
+      window.innerWidth < BlocklyGames.MIN_VIEWPORT_WIDTH;
+  if (!smallScreen) {
+    return;
+  }
+
+  const clampScale = function(scale) {
+    return Math.max(0.3, Math.min(1.2, scale));
+  };
+  let savedScale = NaN;
+  try {
+    savedScale = Number(window.localStorage['viewportScale']);
+  } catch (e) {
+  }
+  let scale = Number.isFinite(savedScale) ?
+      clampScale(savedScale) : BlocklyGames.DEFAULT_VIEWPORT_SCALE;
+
+  const applyScale = function() {
+    viewport.setAttribute('content',
+        'width=' + BlocklyGames.MIN_VIEWPORT_WIDTH +
+        ', initial-scale=' + scale.toFixed(2) +
+        ', user-scalable=yes, maximum-scale=5');
+  };
+  applyScale();
+
+  if (document.getElementById('pageZoomControls')) {
+    return;
+  }
+
+  const style = document.createElement('style');
+  style.textContent =
+      '#pageZoomControls{' +
+      'position:fixed;right:12px;bottom:12px;z-index:1000;' +
+      'display:flex;gap:6px;padding:6px;border-radius:999px;' +
+      'background:rgba(32,33,36,.86);box-shadow:0 4px 14px rgba(0,0,0,.28)}' +
+      '#pageZoomControls button{' +
+      'width:40px;height:40px;border:0;border-radius:50%;' +
+      'background:#fff;color:#202124;font:bold 20px Arial,sans-serif;' +
+      'line-height:40px;text-align:center;padding:0}' +
+      '#pageZoomControls button:nth-child(2){font-size:13px}' +
+      '@media print{#pageZoomControls{display:none!important}}';
+  document.head.appendChild(style);
+
+  const labels = {
+    ca: ['Redueix mida', 'Mida normal', 'Augmenta mida'],
+    es: ['Reducir tamaño', 'Tamaño normal', 'Aumentar tamaño'],
+    en: ['Zoom out', 'Reset zoom', 'Zoom in'],
+  };
+  const labelSet = labels[BlocklyGames.LANG] || labels.en;
+  const controls = document.createElement('div');
+  controls.id = 'pageZoomControls';
+  controls.setAttribute('aria-label', labelSet[2]);
+
+  const makeButton = function(text, title, action) {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.textContent = text;
+    button.title = title;
+    button.setAttribute('aria-label', title);
+    button.addEventListener('click', function(e) {
+      e.preventDefault();
+      action();
+      try {
+        window.localStorage['viewportScale'] = String(scale);
+      } catch (e) {
+      }
+      applyScale();
+    });
+    button.addEventListener('touchend', function(e) {
+      e.preventDefault();
+      button.click();
+    }, true);
+    return button;
+  };
+
+  controls.appendChild(makeButton('−', labelSet[0], function() {
+    scale = clampScale(scale - 0.1);
+  }));
+  controls.appendChild(makeButton('100', labelSet[1], function() {
+    scale = BlocklyGames.DEFAULT_VIEWPORT_SCALE;
+  }));
+  controls.appendChild(makeButton('+', labelSet[2], function() {
+    scale = clampScale(scale + 0.1);
+  }));
+  document.body.appendChild(controls);
 };
 
 /**
