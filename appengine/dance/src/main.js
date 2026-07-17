@@ -426,7 +426,6 @@ function showConfetti() {
 
 
 function init() {
-  BlocklyGames.RESPONSIVE = true;
   Dance.Blocks.init();
 
   const ij = {

@@ -66,7 +66,6 @@ let ctxScratch;
  * Initialize Blockly and the movie.  Called on page load.
  */
 function init() {
-  BlocklyGames.RESPONSIVE = true;
   Movie.Blocks.init();
 
   // Render the HTML.

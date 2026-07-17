@@ -80,7 +80,6 @@ let isPenDown;
  * Initialize Blockly and the turtle.  Called on page load.
  */
 function init() {
-  BlocklyGames.RESPONSIVE = true;
   Turtle.Blocks.init();
 
   // Render the HTML.

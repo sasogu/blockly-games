@@ -12,7 +12,10 @@
 
 goog.provide('Puzzle');
 
+goog.require('Blockly.Trashcan');
 goog.require('Blockly.utils.math');
+goog.require('Blockly.VerticalFlyout');
+goog.require('Blockly.ZoomControls');
 goog.require('Blockly.Xml');
 goog.require('BlocklyDialogs');
 goog.require('BlocklyGames');
@@ -45,9 +48,13 @@ function init() {
   onresize(null);
   window.addEventListener('resize', onresize);
 
+  // On phones the puzzle needs scrolling and zooming to reach all blocks.
+  const narrow = BlocklyGames.isNarrowScreen();
   BlocklyInterface.injectBlockly(
       {'rtl': rtl,
-       'scrollbars': false,
+       'scrollbars': narrow,
+       'zoom': narrow ?
+           {'controls': true, 'pinch': true, 'startScale': 0.6} : undefined,
        'trashcan': true});
   initPuzzleTrashButton();
 

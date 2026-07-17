@@ -65,7 +65,6 @@ const tabIndex = {
  * Initialize Ace and the pond.  Called on page load.
  */
 function init() {
-  BlocklyGames.RESPONSIVE = true;
   duckData = window['DUCKS'];
   Pond.Blocks.init();
 

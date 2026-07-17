@@ -99,7 +99,6 @@ let speedSlider;
  * Initialize Blockly and the music.  Called on page load.
  */
 function init() {
-  BlocklyGames.RESPONSIVE = true;
   Music.Blocks.init();
 
   // Render the HTML.

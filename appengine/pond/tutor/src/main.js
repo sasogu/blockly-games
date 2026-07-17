@@ -32,7 +32,6 @@ BlocklyGames.storageName = 'pond-tutor';
  * Initialize Blockly xor Ace, and the pond.  Called on page load.
  */
 function init() {
-  BlocklyGames.RESPONSIVE = true;
   Pond.Blocks.init();
 
   // Render the HTML.

@@ -362,7 +362,6 @@ function drawMap() {
  * Initialize Blockly and the bird.  Called on page load.
  */
 function init() {
-  BlocklyGames.RESPONSIVE = true;
   Bird.Blocks.init();
 
   // Render the HTML.

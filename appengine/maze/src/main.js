@@ -412,7 +412,6 @@ function drawMap() {
  * Initialize Blockly and the maze.  Called on page load.
  */
 function init() {
-  BlocklyGames.RESPONSIVE = true;
   Maze.Blocks.init();
 
   // Add skin parameter when moving to next level.
