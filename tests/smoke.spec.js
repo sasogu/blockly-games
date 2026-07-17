@@ -45,7 +45,8 @@ test.describe('index', () => {
 // those must also render without horizontal overflow at phone width.
 const GAMES = [
   { url: '/maze.html?lang=es', ready: '#blockly svg', responsive: true },
-  { url: '/turtle.html?lang=ca', ready: '#blockly svg', responsive: false },
+  { url: '/turtle.html?lang=ca', ready: '#blockly svg', responsive: true },
+  { url: '/bird.html?lang=es', ready: '#blockly svg', responsive: true },
 ];
 
 for (const game of GAMES) {

@@ -10,6 +10,23 @@ html[dir="RTL"] button.primary {
   position: fixed;
   bottom: 10px;
 }
+#buttonRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 400px;
+  padding-top: 1em;
+}
+body.narrowLayout #buttonRow {
+  justify-content: center;
+  flex-wrap: wrap;
+  width: auto;
+  padding-top: 0.5em;
+}
+body.narrowLayout #blockly {
+  bottom: 0;
+}
 #display {
   border: 1px solid #ccc;
 }

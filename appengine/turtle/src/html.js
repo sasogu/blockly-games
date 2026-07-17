@@ -31,44 +31,36 @@ ${BlocklyGames.html.headerBar(ij, BlocklyGames.getMsg('Games.turtle', true), '',
   <canvas id="answer" width=400 height=400 style="display: none"></canvas>
   <canvas id="display" width=400 height=400></canvas>
 </div>
-<table style="padding-top: 1em;">
-  <tr>
-    <td style="width: 190px; text-align: center; vertical-align: top;">
-      <svg
-          id="slider"
-          xmlns="http://www.w3.org/2000/svg"
-          xmlns:svg="http://www.w3.org/2000/svg"
-          xmlns:xlink="http://www.w3.org/1999/xlink"
-          version="1.1"
-          width=150
-          height=50>
-        <!-- Slow icon. -->
-        <clipPath id="slowClipPath">
-          <rect width=26 height=12 x=5 y=14 />
-        </clipPath>
-        <image xlink:href="common/icons.png" height=63 width=84 x=-21 y=-10
-            clip-path="url(#slowClipPath)" />
-        <!-- Fast icon. -->
-        <clipPath id="fastClipPath">
-          <rect width=26 height=16 x=120 y=10 />
-        </clipPath>
-        <image xlink:href="common/icons.png" height=63 width=84 x=120 y=-11
-            clip-path="url(#fastClipPath)" />
-      </svg>
-    </td>
-    <td style="width: 15px;">
-      <img id="spinner" style="visibility: hidden;" src="common/loading.gif" loading="lazy" height=15 width=15>
-    </td>
-    <td style="width: 190px; text-align: center">
-      <button id="runButton" class="primary" title="${BlocklyGames.getMsg('Games.runTooltip', true)}">
-        <img src="common/1x1.gif" class="run icon21"> ${BlocklyGames.getMsg('Games.runProgram', true)}
-      </button>
-      <button id="resetButton" class="primary" style="display: none" title="${BlocklyGames.getMsg('Games.resetTooltip', true)}">
-        <img src="common/1x1.gif" class="stop icon21"> ${BlocklyGames.getMsg('Games.resetProgram', true)}
-      </button>
-    </td>
-  </tr>
-</table>
+<div id="buttonRow">
+  <svg
+      id="slider"
+      xmlns="http://www.w3.org/2000/svg"
+      xmlns:svg="http://www.w3.org/2000/svg"
+      xmlns:xlink="http://www.w3.org/1999/xlink"
+      version="1.1"
+      width=150
+      height=50>
+    <!-- Slow icon. -->
+    <clipPath id="slowClipPath">
+      <rect width=26 height=12 x=5 y=14 />
+    </clipPath>
+    <image xlink:href="common/icons.png" height=63 width=84 x=-21 y=-10
+        clip-path="url(#slowClipPath)" />
+    <!-- Fast icon. -->
+    <clipPath id="fastClipPath">
+      <rect width=26 height=16 x=120 y=10 />
+    </clipPath>
+    <image xlink:href="common/icons.png" height=63 width=84 x=120 y=-11
+        clip-path="url(#fastClipPath)" />
+  </svg>
+  <img id="spinner" style="visibility: hidden;" src="common/loading.gif" loading="lazy" height=15 width=15>
+  <button id="runButton" class="primary" title="${BlocklyGames.getMsg('Games.runTooltip', true)}">
+    <img src="common/1x1.gif" class="run icon21"> ${BlocklyGames.getMsg('Games.runProgram', true)}
+  </button>
+  <button id="resetButton" class="primary" style="display: none" title="${BlocklyGames.getMsg('Games.resetTooltip', true)}">
+    <img src="common/1x1.gif" class="stop icon21"> ${BlocklyGames.getMsg('Games.resetProgram', true)}
+  </button>
+</div>
 
 ${(ij.level === 10 && !ij.html) ? Turtle.html.gallery_(ij.lang) : ''}
 
