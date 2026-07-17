@@ -162,6 +162,14 @@ a:hover > text {
   font-size: medium;
 }
 
+@media (max-width: 600px) {
+  #clearData,
+  #showDiploma {
+    padding: 10px 14px;
+    font-size: large;
+  }
+}
+
 #diploma {
   display: none;
   position: fixed;
@@ -184,7 +192,7 @@ a:hover > text {
   border: 10px double #F9A825;
   border-radius: 8px;
   padding: 2.5em 3em;
-  max-width: 32em;
+  max-width: min(32em, 90vw);
   text-align: center;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
