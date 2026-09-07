@@ -367,6 +367,7 @@ function animate() {
     placeRobot(entry.x, entry.y, entry.dir);
     goalEl.setAttribute('display', 'none');
     showConfetti();
+    BlocklyInterface.workspace.getAudioManager().play('win', 0.5);
     pidList.push(setTimeout(function() {
       BlocklyCode.highlight(null);
       BlocklyInterface.saveToLocalStorage();
@@ -476,6 +477,10 @@ function init() {
 
   BlocklyGames.bindClick('runButton', runButtonClick);
   BlocklyGames.bindClick('resetButton', resetButtonClick);
+
+  // Preload the win sound.
+  BlocklyInterface.workspace.getAudioManager().load(
+      ['dance/win.mp3', 'dance/win.ogg'], 'win');
 
   drawFloor();
   drawGoal();
