@@ -73,6 +73,7 @@ Index.html.start = function(ij) {
   <a href="https://edutictac.es" title="edutictac.es">
     <img src="common/edutictac-logo.png" width="129" height="55" alt="edutictac.es">
   </a>
+  <a href="https://edutictac.es/privacitat.html" title="Privacitat">Privacitat</a>
 </footer>
 `;
 };
