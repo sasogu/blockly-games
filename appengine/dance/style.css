@@ -15,16 +15,13 @@
 }
 
 #buttonRow {
-  margin-left: 190px;
-}
-html[dir="RTL"] #buttonRow {
-  margin-left: 0;
-  margin-right: 190px;
-}
-body.narrowLayout #buttonRow {
+  width: 400px;
   display: flex;
   justify-content: center;
   gap: 8px;
+}
+body.narrowLayout #buttonRow {
+  width: auto;
   margin: 4px 0;
 }
 body.narrowLayout #blockly {
@@ -67,7 +64,8 @@ body.narrowLayout #svgDance {
 
 @media (max-width: 850px) {
   #visualization,
-  #svgDance {
+  #svgDance,
+  #buttonRow {
     width: 42vw;
   }
 
