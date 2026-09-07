@@ -29,8 +29,15 @@ const SQ = 70;   // square size in pixels
 const OX = 15;   // SVG x offset
 const OY = 15;   // SVG y offset
 
-const MAX_BLOCKS =
-    [2, 3, 4, 4, 4, 6, 6, 2, 6, 6][BlocklyGames.LEVEL - 1];
+// Whether the optional post-level-10 challenge (unlocks 'saltar') is active.
+// Only has effect when BlocklyGames.LEVEL is the final level; does not touch
+// BlocklyGames.MAX_LEVEL (shared by every game) so other games' level
+// navigation is unaffected.
+const BONUS = BlocklyGames.LEVEL === BlocklyGames.MAX_LEVEL &&
+    BlocklyGames.getStringParamFromUrl('bonus', '') === '1';
+
+const MAX_BLOCKS = BONUS ? 6 :
+    [2, 3, 4, 4, 4, 6, 8, 6, 6, 10][BlocklyGames.LEVEL - 1];
 
 const ResultType = {
   UNSET: 0,
@@ -46,17 +53,18 @@ const DY = [-1, 0, 1, 0];
 
 // Level definitions: start {x, y, dir} and goal {x, y}
 // dir: 0=North, 1=East, 2=South, 3=West
-// Solutions:
-// L1: forward
-// L2: forward x2
-// L3: forward x3
-// L4: turnRight, forward x2
-// L5: forward, turnRight, forward
-// L6: forward x2, turnRight, forward x2
-// L7: forward x2, turnLeft, forward x2
-// L8: jump (moves 2 squares)
-// L9: turnRight, jump x2, turnLeft, jump x2
-// L10: forward x2, turnRight, jump x2
+//
+// Didactic progression (one new difficulty per level):
+// L1: forward                                  -- one instruction
+// L2: forward x2                                -- sequence
+// L3: forward x3                                -- think/predict before running
+// L4: turnRight, forward x2                     -- turning = rotate, not shift
+// L5: forward, turnRight, forward               -- combine forward + turn
+// L6: forward x2, turnRight, forward x2         -- plan a longer path
+// L7: (forward, turnRight) x4 minus last turn   -- repeated pattern, no loop yet
+// L8: repeat 4 [forward, forward, turnRight]    -- loop introduced
+// L9: forward x4, or repeat 4 [forward]         -- same goal, fewer blocks
+// L10: forward x2, turnRight, repeat 3 [forward], turnRight, forward x2
 const LEVELS = [
   {start: {x: 2, y: 4, dir: 0}, goal: {x: 2, y: 3}},
   {start: {x: 2, y: 4, dir: 0}, goal: {x: 2, y: 2}},
@@ -64,13 +72,30 @@ const LEVELS = [
   {start: {x: 0, y: 4, dir: 0}, goal: {x: 2, y: 4}},
   {start: {x: 2, y: 4, dir: 0}, goal: {x: 3, y: 3}},
   {start: {x: 0, y: 4, dir: 0}, goal: {x: 2, y: 2}},
-  {start: {x: 2, y: 4, dir: 0}, goal: {x: 0, y: 2}},
-  {start: {x: 2, y: 4, dir: 0}, goal: {x: 2, y: 2}},
-  {start: {x: 0, y: 4, dir: 0}, goal: {x: 4, y: 0}},
-  {start: {x: 0, y: 4, dir: 0}, goal: {x: 4, y: 2}},
+  {start: {x: 2, y: 2, dir: 0}, goal: {x: 2, y: 2}},
+  {start: {x: 2, y: 2, dir: 0}, goal: {x: 2, y: 2}},
+  {start: {x: 0, y: 2, dir: 1}, goal: {x: 4, y: 2}},
+  {start: {x: 0, y: 4, dir: 0}, goal: {x: 3, y: 4}},
 ];
 
-const levelData = LEVELS[BlocklyGames.LEVEL - 1];
+// Optional challenge after level 10: reuses the 'saltar' block (moves 2
+// squares), which is not part of the 10-level progression above but is kept
+// available since it's an existing EduTicTac addition.
+const BONUS_LEVEL = {start: {x: 0, y: 4, dir: 1}, goal: {x: 4, y: 4}};
+
+const levelData = BONUS ? BONUS_LEVEL : LEVELS[BlocklyGames.LEVEL - 1];
+
+// Levels that show a short, always-visible (non-modal) hint under the
+// visualization. Levels not listed here show no hint at all.
+// Message keys are spelled out literally (not built via concatenation) so
+// build/compress.py's static usage scan keeps them in the compiled bundle.
+const HINT_KEYS = {
+  3: 'Dance.hint3',
+  6: 'Dance.hint6',
+  7: 'Dance.hint7',
+  8: 'Dance.hint8',
+  9: 'Dance.hint9',
+};
 
 // SVG elements
 let robotEl;
@@ -213,6 +238,28 @@ function resetVisual() {
   BlocklyInterface.workspace.highlightBlock(null);
 }
 
+// Text shown under the visualization before any run (may be empty).
+let normalHintText = '';
+
+/**
+ * Temporarily replace the hint with a short debugging prompt after a failed
+ * run. Restored on the next run/reset.
+ */
+function showFailHint() {
+  const hintEl = BlocklyGames.getElementById('danceHint');
+  hintEl.textContent = BlocklyGames.getMsg('Dance.hintFail', false);
+  hintEl.style.display = '';
+}
+
+/**
+ * Restore whatever hint (if any) belongs to the current level.
+ */
+function restoreHint() {
+  const hintEl = BlocklyGames.getElementById('danceHint');
+  hintEl.textContent = normalHintText;
+  hintEl.style.display = normalHintText ? '' : 'none';
+}
+
 /**
  * Full reset: cancel animations, clear log, reset state and visuals.
  */
@@ -230,6 +277,7 @@ function resetGame() {
   robotY = levelData.start.y;
   robotDir = levelData.start.dir;
   resetVisual();
+  restoreHint();
 }
 
 
@@ -376,6 +424,7 @@ function animate() {
 
   } else if (entry.action === 'fail') {
     placeRobot(entry.x, entry.y, entry.dir);
+    showFailHint();
     pidList.push(setTimeout(function() {
       BlocklyCode.highlight(null);
       placeRobot(levelData.start.x, levelData.start.y, levelData.start.dir);
@@ -435,7 +484,11 @@ function init() {
     maxLevel: BlocklyGames.MAX_LEVEL,
     html: BlocklyGames.IS_HTML,
     rtl: BlocklyGames.IS_RTL,
+    bonus: BONUS,
+    hint: (!BONUS && HINT_KEYS[BlocklyGames.LEVEL]) ?
+        BlocklyGames.getMsg(HINT_KEYS[BlocklyGames.LEVEL], false) : '',
   };
+  normalHintText = ij.hint;
   document.body.innerHTML = Dance.html.start(ij);
 
   BlocklyInterface.init(BlocklyGames.getMsg('Games.dance', false));

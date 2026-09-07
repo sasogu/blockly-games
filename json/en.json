@@ -1,6 +1,6 @@
 {
 	"@metadata": {
-		"lastupdated": "2026-07-17 14:47:12.815900",
+		"lastupdated": "2026-09-07 17:15:33.929847",
 		"locale": "en",
 		"messagedocumentation": "qqq"
 	},
@@ -15,6 +15,13 @@
 	"Dance.saltaTooltip": "Jump forward two steps.",
 	"Dance.runTooltip": "Run the dance program.",
 	"Dance.resetTooltip": "Stop the program and reset the robot.",
+	"Dance.hint3": "Think first about what it will do. Where will it end up?",
+	"Dance.hint6": "Before running it, try to imagine where it will end up.",
+	"Dance.hint7": "Something here repeats.",
+	"Dance.hint8": "Use 'repeat' to make it shorter.",
+	"Dance.hint9": "It works. Can you use fewer blocks?",
+	"Dance.hintFail": "My program didn't do what I expected. Which block should I change?",
+	"Dance.bonusLink": "Extra challenge: use the jump block",
 	"Games.name": "Blockly Games",
 	"Games.puzzle": "Puzzle",
 	"Games.maze": "Maze",

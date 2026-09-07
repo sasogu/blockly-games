@@ -8,7 +8,11 @@
 goog.provide('Dance.Blocks');
 
 goog.require('Blockly');
+goog.require('Blockly.Constants.Loops');
+goog.require('Blockly.Constants.Math');
 goog.require('Blockly.JavaScript');
+goog.require('Blockly.JavaScript.loops');
+goog.require('Blockly.JavaScript.math');
 goog.require('BlocklyGames');
 
 

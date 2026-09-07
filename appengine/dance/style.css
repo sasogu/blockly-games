@@ -14,6 +14,31 @@
   box-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 
+#danceHint {
+  width: 400px;
+  margin: 6px 0;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: #FFF9C4;
+  color: #5D4037;
+  font-size: 0.9em;
+  text-align: center;
+  box-sizing: border-box;
+}
+body.narrowLayout #danceHint {
+  width: auto;
+}
+
+#danceBonusRow {
+  width: 400px;
+  text-align: center;
+  margin: 4px 0;
+  font-size: 0.85em;
+}
+body.narrowLayout #danceBonusRow {
+  width: auto;
+}
+
 #buttonRow {
   width: 400px;
   display: flex;

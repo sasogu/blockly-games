@@ -23,6 +23,8 @@ ${BlocklyGames.html.headerBar(ij, BlocklyGames.getMsg('Games.dance', true),
   </svg>
 </div>
 
+<div id="danceHint"${ij.hint ? '' : ' style="display: none"'}>${BlocklyGames.esc(ij.hint)}</div>
+
 <div id="buttonRow">
   <button id="runButton" class="primary"
       title="${BlocklyGames.getMsg('Dance.runTooltip', true)}">
@@ -36,7 +38,14 @@ ${BlocklyGames.html.headerBar(ij, BlocklyGames.getMsg('Games.dance', true),
   </button>
 </div>
 
-${Dance.html.toolbox_(ij.level)}
+${(ij.level === ij.maxLevel && !ij.bonus) ? `
+<div id="danceBonusRow">
+  <a id="danceBonusLink" href="?lang=${ij.lang}&level=${ij.maxLevel}&bonus=1">
+    ${BlocklyGames.getMsg('Dance.bonusLink', true)}
+  </a>
+</div>` : ''}
+
+${Dance.html.toolbox_(ij.level, ij.bonus)}
 <div id="blockly"></div>
 
 ${BlocklyGames.html.dialog()}
@@ -47,13 +56,22 @@ ${BlocklyGames.html.storageDialog()}
 };
 
 
-Dance.html.toolbox_ = function(level) {
+Dance.html.toolbox_ = function(level, bonus) {
   let xml = '<block type="dance_adelante"></block>\n';
   if (level >= 4) {
     xml += '<block type="dance_gira_izquierda"></block>\n';
     xml += '<block type="dance_gira_derecha"></block>\n';
   }
   if (level >= 8) {
+    xml += `<block type="controls_repeat_ext">
+      <value name="TIMES">
+        <shadow type="math_number">
+          <field name="NUM">4</field>
+        </shadow>
+      </value>
+    </block>\n`;
+  }
+  if (bonus) {
     xml += '<block type="dance_salta"></block>\n';
   }
   return `<xml id="toolbox" xmlns="https://developers.google.com/blockly/xml">${xml}</xml>`;

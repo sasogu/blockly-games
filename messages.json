@@ -43,6 +43,34 @@
     "desc": "tooltip - Reset button.",
     "msg": "Stop the program and reset the robot."
   },
+  "Dance.hint3": {
+    "desc": "hint - Shown on level 3, encourages predicting before running.",
+    "msg": "Think first about what it will do. Where will it end up?"
+  },
+  "Dance.hint6": {
+    "desc": "hint - Shown on level 6, encourages predicting before running.",
+    "msg": "Before running it, try to imagine where it will end up."
+  },
+  "Dance.hint7": {
+    "desc": "hint - Shown on level 7, nudges the student to notice a repeating pattern.",
+    "msg": "Something here repeats."
+  },
+  "Dance.hint8": {
+    "desc": "hint - Shown on level 8, nudges the student to use the repeat block.",
+    "msg": "Use 'repeat' to make it shorter."
+  },
+  "Dance.hint9": {
+    "desc": "hint - Shown on level 9, nudges the student to try a shorter solution.",
+    "msg": "It works. Can you use fewer blocks?"
+  },
+  "Dance.hintFail": {
+    "desc": "hint - Shown after a failed run, prompts the student to debug their program.",
+    "msg": "My program didn't do what I expected. Which block should I change?"
+  },
+  "Dance.bonusLink": {
+    "desc": "link - Optional challenge link shown on the final level.",
+    "msg": "Extra challenge: use the jump block"
+  },
   "Games.name": {
     "desc": "The project name.",
     "msg": "Blockly Games"
