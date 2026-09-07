@@ -74,6 +74,8 @@ Index.html.start = function(ij) {
     <img src="common/edutictac-logo.png" width="129" height="55" alt="edutictac.es">
   </a>
   <a href="https://edutictac.es/privacitat.html" title="Privacitat">Privacitat</a>
+  <a href="https://git.edutictac.es/Edutictac/blockly-games" title="Codi font">Codi font</a>
+  <span title="Llicència">Apache-2.0</span>
 </footer>
 `;
 };
