@@ -240,7 +240,7 @@
 	"Music.setInstrument": "definir el instrumento como %1",
 	"Music.startTooltip": "Ejecuta los bloques interiores al pulsar el botón «Ejecutar programa».",
 	"Music.start": "al hacer clic en %1",
-	"Music.pitchTooltip": "Una nota (C4 es 7).",
+	"Music.pitchTooltip": "Una nota (el Do es el 7).",
 	"Music.firstPart": "primera parte",
 	"Music.piano": "piano",
 	"Music.trumpet": "trompeta",

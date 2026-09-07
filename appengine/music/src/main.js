@@ -340,7 +340,7 @@ function drawNote(i, time, pitch, duration, className) {
   img.style.top = top + 'px';
   img.style.left = left + 'px';
   if (pitch !== REST) {
-    img.title = FieldPitch.NOTES[pitch];
+    img.title = FieldPitch.getDisplayNotes()[pitch];
   }
   musicContainer.appendChild(img);
   if (!className) {

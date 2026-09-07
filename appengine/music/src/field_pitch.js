@@ -144,22 +144,29 @@ FieldPitch = class extends Blockly.FieldTextInput {
   }
 
   /**
-   * Convert the machine-readable value (0-12) to human-readable text (C3-A4).
+   * Convert the machine-readable value (0-12) to human-readable text (C3-A4,
+   * or Do3-La4 in Spanish/Catalan).
    * @param {number|string} value The provided value.
    * @returns {string|undefined} The respective pitch, or undefined if invalid.
    */
   valueToNote(value) {
-    return FieldPitch.NOTES[Number(value)];
+    return FieldPitch.getDisplayNotes()[Number(value)];
   }
 
   /**
-   * Convert the human-readable text (C3-A4) to machine-readable value (0-12).
+   * Convert the human-readable text (C3-A4, or Do3-La4 in Spanish/Catalan)
+   * to machine-readable value (0-12).
    * @param {string} text The provided pitch.
    * @returns {number|undefined} The respective value, or undefined if invalid.
    */
   noteToValue(text) {
     const normalizedText = text.trim().toUpperCase();
-    const i = FieldPitch.NOTES.indexOf(normalizedText);
+    let i = FieldPitch.getDisplayNotes().findIndex(
+        (note) => note.toUpperCase() === normalizedText);
+    if (i === -1) {
+      // Also accept the canonical letter notation, regardless of language.
+      i = FieldPitch.NOTES.indexOf(normalizedText);
+    }
     return i > -1 ? i : undefined;
   }
 
@@ -238,5 +245,25 @@ Blockly.fieldRegistry.register('field_pitch', FieldPitch);
 
 /**
  * All pitches available for the picker.
+ * Canonical letter notation.  Also used to build audio filenames, so this
+ * array must not be renamed or reordered.
  */
 FieldPitch.NOTES = 'C3 D3 E3 F3 G3 A3 B3 C4 D4 E4 F4 G4 A4'.split(/ /);
+
+/**
+ * Solfège equivalent of FieldPitch.NOTES, used for display in Spanish and
+ * Catalan.
+ */
+FieldPitch.NOTES_SOLFEGE =
+    'Do3 Re3 Mi3 Fa3 Sol3 La3 Si3 Do4 Re4 Mi4 Fa4 Sol4 La4'.split(/ /);
+
+/**
+ * Get the array of pitch names to display in the picker/field, localized to
+ * the current UI language.
+ * @returns {!Array<string>} The pitch names to display.
+ */
+FieldPitch.getDisplayNotes = function() {
+  const lang = (typeof BlocklyGames !== 'undefined') ? BlocklyGames.LANG : null;
+  return (lang === 'es' || lang === 'ca') ?
+      FieldPitch.NOTES_SOLFEGE : FieldPitch.NOTES;
+};
