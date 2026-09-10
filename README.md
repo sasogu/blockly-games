@@ -71,7 +71,7 @@ Deploy a single game:
 The script compiles the requested target, then uploads `appengine/` to:
 
 ```text
-samgua@100.69.168.122:/var/www/blockly/
+user@example.org:/srv/www/blockly/
 ```
 
 Only Catalan, English, and Spanish generated message files are included during
