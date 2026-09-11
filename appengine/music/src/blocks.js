@@ -99,7 +99,7 @@ Music.Blocks.init = function() {
         {
           "type": "field_pitch",
           "name": "PITCH",
-          "text": "7",
+          "text": "0",
         }
       ],
       "output": "Number",

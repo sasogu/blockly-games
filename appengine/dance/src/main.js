@@ -154,10 +154,13 @@ function drawFloor() {
 function drawGoal() {
   const svg = BlocklyGames.getElementById('svgDance');
   const pos = gridToSvg(goalX, goalY);
+  const isStartGoal = goalX === levelData.start.x && goalY === levelData.start.y;
   const pts = [];
   for (let i = 0; i < 10; i++) {
     const angle = (i * 36 - 90) * Math.PI / 180;
-    const r = (i % 2 === 0) ? 24 : 10;
+    const r = isStartGoal ?
+        ((i % 2 === 0) ? 34 : 18) :
+        ((i % 2 === 0) ? 24 : 10);
     pts.push(
         (pos.px + r * Math.cos(angle)).toFixed(1) + ',' +
         (pos.py + r * Math.sin(angle)).toFixed(1));
@@ -167,7 +170,7 @@ function drawGoal() {
   star.setAttribute('points', pts.join(' '));
   star.setAttribute('fill', '#FFD700');
   star.setAttribute('stroke', '#F9A825');
-  star.setAttribute('stroke-width', '2');
+  star.setAttribute('stroke-width', isStartGoal ? '4' : '2');
   star.id = 'goal';
   svg.appendChild(star);
   goalEl = star;

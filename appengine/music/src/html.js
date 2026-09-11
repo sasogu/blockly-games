@@ -134,13 +134,13 @@ Music.html.toolbox_ = function(level) {
     xml = `
 <category name="${BlocklyGames.getMsg('Games.music', true)}">
   <block type="music_pitch">
-    <field name="PITCH">7</field>
+    <field name="PITCH">0</field>
   </block>
   <block type="music_note">
     <field name="DURATION">0.25</field>
     <value name="PITCH">
       <shadow type="music_pitch">
-        <field name="PITCH">7</field>
+        <field name="PITCH">0</field>
       </shadow>
     </value>
   </block>
@@ -323,7 +323,7 @@ Music.html.toolbox_ = function(level) {
     <field name="DURATION">0.25</field>
     <value name="PITCH">
       <shadow type="music_pitch">
-        <field name="PITCH">7</field>
+        <field name="PITCH">0</field>
       </shadow>
     </value>
   </block>
@@ -349,7 +349,7 @@ Music.html.helpDialogs_ = function(level, isHtml) {
   switch (level) {
     case 1:
       content = BlocklyGames.getMsg('Music.helpText1', true) +
-          '<p>C4 - D4 - E4 - C4</p>';
+          '<p>C3 - D3 - E3 - C3</p>';
       break;
     case 2:
       content = BlocklyGames.getMsg('Music.helpText2a', true) +

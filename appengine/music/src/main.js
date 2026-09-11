@@ -928,15 +928,15 @@ function initExpectedAnswer() {
   }
   expectedAnswer = [
     // Level 1.
-    [[7, 0.25, 8, 0.25, 9, 0.25, 7, 0.25]],
+    [[0, 0.25, 1, 0.25, 2, 0.25, 0, 0.25]],
     // Level 2.
-    [doubleReplica([7, 0.25, 8, 0.25, 9, 0.25, 7, 0.25])],
+    [doubleReplica([0, 0.25, 1, 0.25, 2, 0.25, 0, 0.25])],
     // Level 3.
-    [doubleReplica([9, 0.25, 10, 0.25, 11, 0.5])],
+    [doubleReplica([2, 0.25, 3, 0.25, 4, 0.5])],
     // Level 4.
-    [doubleReplica([11, 0.125, 12, 0.125, 11, 0.125, 10, 0.125, 9, 0.25, 7, 0.25])],
+    [doubleReplica([4, 0.125, 5, 0.125, 4, 0.125, 3, 0.125, 2, 0.25, 0, 0.25])],
     // Level 5.
-    [doubleReplica([7, 0.25, 4, 0.25, 7, 0.5])],
+    [doubleReplica([0, 0.25, 4, 0.25, 0, 0.5])],
     // Level 6.
     [levelNotes],
     // Level 7.
